@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gigwallet — Terms of Service</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0f1117;
+      --muted: #5a5f72;
+      --accent: #004E89;
+      --accent-light: #e6f0f9;
+      --rule: #e5e7ef;
+      --bg: #fafbfe;
+      --card: #ffffff;
+      --tag-bg: #e6f0f9;
+      --tag-text: #004E89;
+      --warn-bg: #fff4f0;
+      --warn-border: #FF6B35;
+      --warn-text: #8a2500;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.75;
+      font-size: 16px;
+    }
+
+    /* ─── Header ─── */
+    header {
+      background: var(--ink);
+      color: #fff;
+      padding: 72px 24px 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 120%, #FF6B3540 0%, transparent 70%);
+    }
+    .wordmark {
+      display: inline-block;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #FF8F66;
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      position: relative;
+    }
+    header h1 em {
+      font-style: italic;
+      color: #FF8F66;
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      position: relative;
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── Layout ─── */
+    .wrapper {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+
+    /* ─── TOC ─── */
+    .toc {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 56px;
+    }
+    .toc-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .toc ol {
+      list-style: none;
+      counter-reset: toc;
+      display: grid;
+      gap: 8px;
+    }
+    .toc li { counter-increment: toc; }
+    .toc a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 400;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .toc a::before {
+      content: counter(toc, decimal-leading-zero);
+      font-size: 0.72rem;
+      color: var(--muted);
+      min-width: 22px;
+    }
+    .toc a:hover { text-decoration: underline; }
+
+    /* ─── Sections ─── */
+    section { margin-bottom: 52px; }
+
+    .section-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .section-num {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+    .section-tag {
+      font-size: 0.72rem;
+      font-weight: 500;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      padding: 2px 9px;
+      border-radius: 99px;
+      letter-spacing: 0.06em;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.65rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+      scroll-margin-top: 32px;
+    }
+
+    p { color: #2e3347; margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+
+    ul, ol {
+      margin: 14px 0 14px 20px;
+      color: #2e3347;
+    }
+    li { margin-bottom: 6px; }
+
+    strong { font-weight: 500; color: var(--ink); }
+
+    a { color: var(--accent); }
+
+    .highlight-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 20px 0;
+      font-size: 0.9rem;
+      color: #004E89;
+    }
+
+    .warning-box {
+      background: var(--warn-bg);
+      border-left: 3px solid var(--warn-border);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 20px 0;
+      font-size: 0.9rem;
+      color: var(--warn-text);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 24px 0;
+    }
+    @media (max-width: 520px) { .pricing-grid { grid-template-columns: 1fr; } }
+
+    .pricing-card {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+    }
+    .pricing-card.featured {
+      border-color: #FF6B35;
+      background: #fff4f0;
+    }
+    .plan-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .plan-price {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.4rem;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .plan-period {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .plan-trial {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: #E55A25;
+      background: #fff0eb;
+      padding: 3px 10px;
+      border-radius: 99px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 52px 0;
+    }
+
+    .caps {
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      border-top: 1px solid var(--rule);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .wrapper > * {
+      animation: fadeUp 0.5s ease both;
+    }
+    .wrapper > *:nth-child(1) { animation-delay: 0.05s; }
+    .wrapper > *:nth-child(2) { animation-delay: 0.1s; }
+    .wrapper > *:nth-child(3) { animation-delay: 0.15s; }
+    .wrapper > *:nth-child(4) { animation-delay: 0.18s; }
+    .wrapper > *:nth-child(5) { animation-delay: 0.21s; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wordmark">Gigwallet</div>
+  <h1>Terms of <em>Service</em></h1>
+  <p class="header-meta">Effective Date: February 19, 2026 &nbsp;·&nbsp; Last Updated: February 19, 2026</p>
+</header>
+
+<div class="wrapper">
+
+  <!-- TOC -->
+  <nav class="toc" aria-label="Table of contents">
+    <p class="toc-label">Contents</p>
+    <ol>
+      <li><a href="#acceptance">Acceptance of Terms</a></li>
+      <li><a href="#eligibility">Eligibility</a></li>
+      <li><a href="#subscription">Subscription Plans & Pricing</a></li>
+      <li><a href="#free-trial">Free Trial</a></li>
+      <li><a href="#cancellation">Cancellation Policy</a></li>
+      <li><a href="#billing">Billing & Renewals</a></li>
+      <li><a href="#disclaimer">Disclaimer — Estimates, Not Tax Advice</a></li>
+      <li><a href="#acceptable-use">Acceptable Use</a></li>
+      <li><a href="#intellectual-property">Intellectual Property</a></li>
+      <li><a href="#liability">Limitation of Liability</a></li>
+      <li><a href="#indemnification">Indemnification</a></li>
+      <li><a href="#termination">Termination</a></li>
+      <li><a href="#governing-law">Governing Law</a></li>
+      <li><a href="#changes">Changes to These Terms</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </nav>
+
+  <p>Please read these Terms of Service ("Terms") carefully before using Gigwallet ("App," "Service," "we," "us," or "our"). By downloading, installing, or using Gigwallet, you agree to be bound by these Terms. If you do not agree, do not use the App.</p>
+
+  <!-- 1 -->
+  <section id="acceptance">
+    <div class="section-eyebrow">
+      <span class="section-num">01</span>
+      <span class="section-tag">Agreement</span>
+    </div>
+    <h2>Acceptance of Terms</h2>
+    <p>By creating an account or using any part of Gigwallet, you confirm that you have read, understood, and agree to these Terms and our <a href="privacy-policy.html">Privacy Policy</a>, which is incorporated herein by reference. These Terms constitute a binding legal agreement between you and Gigwallet.</p>
+  </section>
+
+  <!-- 2 -->
+  <section id="eligibility">
+    <div class="section-eyebrow">
+      <span class="section-num">02</span>
+      <span class="section-tag">Eligibility</span>
+    </div>
+    <h2>Eligibility</h2>
+    <p>You must be at least 18 years of age to use Gigwallet. By using the App, you represent and warrant that you are 18 or older and have the legal capacity to enter into a binding agreement. The App is intended for use in the United States.</p>
+  </section>
+
+  <!-- 3 -->
+  <section id="subscription">
+    <div class="section-eyebrow">
+      <span class="section-num">03</span>
+      <span class="section-tag">Subscription</span>
+    </div>
+    <h2>Subscription Plans & Pricing</h2>
+    <p>Gigwallet offers access to premium features through auto-renewable subscriptions managed by Apple via the App Store. The following plans are available:</p>
+
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <p class="plan-label">Monthly</p>
+        <p class="plan-price">$9.99</p>
+        <p class="plan-period">per month</p>
+      </div>
+      <div class="pricing-card featured">
+        <p class="plan-label">Annual</p>
+        <p class="plan-price">$99.99</p>
+        <p class="plan-period">per year (~$8.33/mo)</p>
+        <span class="plan-trial">7-Day Free Trial</span>
+      </div>
+    </div>
+
+    <p>All prices are in U.S. dollars and are inclusive of applicable taxes where required. Pricing is subject to change with reasonable advance notice.</p>
+    <div class="highlight-box">
+      Subscriptions are processed and managed entirely through Apple's App Store. Apple's payment terms apply. Gigwallet does not store your payment information.
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="free-trial">
+    <div class="section-eyebrow">
+      <span class="section-num">04</span>
+      <span class="section-tag">Free Trial</span>
+    </div>
+    <h2>Free Trial</h2>
+    <p>New subscribers to the Annual plan are eligible for a <strong>7-day free trial</strong>. The following terms apply:</p>
+    <ul>
+      <li>The free trial is available only to users who have not previously subscribed to Gigwallet.</li>
+      <li>A valid payment method must be on file with your Apple ID to activate the trial.</li>
+      <li>If you do not cancel before the trial period ends, your payment method will automatically be charged the annual subscription fee of <strong>$99.99</strong>.</li>
+      <li>You may cancel at any time during the trial period without being charged. See Section 5 for cancellation instructions.</li>
+      <li>Apple may limit free trials at its discretion based on your App Store account history.</li>
+    </ul>
+  </section>
+
+  <!-- 5 -->
+  <section id="cancellation">
+    <div class="section-eyebrow">
+      <span class="section-num">05</span>
+      <span class="section-tag">Cancellation</span>
+    </div>
+    <h2>Cancellation Policy</h2>
+    <p>You may cancel your Gigwallet subscription at any time. Cancellations are handled through Apple's App Store — Gigwallet does not process subscription changes directly.</p>
+    <p><strong>To cancel your subscription:</strong></p>
+    <ol>
+      <li>Open the <strong>Settings</strong> app on your iPhone</li>
+      <li>Tap your name at the top, then tap <strong>Subscriptions</strong></li>
+      <li>Select <strong>Gigwallet</strong> from the list</li>
+      <li>Tap <strong>Cancel Subscription</strong> and confirm</li>
+    </ol>
+    <p>You can also manage your subscription at <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener">apps.apple.com/account/subscriptions</a>.</p>
+    <div class="highlight-box">
+      Cancellation takes effect at the end of your current billing period. You will retain access to premium features until that date. <strong>No partial refunds are issued</strong> for unused time, except as required by applicable law or Apple's refund policy.
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section id="billing">
+    <div class="section-eyebrow">
+      <span class="section-num">06</span>
+      <span class="section-tag">Billing</span>
+    </div>
+    <h2>Billing & Renewals</h2>
+    <p>Gigwallet subscriptions are auto-renewable. Your subscription will automatically renew at the end of each billing period (monthly or annually) unless you cancel at least 24 hours before the current period ends.</p>
+    <p>Your Apple ID account will be charged for renewal within 24 hours prior to the end of the current period. The renewal price will be the same as your original subscription price unless we notify you of a price change in advance.</p>
+    <p>For refund requests, please contact Apple Support directly, as all billing is managed through the App Store. We are unable to issue refunds outside of Apple's standard refund process.</p>
+  </section>
+
+  <!-- 7 -->
+  <section id="disclaimer">
+    <div class="section-eyebrow">
+      <span class="section-num">07</span>
+      <span class="section-tag">Important</span>
+    </div>
+    <h2>Disclaimer — Estimates, Not Tax Advice</h2>
+    <div class="warning-box">
+      <strong>Gigwallet provides financial estimates and tools for informational purposes only. The App does not provide tax, legal, or financial advice.</strong>
+    </div>
+    <p>All income estimates, expense calculations, mileage deductions, tax projections, and related figures generated by Gigwallet are <strong>estimates only</strong>. They are based on data you provide and publicly available economic data, and may not reflect your actual tax liability or financial situation.</p>
+    <p>You should not rely on Gigwallet's outputs as a substitute for professional tax or financial advice. We strongly recommend consulting a licensed tax professional, CPA, or financial advisor for any decisions relating to your taxes, filings, or financial planning.</p>
+    <p>Gigwallet is not responsible for any errors in tax filings, underpayments, penalties, interest, or other financial consequences arising from your use of or reliance on the App's estimates.</p>
+  </section>
+
+  <!-- 8 -->
+  <section id="acceptable-use">
+    <div class="section-eyebrow">
+      <span class="section-num">08</span>
+      <span class="section-tag">Use</span>
+    </div>
+    <h2>Acceptable Use</h2>
+    <p>You agree to use Gigwallet only for lawful purposes and in accordance with these Terms. You agree not to:</p>
+    <ul>
+      <li>Use the App for any fraudulent, deceptive, or unlawful purpose</li>
+      <li>Attempt to gain unauthorized access to any part of the App or its infrastructure</li>
+      <li>Reverse engineer, decompile, or disassemble the App</li>
+      <li>Interfere with or disrupt the integrity or performance of the App</li>
+      <li>Use automated scripts, bots, or scrapers against the App</li>
+      <li>Resell or redistribute access to the App or its features</li>
+    </ul>
+    <p>Violation of these terms may result in immediate termination of your account without refund.</p>
+  </section>
+
+  <!-- 9 -->
+  <section id="intellectual-property">
+    <div class="section-eyebrow">
+      <span class="section-num">09</span>
+      <span class="section-tag">IP</span>
+    </div>
+    <h2>Intellectual Property</h2>
+    <p>All content, design, code, trademarks, logos, and materials within Gigwallet are the exclusive property of Gigwallet or its licensors and are protected by applicable intellectual property laws. Your subscription grants you a limited, non-exclusive, non-transferable license to use the App for personal, non-commercial purposes.</p>
+    <p>You retain ownership of any data you input into the App. By using the App, you grant us a limited license to process that data solely to provide the services described in our Privacy Policy.</p>
+  </section>
+
+  <!-- 10 -->
+  <section id="liability">
+    <div class="section-eyebrow">
+      <span class="section-num">10</span>
+      <span class="section-tag">Liability</span>
+    </div>
+    <h2>Limitation of Liability</h2>
+    <p class="caps">TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, GIGWALLET AND ITS OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, AND LICENSORS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, LOSS OF DATA, LOSS OF GOODWILL, BUSINESS INTERRUPTION, OR ANY OTHER INTANGIBLE LOSSES, ARISING OUT OF OR RELATED TO YOUR USE OF OR INABILITY TO USE THE APP.</p>
+    <p class="caps">IN NO EVENT SHALL GIGWALLET'S TOTAL AGGREGATE LIABILITY TO YOU EXCEED THE GREATER OF (A) THE AMOUNT YOU PAID TO GIGWALLET IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM, OR (B) ONE HUNDRED DOLLARS ($100.00 USD).</p>
+    <p>Some jurisdictions do not allow the exclusion or limitation of liability for certain damages, so the above limitations may not apply to you in full. In such cases, liability is limited to the greatest extent permitted by applicable law.</p>
+    <p>THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+  </section>
+
+  <!-- 11 -->
+  <section id="indemnification">
+    <div class="section-eyebrow">
+      <span class="section-num">11</span>
+      <span class="section-tag">Indemnity</span>
+    </div>
+    <h2>Indemnification</h2>
+    <p>You agree to indemnify, defend, and hold harmless Gigwallet and its affiliates, officers, directors, employees, and agents from and against any claims, damages, obligations, losses, liabilities, costs, or debt, and expenses (including reasonable attorneys' fees) arising from: (a) your use of and access to the App; (b) your violation of any term of these Terms; or (c) your violation of any third-party right, including any intellectual property or privacy right.</p>
+  </section>
+
+  <!-- 12 -->
+  <section id="termination">
+    <div class="section-eyebrow">
+      <span class="section-num">12</span>
+      <span class="section-tag">Termination</span>
+    </div>
+    <h2>Termination</h2>
+    <p>We reserve the right to suspend or terminate your account and access to the App at our sole discretion, with or without notice, for conduct that we believe violates these Terms or is harmful to other users, us, or third parties.</p>
+    <p>You may terminate your account at any time by deleting it in Settings. Upon termination, your right to use the App ceases immediately. Sections 7, 10, 11, and 13 of these Terms shall survive termination.</p>
+  </section>
+
+  <!-- 13 -->
+  <section id="governing-law">
+    <div class="section-eyebrow">
+      <span class="section-num">13</span>
+      <span class="section-tag">Legal</span>
+    </div>
+    <h2>Governing Law</h2>
+    <p>These Terms shall be governed by and construed in accordance with the laws of the State of California, without regard to its conflict of law provisions. Any dispute arising from these Terms or your use of the App shall be subject to the exclusive jurisdiction of the state and federal courts located in California.</p>
+    <p>If any provision of these Terms is found to be unenforceable, the remaining provisions will continue in full force and effect.</p>
+  </section>
+
+  <!-- 14 -->
+  <section id="changes">
+    <div class="section-eyebrow">
+      <span class="section-num">14</span>
+      <span class="section-tag">Updates</span>
+    </div>
+    <h2>Changes to These Terms</h2>
+    <p>We reserve the right to modify these Terms at any time. When we make material changes, we will notify you via in-app notification or email at least 14 days before the changes become effective. Your continued use of the App after changes take effect constitutes your acceptance of the revised Terms.</p>
+    <p>We encourage you to review these Terms periodically. The "Last Updated" date at the top of this page will always reflect the most recent revision.</p>
+  </section>
+
+  <!-- 15 -->
+  <section id="contact">
+    <div class="section-eyebrow">
+      <span class="section-num">15</span>
+      <span class="section-tag">Contact</span>
+    </div>
+    <h2>Contact</h2>
+    <p>If you have any questions about these Terms of Service, please contact us:</p>
+    <ul>
+      <li><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#d1bdb4b6b0bd91b6b8b6a6b0bdbdb4a5ffb0a1a1"><span class="__cf_email__" data-cfemail="e28e8785838ea2858b8595838e8e8796cc839292">[email&#160;protected]</span></a></li>
+      <li><strong>App:</strong> Settings → Help & Support → Contact Us</li>
+    </ul>
+  </section>
+
+</div>
+
+<footer>
+  <p>
