@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gigwallet — Privacy Policy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0f1117;
+      --muted: #5a5f72;
+      --accent: #FF6B35;
+      --accent-dark: #E55A25;
+      --accent-light: #fff0eb;
+      --blue: #004E89;
+      --blue-light: #1A6BAF;
+      --rule: #e5e7ef;
+      --bg: #fafbfe;
+      --card: #ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.75;
+      font-size: 16px;
+    }
+
+    /* ─── Header ─── */
+    header {
+      background: var(--ink);
+      color: #fff;
+      padding: 72px 24px 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 120%, #FF6B3540 0%, transparent 70%);
+    }
+    .wordmark {
+      display: inline-block;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #FF8F66;
+      margin-bottom: 28px;
+      position: relative;
+    }
+    header h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: #ffffff;
+      position: relative;
+    }
+    header h1 em {
+      font-style: normal;
+      font-family: 'DM Serif Display', serif;
+      font-size: inherit;
+      font-weight: 400;
+      color: #ffffff;
+    }
+    .header-meta {
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      position: relative;
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── Layout ─── */
+    .wrapper {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+
+    /* ─── TOC ─── */
+    .toc {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 56px;
+    }
+    .toc-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .toc ol { list-style: none; counter-reset: toc; display: grid; gap: 8px; }
+    .toc li { counter-increment: toc; }
+    .toc a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 400;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .toc a::before {
+      content: counter(toc, decimal-leading-zero);
+      font-size: 0.72rem;
+      color: var(--muted);
+      min-width: 22px;
+    }
+    .toc a:hover { text-decoration: underline; }
+
+    /* ─── Sections ─── */
+    section { margin-bottom: 52px; }
+    .section-eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .section-num { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; color: var(--muted); }
+    .section-tag {
+      font-size: 0.72rem; font-weight: 500;
+      background: var(--accent-light); color: var(--accent-dark);
+      padding: 2px 9px; border-radius: 99px; letter-spacing: 0.06em;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.65rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+      scroll-margin-top: 32px;
+      color: var(--ink);
+    }
+
+    p { color: #2e3347; margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+    ul, ol { margin: 14px 0 14px 20px; color: #2e3347; }
+    li { margin-bottom: 6px; }
+    strong { font-weight: 500; color: var(--ink); }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-dark); }
+
+    .highlight-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 20px 0;
+      font-size: 0.9rem;
+      color: var(--blue);
+    }
+
+    .data-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
+    @media (max-width: 520px) { .data-grid { grid-template-columns: 1fr; } }
+    .data-card { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 16px 18px; }
+    .data-card-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .data-card p { font-size: 0.88rem; margin: 0; color: #2e3347; }
+
+    /* ─── Footer ─── */
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      border-top: 1px solid var(--rule);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .wrapper > * { animation: fadeUp 0.5s ease both; }
+    .wrapper > *:nth-child(1) { animation-delay: 0.05s; }
+    .wrapper > *:nth-child(2) { animation-delay: 0.10s; }
+    .wrapper > *:nth-child(3) { animation-delay: 0.15s; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wordmark">Gigwallet</div>
+  <h1>Privacy <em>Policy</em></h1>
+  <p class="header-meta">Effective Date: February 19, 2026 &nbsp;·&nbsp; Last Updated: February 19, 2026</p>
+</header>
+
+<div class="wrapper">
+
+  <nav class="toc" aria-label="Table of contents">
+    <p class="toc-label">Contents</p>
+    <ol>
+      <li><a href="#data-collected">Data We Collect</a></li>
+      <li><a href="#data-storage">How Your Data Is Stored</a></li>
+      <li><a href="#third-party">Third-Party Services</a></li>
+      <li><a href="#data-use">How We Use Your Data</a></li>
+      <li><a href="#data-sharing">Data Sharing</a></li>
+      <li><a href="#data-retention">Data Retention &amp; Deletion</a></li>
+      <li><a href="#ccpa">California Privacy Rights (CCPA)</a></li>
+      <li><a href="#children">Children's Privacy</a></li>
+      <li><a href="#changes">Changes to This Policy</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ol>
+  </nav>
+
+  <p>Gigwallet ("we," "us," or "our") is committed to protecting your personal information. This Privacy Policy explains what data we collect, how we store and use it, and your rights as a user of the Gigwallet iOS application.</p>
+
+  <section id="data-collected">
+    <div class="section-eyebrow"><span class="section-num">01</span><span class="section-tag">Collection</span></div>
+    <h2>Data We Collect</h2>
+    <p>We collect only the information necessary to deliver the features of Gigwallet:</p>
+    <div class="data-grid">
+      <div class="data-card">
+        <p class="data-card-label">Identity</p>
+        <p>Full name and email address collected during account registration.</p>
+      </div>
+      <div class="data-card">
+        <p class="data-card-label">Location</p>
+        <p>Approximate or precise location, used to surface local gig opportunities and earnings data.</p>
+      </div>
+      <div class="data-card">
+        <p class="data-card-label">Financial Data</p>
+        <p>Income records, linked bank account metadata, and transaction data facilitated through Plaid.</p>
+      </div>
+      <div class="data-card">
+        <p class="data-card-label">Usage Data</p>
+        <p>App interactions and feature usage patterns collected to improve performance and reliability.</p>
+      </div>
+    </div>
+    <p>We do not collect payment card numbers directly. Financial connections are handled exclusively through Plaid's encrypted infrastructure.</p>
+  </section>
+
+  <section id="data-storage">
+    <div class="section-eyebrow"><span class="section-num">02</span><span class="section-tag">Storage</span></div>
+    <h2>How Your Data Is Stored</h2>
+    <p>Gigwallet uses a layered storage approach designed with privacy in mind:</p>
+    <ul>
+      <li><strong>On-Device (SwiftData):</strong> Your financial records, income logs, and personal settings are stored locally on your device using Apple's SwiftData framework. This data never leaves your device unless you explicitly sync or share it.</li>
+      <li><strong>Firebase Authentication:</strong> Your authentication credentials are securely stored and managed by Google Firebase, which employs industry-standard encryption at rest and in transit.</li>
+      <li><strong>Plaid:</strong> Bank connection tokens and account metadata are stored within Plaid's secure infrastructure, governed by their own privacy and security standards.</li>
+    </ul>
+    <div class="highlight-box">
+      Your most sensitive financial data lives on your device. We architected Gigwallet this way deliberately — your earnings history is yours, not ours.
+    </div>
+  </section>
+
+  <section id="third-party">
+    <div class="section-eyebrow"><span class="section-num">03</span><span class="section-tag">Third Parties</span></div>
+    <h2>Third-Party Services</h2>
+    <p>Gigwallet integrates with the following external services. Each operates under its own terms and privacy policy:</p>
+    <ul>
+      <li><strong>Firebase Authentication (Google):</strong> Used for secure account creation, login, and session management. <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy Policy →</a></li>
+      <li><strong>Plaid:</strong> Used to securely connect and read data from your bank accounts. <a href="https://plaid.com/legal/privacy-statement/" target="_blank" rel="noopener">Plaid Privacy Policy →</a></li>
+      <li><strong>Ticketmaster API:</strong> Used to surface local event-based gig opportunities. No personal data is transmitted beyond what is necessary for the location search.</li>
+      <li><strong>EIA (U.S. Energy Information Administration) API:</strong> Used to provide fuel price context for gig drivers. This is a public government API; no personal data is transmitted.</li>
+      <li><strong>FRED API (Federal Reserve Bank of St. Louis):</strong> Used for economic data and income benchmarking. This is a public API; no personal data is transmitted.</li>
+    </ul>
+  </section>
+
+  <section id="data-use">
+    <div class="section-eyebrow"><span class="section-num">04</span><span class="section-tag">Usage</span></div>
+    <h2>How We Use Your Data</h2>
+    <p>We use the data we collect exclusively to operate and improve Gigwallet:</p>
+    <ul>
+      <li>Authenticate and maintain your account</li>
+      <li>Display personalized earnings summaries and financial insights</li>
+      <li>Surface relevant gig opportunities in your area</li>
+      <li>Generate income estimates and expense breakdowns</li>
+      <li>Diagnose technical issues and improve app stability</li>
+    </ul>
+    <p>We do <strong>not</strong> use your data for targeted advertising, sell your data to data brokers, or share your data with any third party for their own marketing purposes.</p>
+  </section>
+
+  <section id="data-sharing">
+    <div class="section-eyebrow"><span class="section-num">05</span><span class="section-tag">Sharing</span></div>
+    <h2>Data Sharing</h2>
+    <p>We do not sell, rent, or trade your personal information. We may share information only in the following limited circumstances:</p>
+    <ul>
+      <li><strong>Service providers:</strong> We share necessary data with Firebase and Plaid solely to provide app functionality.</li>
+      <li><strong>Legal obligations:</strong> We may disclose information if required by law or valid legal process (e.g., a court order or subpoena).</li>
+      <li><strong>Business transfers:</strong> In the event of a merger or acquisition, your data may be transferred. We will notify you before such a transfer occurs.</li>
+    </ul>
+  </section>
+
+  <section id="data-retention">
+    <div class="section-eyebrow"><span class="section-num">06</span><span class="section-tag">Deletion</span></div>
+    <h2>Data Retention &amp; Deletion</h2>
+    <p>You may delete your Gigwallet account at any time directly within the app:</p>
+    <ol>
+      <li>Open Gigwallet and navigate to <strong>Settings</strong></li>
+      <li>Select <strong>Account</strong></li>
+      <li>Tap <strong>Delete Account</strong> and confirm</li>
+    </ol>
+    <p>Upon deletion, your Firebase account is permanently removed within 30 days. On-device SwiftData is deleted immediately when the app is uninstalled. Plaid connection tokens are revoked automatically upon account deletion. We retain anonymized analytics data for up to 12 months.</p>
+  </section>
+
+  <section id="ccpa">
+    <div class="section-eyebrow"><span class="section-num">07</span><span class="section-tag">CCPA</span></div>
+    <h2>California Privacy Rights (CCPA)</h2>
+    <p>If you are a California resident, you have the following rights under the California Consumer Privacy Act:</p>
+    <ul>
+      <li><strong>Right to Know:</strong> Request disclosure of the categories and pieces of personal information we've collected about you in the past 12 months.</li>
+      <li><strong>Right to Delete:</strong> Request deletion of personal information we have collected from you, subject to certain exceptions.</li>
+      <li><strong>Right to Opt-Out:</strong> We do not sell personal information. You may contact us to confirm this at any time.</li>
+      <li><strong>Right to Non-Discrimination:</strong> We will not discriminate against you for exercising any CCPA right.</li>
+    </ul>
+    <div class="highlight-box">
+      To exercise any of these rights, email <strong>privacy@gigwallet.app</strong> with the subject line "CCPA Request." We will respond within 45 days as required by law.
+    </div>
+  </section>
+
+  <section id="children">
+    <div class="section-eyebrow"><span class="section-num">08</span><span class="section-tag">Children</span></div>
+    <h2>Children's Privacy</h2>
+    <p>Gigwallet is not directed to individuals under the age of 18. We do not knowingly collect personal information from minors. If you believe we have inadvertently collected information from a minor, please contact us immediately at <a href="mailto:privacy@gigwallet.app">privacy@gigwallet.app</a> and we will take steps to delete it promptly.</p>
+  </section>
+
+  <section id="changes">
+    <div class="section-eyebrow"><span class="section-num">09</span><span class="section-tag">Updates</span></div>
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy to reflect changes in our practices or applicable law. When we make material changes, we will notify you via in-app notification or email at least 14 days before the changes take effect. The "Last Updated" date at the top of this page will always reflect the most recent revision.</p>
+    <p>Continued use of Gigwallet after changes become effective constitutes your acceptance of the updated policy.</p>
+  </section>
+
+  <section id="contact">
+    <div class="section-eyebrow"><span class="section-num">10</span><span class="section-tag">Contact</span></div>
+    <h2>Contact Us</h2>
+    <p>If you have any questions, concerns, or requests regarding this Privacy Policy, please reach out:</p>
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:privacy@gigwallet.app">privacy@gigwallet.app</a></li>
+      <li><strong>In-App:</strong> Settings → Help &amp; Support → Contact Us</li>
+    </ul>
+    <p>We aim to respond within 5 business days.</p>
+  </section>
+
+</div>
+
+<footer>
+  <p>© 2026 Gigwallet. All rights reserved. &nbsp;·&nbsp; <a href="index.html">Home</a> &nbsp;·&nbsp; <a href="terms-of-service.html">Terms of Service</a></p>
+</footer>
+
+</body>
+</html>
