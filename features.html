@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Features — GigWallet</title>
+  <meta name="description" content="Explore every GigWallet feature: multi-platform income tracking, receipt OCR, real-time tax engine, AI work advisor, earnings heatmap, and more.">
+  <meta property="og:title" content="Features — GigWallet">
+  <meta property="og:description" content="Everything a gig worker needs to track income, manage expenses, and keep more of what they earn.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gigwallet.app/features.html">
+  <meta property="og:image" content="https://gigwallet.app/og-image.png">
+  <link rel="canonical" href="https://gigwallet.app/features.html">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #FF6B35;
+      --orange-light: #FF8F66;
+      --orange-dark: #E55A25;
+      --blue: #004E89;
+      --blue-light: #1A6BAF;
+      --bg: #0D0D0D;
+      --panel: #181818;
+      --green: #4ADE80;
+      --white: #FFFFFF;
+      --white-90: rgba(255,255,255,0.9);
+      --white-80: rgba(255,255,255,0.8);
+      --white-70: rgba(255,255,255,0.7);
+      --white-20: rgba(255,255,255,0.2);
+      --white-10: rgba(255,255,255,0.1);
+      --white-05: rgba(255,255,255,0.05);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── LOGO ─── */
+    .logo-wrap {
+      display: flex; align-items: center; gap: 10px; text-decoration: none;
+    }
+    .logo-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: linear-gradient(135deg, #FF8F66, #FF6B35);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; box-shadow: 4px 4px 0 var(--orange-dark);
+    }
+    .logo-icon svg { width: 24px; height: 24px; }
+    .logo-name { font-size: 22px; font-weight: 800; color: var(--white); letter-spacing: -0.5px; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(13,13,13,0.96);
+      border-bottom: 1px solid var(--white-10);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: var(--white-80); text-decoration: none;
+      font-size: 15px; font-weight: 500; letter-spacing: 0.2px; transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--orange); }
+    .btn-nav {
+      background: var(--orange); color: var(--white) !important;
+      padding: 10px 22px; border-radius: 8px;
+      font-weight: 700 !important; font-size: 14px !important; letter-spacing: 0.5px;
+      box-shadow: 4px 4px 0 var(--blue);
+      transition: transform 0.15s, box-shadow 0.15s !important;
+    }
+    .btn-nav:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--blue) !important; }
+
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; background: none; border: none; padding: 6px;
+    }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
+    .mobile-menu {
+      display: none; position: fixed; top: 68px; left: 0; right: 0;
+      background: #111; border-bottom: 1px solid var(--white-10);
+      padding: 24px 5%; flex-direction: column; gap: 20px; z-index: 99;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--white-80); text-decoration: none; font-size: 17px; font-weight: 500; }
+    .mobile-menu .btn-nav { text-align: center; padding: 14px; border-radius: 8px; }
+
+    /* ─── PAGE HERO ─── */
+    .page-hero {
+      padding: 80px 5% 70px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--white-05); border: 1px solid var(--white-10);
+      border-radius: 100px; padding: 6px 16px;
+      font-size: 13px; font-weight: 700; letter-spacing: 2px;
+      color: var(--orange-light); text-transform: uppercase; margin-bottom: 24px;
+    }
+    h1 {
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 900; letter-spacing: -2.5px; line-height: 1.05;
+      color: var(--white); margin-bottom: 20px;
+    }
+    h1 em { font-style: normal; color: var(--orange); }
+    .page-hero p {
+      font-size: 19px; color: var(--white-80); max-width: 600px; margin: 0 auto 36px;
+    }
+
+    /* ─── FEATURE NAV PILLS ─── */
+    .feature-nav {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+      padding: 0 5% 60px; max-width: 900px; margin: 0 auto;
+    }
+    .feature-nav a {
+      background: var(--white-05); border: 1px solid var(--white-10);
+      border-radius: 100px; padding: 8px 18px;
+      font-size: 14px; font-weight: 600; color: var(--white-80);
+      text-decoration: none; transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .feature-nav a:hover {
+      background: var(--orange); border-color: var(--orange); color: var(--white);
+    }
+
+    /* ─── FEATURE SECTIONS ─── */
+    .feature-section {
+      max-width: 1100px; margin: 0 auto;
+      padding: 80px 5%;
+      border-top: 1px solid var(--white-10);
+    }
+    .feature-section:first-of-type { border-top: none; }
+
+    .fs-header {
+      display: grid; grid-template-columns: auto 1fr; gap: 20px;
+      align-items: flex-start; margin-bottom: 48px;
+    }
+    .fs-num {
+      width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--orange-light), var(--orange));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; font-weight: 900; color: var(--white);
+      box-shadow: 4px 4px 0 var(--orange-dark);
+    }
+    .fs-title-wrap {}
+    .fs-eyebrow {
+      font-size: 12px; font-weight: 700; letter-spacing: 2.5px;
+      color: var(--orange); text-transform: uppercase; margin-bottom: 6px;
+    }
+    h2 {
+      font-size: clamp(28px, 3vw, 40px); font-weight: 800;
+      letter-spacing: -1px; color: var(--white); line-height: 1.1;
+    }
+    .fs-desc {
+      font-size: 17px; color: var(--white-80); margin-top: 8px; max-width: 560px;
+    }
+
+    /* ─── SUB-FEATURE GRID ─── */
+    .subfeature-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    .subfeature-grid.col-2 { grid-template-columns: repeat(2, 1fr); }
+
+    .sub-card {
+      background: var(--panel); border: 1px solid var(--white-10);
+      border-radius: 14px; padding: 24px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .sub-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--orange-light), var(--orange));
+      opacity: 0; transition: opacity 0.2s;
+    }
+    .sub-card:hover { transform: translateY(-3px); box-shadow: 6px 6px 0 var(--blue); }
+    .sub-card:hover::after { opacity: 1; }
+
+    .sub-card-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: var(--white-05); border: 1px solid var(--white-10);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px;
+    }
+    .sub-card-icon svg { width: 20px; height: 20px; }
+    .sub-card h3 {
+      font-size: 17px; font-weight: 700; color: var(--white-90);
+      letter-spacing: -0.3px; margin-bottom: 8px;
+    }
+    .sub-card p { font-size: 14px; color: var(--white-80); line-height: 1.6; }
+
+    /* bullet list inside cards */
+    .sub-card ul { list-style: none; margin-top: 10px; display: flex; flex-direction: column; gap: 6px; }
+    .sub-card ul li {
+      font-size: 14px; color: var(--white-80); line-height: 1.5;
+      padding-left: 16px; position: relative;
+    }
+    .sub-card ul li::before {
+      content: ''; position: absolute; left: 0; top: 8px;
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--orange);
+    }
+
+    /* ─── PREMIUM BADGE ─── */
+    .premium-banner {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px; padding: 28px 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; flex-wrap: wrap; margin-top: 48px;
+    }
+    .premium-banner-left {}
+    .premium-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.15); border-radius: 100px;
+      padding: 4px 12px; font-size: 12px; font-weight: 700;
+      letter-spacing: 2px; color: var(--white); text-transform: uppercase; margin-bottom: 8px;
+    }
+    .premium-banner h3 { font-size: 22px; font-weight: 800; color: var(--white); letter-spacing: -0.5px; }
+    .premium-banner p { font-size: 15px; color: rgba(255,255,255,0.8); margin-top: 4px; }
+    .premium-features {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;
+    }
+    .pf-tag {
+      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 6px; padding: 4px 10px;
+      font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.85);
+    }
+
+    /* ─── CTA STRIP ─── */
+    .cta-strip {
+      background: var(--panel); border-top: 1px solid var(--white-10);
+      padding: 80px 5%; text-align: center;
+    }
+    .cta-strip h2 { font-size: clamp(32px, 4vw, 52px); font-weight: 900; letter-spacing: -1.5px; margin-bottom: 12px; }
+    .cta-strip h2 em { font-style: normal; color: var(--orange); }
+    .cta-strip p { font-size: 18px; color: var(--white-80); margin-bottom: 36px; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--orange); color: var(--white); text-decoration: none;
+      padding: 18px 32px; border-radius: 12px;
+      font-size: 18px; font-weight: 700; letter-spacing: 0.3px;
+      box-shadow: 6px 6px 0 var(--blue);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn-primary:hover { transform: translate(-3px,-3px); box-shadow: 9px 9px 0 var(--blue); }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--panel); border-top: 1px solid var(--white-10); padding: 60px 5% 0; }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px;
+      max-width: 1100px; margin: 0 auto 48px;
+    }
+    .footer-brand p { margin-top: 16px; font-size: 15px; color: var(--white-70); max-width: 280px; line-height: 1.65; }
+    .footer-col h4 { font-size: 13px; font-weight: 700; letter-spacing: 2px; color: var(--white-70); text-transform: uppercase; margin-bottom: 18px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-col a { color: var(--white-80); text-decoration: none; font-size: 15px; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--orange); }
+    .footer-strip {
+      background: var(--blue); padding: 16px 5%;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-strip-text { font-size: 14px; font-weight: 700; letter-spacing: 3px; color: rgba(255,255,255,0.7); text-transform: uppercase; }
+    .footer-strip-text span { color: var(--orange-light); }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.6); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .subfeature-grid { grid-template-columns: 1fr; }
+      .subfeature-grid.col-2 { grid-template-columns: 1fr; }
+      .fs-header { grid-template-columns: auto 1fr; }
+      .feature-nav { gap: 8px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+      .footer-strip { flex-direction: column; text-align: center; }
+      .premium-banner { flex-direction: column; }
+    }
+    @media (max-width: 480px) {
+      h1 { font-size: 36px; }
+      h2 { font-size: 26px; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .page-hero > * { animation: fadeUp 0.5s both; }
+    .page-hero > *:nth-child(1) { animation-delay: 0.05s; }
+    .page-hero > *:nth-child(2) { animation-delay: 0.12s; }
+    .page-hero > *:nth-child(3) { animation-delay: 0.20s; }
+    .page-hero > *:nth-child(4) { animation-delay: 0.28s; }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <a href="index.html" class="logo-wrap">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24" fill="none">
+        <rect x="2" y="6" width="20" height="14" rx="3" fill="white"/>
+        <rect x="14" y="10" width="6" height="6" rx="2" fill="#FF6B35"/>
+        <circle cx="17" cy="13" r="1.2" fill="white"/>
+        <rect x="5" y="4" width="11" height="4" rx="1.5" fill="rgba(255,255,255,0.7)"/>
+        <rect x="5" y="4" width="4" height="4" rx="1.5" fill="rgba(255,255,255,0.5)"/>
+      </svg>
+    </div>
+    <span class="logo-name">GigWallet</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="features.html" class="active">Features</a></li>
+    <li><a href="how-it-works.html">How It Works</a></li>
+    <li><a href="privacy-policy.html">Privacy</a></li>
+    <li><a href="terms-of-service.html">Terms</a></li>
+    <li><a href="index.html#download" class="btn-nav">Download App</a></li>
+  </ul>
+  <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu">
+  <a href="features.html">Features</a>
+  <a href="how-it-works.html">How It Works</a>
+  <a href="privacy-policy.html">Privacy</a>
+  <a href="terms-of-service.html">Terms</a>
+  <a href="index.html#download" class="btn-nav">Download App</a>
+</div>
+
+<!-- ═══ PAGE HERO ═══ -->
+<div class="page-hero">
+  <div class="eyebrow">Built for gig workers</div>
+  <h1>Every feature you need.<br><em>Nothing you don't.</em></h1>
+  <p>GigWallet is a full financial command center for freelancers and gig workers — from income tracking and expense management to real-time taxes and AI-powered work recommendations.</p>
+</div>
+
+<!-- FEATURE NAV -->
+<div class="feature-nav">
+  <a href="#income">Income Tracking</a>
+  <a href="#expenses">Expense & Receipts</a>
+  <a href="#tax">Tax Engine</a>
+  <a href="#ai">AI Intelligence</a>
+  <a href="#analytics">Analytics</a>
+  <a href="#events">Events & Weather</a>
+  <a href="#planner">Financial Planner</a>
+  <a href="#premium">Premium</a>
+</div>
+
+<!-- ═══ 1. MULTI-PLATFORM INCOME ═══ -->
+<section class="feature-section" id="income">
+  <div class="fs-header">
+    <div class="fs-num">1</div>
+    <div class="fs-title-wrap">
+      <div class="fs-eyebrow">Income Tracking</div>
+      <h2>All your platforms.<br>One unified dashboard.</h2>
+      <p class="fs-desc">GigWallet pulls earnings from 10+ gig platforms and consolidates them into a single, crystal-clear view — down to the individual trip level.</p>
+    </div>
+  </div>
+
+  <div class="subfeature-grid">
+    <div class="sub-card">
+      <div class="sub-card-icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#FF6B35" stroke-width="2" stroke-linejoin="round"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#FF6B35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Direct Platform Sync</h3>
+      <p>Powered by Argyle, GigWallet securely connects to Uber, DoorDash, Lyft, Instacart, and 6+ more platforms via read-only OAuth. Your data is yours — we never sell it.</p>
+      <ul>
+        <li>Trip-level earnings with base pay, tips & bonuses</li>
+        <li>Per-trip mileage data imported automatically</li>
+        <li>Platform fees broken out separately</li>
+        <li>Deduplication prevents double-counting</li>
+      </ul>
+    </div>
+
+    <div class="sub-card">
+      <div class="sub-card-icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#FF6B35" stroke-width="2.5" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Manual Income Entry</h3>
+      <p>Cash tips, one-off gigs, or instant payments — log them in seconds with platform-specific categories, date tracking, and notes.</p>
+      <ul>
+        <li>Quick-add for cash tips and instant payouts</li>
+        <li>Custom categories per platform</li>
+        <li>Multi-state income tracking for interstate workers</li>
+        <li>Date and notes for every entry</li>
+      </ul>
+    </div>
+
+    <div class="sub-card">
+      <div class="sub-card-icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 17l5-5 4 4 5-6 4 3" stroke="#FF6B35" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Income Intelligence</h3>
+      <p>See gross vs. net earnings in real time — after platform fees are subtracted. Every dollar is automatically assigned to the right tax quarter.</p>
+      <ul>
+        <li>Real-time gross vs. net calculations</li>
+        <li>Automatic tax year and quarter assignment</li>
+        <li>Platform performance comparison</li>
+        <li>Historical income pattern analysis</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 2. EXPENSE TRACKING ═══ -->
+<section class="feature-section" id="expenses">
+  <div class="fs-header">
+    <div class="fs-num">2</div>
+    <div class="fs-title-wrap">
+      <div class="fs-eyebrow">Expense & Receipt Tracking</div>
+      <h2>Log expenses in seconds.<br>Never miss a deduction.</h2>
+      <p class="fs-desc">Three modes to capture every business expense — from a quick tap to a full receipt scan. Every dollar logged is a dollar saved at tax time.</p>
+    </div>
+  </div>
+
+  <div class="subfeature-grid">
+    <div class="sub-card">
+      <div class="sub-card-icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9l-7-7z" stroke="#FF6B35" stroke-width="2" stroke-linejoin="round"/><path d="M13 2v7h7" stroke="#FF6B35" stroke-width="2"/></svg>
+      </div>
+      <h3>Quick Add Mode</h3>
+      <p>Pre-configured one-tap categories for the most common gig worker expenses. Minimal input, maximum speed.</p>
+      <ul>
+        <li>Gas & fuel, phone bills, car maintenance</li>
+        <li>Tolls, parking, insurance, home office</li>
+        <li>Smart default deduction percentages</li>
+        <li>Category icons for instant recognition</li>
+      </ul>
+    </div>
+
+    <div class="sub-card">
+      <div class="sub-card-icon">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#FF6B35" stroke-width="2"/><path d="M9 9h6M9 12h6M9 15h4" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Receipt OCR Scanner</h3>
+      <p>Point your camera at any receipt. GigWallet's on-device OCR extracts the total, vendor, and date — then suggests the right expense category.</p>
+      <ul>
+        <li>On-device processing — data never leaves your phone</li>
+        <li>Extracts amount, vendor name, and date</li>
+        <li>AI-powered category suggestion</li>
+        <li>Apply all fields or pick and choose</li>
+      </ul>
+    </div>
+
+    <div class="sub-card">
+      <div class="sub-card-icon">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#FF6B35" stroke-width="2"/><path d="M12 8v4l3 3" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Full Manual Entry</h3>
+      <p>Need full control? The detailed entry form lets you set every field — category, amount, vendor, date, deduction percentage, and an optional receipt photo.</p>
+      <ul>
+        <li>Visual category grid selector</li>
+        <li>Custom tax deduction toggle (0–100%)</li>
+        <li>Backdate any expense</li>
+        <li>Attach receipt photo for records</li>
+      </ul>
+    </div>
+
+    <div class="sub-card">
+      <div class="sub-card-icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z" stroke="#FF6B35" stroke-width="2"/><path d="M12 6v6l4 2" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Mileage Tracking</h3>
+      <p>Log business miles and let GigWallet calculate your IRS deduction at the current standard rate. Platform trips from Uber and Lyft are imported for you.</p>
+      <ul>
+        <li>IRS standard rate calculation built in</li>
+        <li>Trip mileage imported from connected platforms</li>
+        <li>Business vs. personal classification</li>
+        <li>Real-time deduction total</li>
+      </ul>
+    </div>
+
+    <div class="sub-card" style="grid-column: span 2; display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
+      <div>
+        <div class="sub-card-icon" style="margin-bottom:0; margin-right: 0;">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#FF6B35" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z" stroke="#FF6B35" stroke-width="2"/></svg>
+        </div>
+      </div>
+      <div>
+        <h3 style="margin-bottom:6px;">Privacy First — OCR Stays On-Device</h3>
+        <p>Receipt scanning uses Apple's Vision framework on your device. Your receipts and financial data are never uploaded to a server for processing. Everything stays local via SwiftData.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 3. TAX ENGINE ═══ -->
+<section class="feature-section" id="tax">
+  <div class="fs-header">
+    <div class="fs-num">3</div>
+    <div class="fs-title-wrap">
+      <div class="fs-eyebrow">Real-Time Tax Engine</div>
+      <h2>Never get surprised<br>by a tax bill again.</h2>
+      <p class="fs-desc">GigWallet calculates your federal, state, and self-employment taxes in real time — every time you log income. Quarterly deadlines are always in view.</p>
+    </div>
+  </div>
+
+  <div class="subfeature-grid">
+    <div class="sub-card">
+      <div class="sub-card-icon">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="#FF6B35" stroke-width="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Quarterly Tax Countdown</h3>
+      <p>Always know how many days until your next estimated payment is due — and exactly how much you owe. No more scrambling in April.</p>
+      <ul>
+        <li>Days remaining until quarterly deadline</li>
+        <li>Estimated payment based on YTD income</li>
+        <li>Amount paid vs. amount owed tracker</li>
+        <li>Safe harbor compliance indicator</li>
+      </ul>
+    </div>
+
+    <div class="sub-card">
+      <div class="sub-card-icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2v20M2 12h20" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="4" stroke="#FF6B35" stroke-width="2"/></svg>
+      </div>
+      <h3>Tax Bite Visualization</h3>
+      <p>See at a glance how much of today's earnings go to taxes — your effective rate combining federal, state, and self-employment obligations.</p>
+      <ul>
+        <li>Effective tax rate (federal + state + SE tax)</li>
+        <li>YTD tax owed vs. paid comparison</li>
+        <li>Per-dollar tax impact on each shift</li>
+        <li>Tax reserve recommendations</li>
+      </ul>
+    </div>
+
+    <div class="sub-card">
+      <div class="sub-card-icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M20 12V22H4V12" stroke="#FF6B35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 7H2v5h20V7z" stroke="#FF6B35" stroke-width="2" stroke-linejoin="round"/><path d="M12 22V7M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z" stroke="#FF6B35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Tax Vault</h3>
+      <p>Set aside tax money as you earn it. The Tax Vault tracks your reserve balance and tells you if you're on track for each quarterly payment.</p>
+      <ul>
+        <li>Manual deposits and withdrawals</li>
+        <li>Target balance tied to estimated liability</li>
+        <li>Year-over-year vault balance history</li>
+        <li>Synced with quarterly payment schedule</li>
+      </ul>
+    </div>
+
+    <div class="sub-card" style="grid-column: span 3; display: flex; gap: 40px; align-items: center; flex-wrap: wrap;">
+      <div style="flex:1; min-width: 220px;">
+        <div class="sub-card-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 3h18v18H3z" stroke="#FF6B35" stroke-width="2" stroke-linejoin="round"/><path d="M7 8h10M7 12h6M7 16h8" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h3>All 50 States Supported</h3>
+        <p>GigWallet handles multi-state income with per-entry state tracking and state-specific tax rates. Work in Nevada and California? Both are covered.</p>
+      </div>
+      <div style="flex:1; min-width: 220px; border-left: 1px solid var(--white-10); padding-left: 40px;">
+        <div class="sub-card-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z" stroke="#FF6B35" stroke-width="2"/><path d="M8 14s1.5 2 4 2 4-2 4-2" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/><path d="M9 9h.01M15 9h.01" stroke="#FF6B35" stroke-width="3" stroke-linecap="round"/></svg></div>
+        <h3>No Surprises, Ever</h3>
+        <p>Every dollar earned triggers an instant tax update. By the time a deadline arrives, you've been watching the number build all quarter long.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 4. AI INTELLIGENCE ═══ -->
+<section class="feature-section" id="ai">
+  <div class="fs-header">
+    <div class="fs-num">4</div>
+    <div class="fs-title-wrap">
+      <div class="fs-eyebrow">AI-Powered Intelligence</div>
+      <h2>Work smarter.<br>Not just harder.</h2>
+      <p class="fs-desc">Multiple AI engines analyze your earnings history, local conditions, and market data to tell you exactly when and where to work for maximum profit.</p>
+    </div>
+  </div>
+
+  <div class="subfeature-grid">
+    <div class="sub-card">
+      <div class="sub-card-icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z" stroke="#FF6B35" stroke-width="2" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Work Advisor</h3>
+      <p>GigWallet's recommendation engine combines your personal earnings data with real-world conditions to tell you the optimal times to work.</p>
+      <ul>
+        <li>Real-time gas prices via EIA API</li>
+        <li>Local events (concerts, sports, conferences)</li>
+        <li>Severe weather alerts that boost demand</li>
+        <li>Platform-specific picks ("Uber today, not DoorDash")</li>
+        <li>True hourly rate after expenses and taxes</li>
+      </ul>
+    </div>
+
+    <div class="sub-card">
+      <div class="sub-card-icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 17l5-5 4 4 5-6 4 3" stroke="#FF6B35" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="8" r="2" fill="#FF6B35"/></svg>
+      </div>
+      <h3>Earnings Pattern Analysis</h3>
+      <p>Discover your best earning days, times, and streaks. GigWallet identifies patterns in your history that you'd never spot manually.</p>
+      <ul>
+        <li>Best earning days and time blocks</li>
+        <li>Consecutive day earning streaks</li>
+        <li>Week-over-week momentum tracking</li>
+        <li>Predictive income modeling</li>
+      </ul>
+    </div>
+
+    <div class="sub-card">
+      <div class="sub-card-icon">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#FF6B35" stroke-width="2"/><path d="M7 7h2v2H7zM11 7h2v2h-2zM15 7h2v2h-2zM7 11h2v2H7zM11 11h2v2h-2zM15 11h2v2h-2zM7 15h2v2H7zM11 15h2v2h-2z" fill="#FF6B35" opacity="0.6"/><rect x="15" y="15" width="2" height="2" fill="#FF6B35"/></svg>
+      </div>
+      <h3>Earnings Heatmap</h3>
+      <p>A visual grid showing your average earnings by day of week and time block. See at a glance which slots are most profitable and plan your schedule accordingly.</p>
+      <ul>
+        <li>Day × time block grid (Mon–Sun, 4 time blocks)</li>
+        <li>Color-coded by average earnings</li>
+        <li>Most profitable slot highlighted</li>
+        <li>Data updates as you log more shifts</li>
+      </ul>
+    </div>
+
+    <div class="sub-card">
+      <div class="sub-card-icon">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#FF6B35" stroke-width="2"/><path d="M12 8v4l3 3" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <h3>AI Expense Categorization</h3>
+      <p>When you scan a receipt or enter a vendor name, the AI engine suggests the right expense category — instantly. High-confidence suggestions only, so you're never misled.</p>
+      <ul>
+        <li>ML patterns from vendor names and descriptions</li>
+        <li>Confidence scoring before showing suggestions</li>
+        <li>Reason shown for each suggestion</li>
+        <li>One-tap application</li>
+      </ul>
+    </div>
+
+    <div class="sub-card" style="grid-column: span 2;">
+      <div class="sub-card-icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z" stroke="#FF6B35" stroke-width="2"/><path d="M12 6v6l4 2" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Financial Health Score</h3>
+      <p>A comprehensive 0–100 score that evaluates your full financial picture as a gig worker — and tells you exactly how to improve it.</p>
+      <ul>
+        <li>Income consistency rating</li>
+        <li>Expense management score</li>
+        <li>Tax compliance and deduction optimization</li>
+        <li>Savings rate evaluation</li>
+        <li>Month-over-month progress tracking</li>
+        <li>Specific, actionable improvement tips</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 5. VISUAL ANALYTICS ═══ -->
+<section class="feature-section" id="analytics">
+  <div class="fs-header">
+    <div class="fs-num">5</div>
+    <div class="fs-title-wrap">
+      <div class="fs-eyebrow">Visual Analytics</div>
+      <h2>Your numbers,<br>beautifully visualized.</h2>
+      <p class="fs-desc">Professional-grade charts and a customizable dashboard give you total clarity on your financial picture — at any time range you choose.</p>
+    </div>
+  </div>
+
+  <div class="subfeature-grid col-2">
+    <div class="sub-card">
+      <div class="sub-card-icon">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="12" width="4" height="9" fill="#FF6B35" opacity="0.5" rx="1"/><rect x="10" y="7" width="4" height="14" fill="#FF6B35" opacity="0.7" rx="1"/><rect x="17" y="3" width="4" height="18" fill="#FF6B35" rx="1"/></svg>
+      </div>
+      <h3>Earnings Charts</h3>
+      <p>Interactive charts with a time range selector — 7 days, 30 days, 90 days, or year-to-date. Switch between three views:</p>
+      <ul>
+        <li><strong style="color:var(--white-90);">Earnings</strong> — daily/weekly bar chart with average line</li>
+        <li><strong style="color:var(--white-90);">Net Profit</strong> — income vs. expenses side-by-side</li>
+        <li><strong style="color:var(--white-90);">Platform Breakdown</strong> — donut chart with trip counts</li>
+        <li>Interactive data point selection</li>
+        <li>Stats grid: avg/day, trips, best day, expense ratio</li>
+      </ul>
+    </div>
+
+    <div class="sub-card">
+      <div class="sub-card-icon">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="9" height="9" rx="2" stroke="#FF6B35" stroke-width="2"/><rect x="13" y="2" width="9" height="9" rx="2" stroke="#FF6B35" stroke-width="2"/><rect x="2" y="13" width="9" height="9" rx="2" stroke="#FF6B35" stroke-width="2"/><rect x="13" y="13" width="9" height="9" rx="2" stroke="#FF6B35" stroke-width="2" opacity="0.4"/></svg>
+      </div>
+      <h3>Customizable Dashboard</h3>
+      <p>Reorder and personalize your dashboard with the cards most relevant to you. The dashboard adapts as you build history.</p>
+      <ul>
+        <li><strong style="color:var(--white-90);">Action cards:</strong> Work Advisor, Tax Countdown, Earnings Goal</li>
+        <li><strong style="color:var(--white-90);">Insight cards:</strong> Health Score, AI Report, Income Momentum</li>
+        <li><strong style="color:var(--white-90);">Optimize cards:</strong> Heatmap, Tax Bite, Tax Reserve Vault</li>
+        <li>Progressive complexity — advanced cards unlock over time</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 6. EVENTS & WEATHER ═══ -->
+<section class="feature-section" id="events">
+  <div class="fs-header">
+    <div class="fs-num">6</div>
+    <div class="fs-title-wrap">
+      <div class="fs-eyebrow">Local Intelligence</div>
+      <h2>Know when demand<br>is about to spike.</h2>
+      <p class="fs-desc">GigWallet monitors local events and weather conditions to surface surge opportunities before they happen — so you're already working when demand peaks.</p>
+    </div>
+  </div>
+
+  <div class="subfeature-grid col-2">
+    <div class="sub-card">
+      <div class="sub-card-icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z" stroke="#FF6B35" stroke-width="2" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Local Event Alerts</h3>
+      <p>See upcoming concerts, sports games, conferences, and festivals near you — with demand boost indicators so you know which events are worth showing up for.</p>
+      <ul>
+        <li>High / Medium surge demand indicators</li>
+        <li>Date, time, and venue details</li>
+        <li>Integrated into Work Advisor recommendations</li>
+        <li>Updated daily based on your GPS location</li>
+      </ul>
+    </div>
+
+    <div class="sub-card">
+      <div class="sub-card-icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 7h1M5.5 4.5l.7.7M12 3v1M18.5 4.5l-.7.7M21 7h-1M17 10a5 5 0 10-10 0H4a3 3 0 000 6h16a3 3 0 000-6h-3z" stroke="#FF6B35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Weather Demand Boost</h3>
+      <p>Bad weather for riders means great weather for delivery drivers. GigWallet surfaces rain and snow alerts that predict delivery demand spikes in your area.</p>
+      <ul>
+        <li>Real-time conditions via GPS</li>
+        <li>5-day forecast with gig-specific insights</li>
+        <li>Severe weather alerts for delivery boosts</li>
+        <li>Rain and snow bonus notifications</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 7. FINANCIAL PLANNER ═══ -->
+<section class="feature-section" id="planner">
+  <div class="fs-header">
+    <div class="fs-num">7</div>
+    <div class="fs-title-wrap">
+      <div class="fs-eyebrow">Financial Planner · Premium</div>
+      <h2>Plan your money.<br>Not just track it.</h2>
+      <p class="fs-desc">The Financial Planner takes GigWallet from reactive tracking to proactive budgeting — helping you project cash flow and plan for the months ahead.</p>
+    </div>
+  </div>
+
+  <div class="subfeature-grid col-2">
+    <div class="sub-card">
+      <div class="sub-card-icon">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="#FF6B35" stroke-width="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/><path d="M8 14h2M8 17h2M14 14h2M14 17h2" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Monthly Budget Planning</h3>
+      <p>Set recurring income and expense items to build a month-by-month budget. See your projected surplus or deficit before the month starts.</p>
+      <ul>
+        <li>Recurring income and expense budget items</li>
+        <li>Monthly surplus / deficit projections</li>
+        <li>Non-gig income (W-2, side hustles, investments)</li>
+        <li>Rent, utilities, subscriptions, and more</li>
+      </ul>
+    </div>
+
+    <div class="sub-card">
+      <div class="sub-card-icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 17l5-5 4 4 5-6 4 3" stroke="#FF6B35" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Actual vs. Budgeted</h3>
+      <p>At the end of each month, compare what you planned against what actually happened — and use the insight to budget smarter next time.</p>
+      <ul>
+        <li>Month-over-month actuals vs. budget</li>
+        <li>Category-level variance breakdown</li>
+        <li>Cash flow trend view</li>
+        <li>Integrated with gig income and expense data</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 8. PREMIUM ═══ -->
+<section class="feature-section" id="premium">
+  <div class="fs-header">
+    <div class="fs-num">8</div>
+    <div class="fs-title-wrap">
+      <div class="fs-eyebrow">Free vs. Premium</div>
+      <h2>Start free.<br>Unlock the full picture.</h2>
+      <p class="fs-desc">GigWallet's core income and expense tracking is completely free. Premium unlocks the AI-powered tools that help you maximize what you keep.</p>
+    </div>
+  </div>
+
+  <div class="premium-banner">
+    <div class="premium-banner-left">
+      <div class="premium-tag">⭐ Premium Features</div>
+      <h3>Everything in free, plus the tools that set you apart.</h3>
+      <p>Upgrade to unlock AI recommendations, advanced analytics, and financial planning tools.</p>
+      <div class="premium-features">
+        <span class="pf-tag">Work Advisor AI</span>
+        <span class="pf-tag">Financial Health Score</span>
+        <span class="pf-tag">Earnings Heatmap</span>
+        <span class="pf-tag">AI Intelligence Report</span>
+        <span class="pf-tag">Financial Planner</span>
+        <span class="pf-tag">Advanced Analytics</span>
+      </div>
+    </div>
+    <a href="index.html#download" class="btn-primary" style="white-space:nowrap; flex-shrink:0;">
+      Download Free →
+    </a>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<div class="cta-strip">
+  <h2>Ready to know your<br><em>real numbers?</em></h2>
+  <p>Free to download. Takes 2 minutes to get started. No credit card required.</p>
+  <!-- Replace # with actual App Store URL -->
+  <a href="index.html#download" class="btn-primary">Download GigWallet Free →</a>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo-wrap">
+        <div class="logo-icon" style="width:34px;height:34px;border-radius:8px;box-shadow:3px 3px 0 var(--orange-dark);">
+          <svg viewBox="0 0 24 24" fill="none" style="width:20px;height:20px;">
+            <rect x="2" y="6" width="20" height="14" rx="3" fill="white"/>
+            <rect x="14" y="10" width="6" height="6" rx="2" fill="#FF6B35"/>
+            <circle cx="17" cy="13" r="1.2" fill="white"/>
+            <rect x="5" y="4" width="11" height="4" rx="1.5" fill="rgba(255,255,255,0.7)"/>
+            <rect x="5" y="4" width="4" height="4" rx="1.5" fill="rgba(255,255,255,0.5)"/>
+          </svg>
+        </div>
+        <span class="logo-name" style="font-size:18px;">GigWallet</span>
+      </a>
+      <p>The personal finance command center for gig workers and freelancers. Know what you earn. Keep what you make.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="index.html#download">Download</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms-of-service.html">Terms of Service</a></li>
+        <li><a href="mailto:hello@gigwallet.app">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-strip">
+    <span class="footer-strip-text">Track · Manage · Grow · <span>gigwallet.app</span></span>
+    <span class="footer-copy">© 2026 GigWallet. All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.mobile-menu a').forEach(a => {
+    a.addEventListener('click', () => document.querySelector('.mobile-menu').classList.remove('open'));
+  });
+</script>
+
+</body>
+</html>
