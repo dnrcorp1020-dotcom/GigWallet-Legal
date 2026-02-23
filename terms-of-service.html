@@ -6,220 +6,195 @@
   <title>GigWallet — Terms of Service</title>
   <meta name="description" content="GigWallet Terms of Service — subscription plans, billing, acceptable use, and your legal rights.">
   <link rel="canonical" href="https://gigwallet.app/terms-of-service.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --orange: #FF6B35;
-      --orange-light: #FF8F66;
-      --orange-dark: #E55A25;
-      --secondary: #8B5E34;
-      --secondary-light: #A67B52;
-      --bg: #0D0D0D;
-      --panel: #181818;
-      --panel-mid: #1f1f1f;
-      --green: #34C759;
-      --white: #FFFFFF;
-      --white-90: rgba(255,255,255,0.9);
-      --white-80: rgba(255,255,255,0.8);
-      --white-70: rgba(255,255,255,0.7);
-      --white-20: rgba(255,255,255,0.2);
-      --white-10: rgba(255,255,255,0.1);
-      --white-05: rgba(255,255,255,0.05);
+      --bg: #111111;
+      --surface: #191919;
+      --surface-2: #1e1e1e;
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(255,255,255,0.15);
+      --accent: #FF6B35;
+      --accent-subtle: rgba(255,107,53,0.08);
+      --accent-border: rgba(255,107,53,0.15);
+      --text: #EDEDEC;
+      --text-secondary: rgba(255,255,255,0.6);
+      --text-tertiary: rgba(255,255,255,0.4);
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       background: var(--bg);
-      color: var(--white-80);
-      font-family: system-ui, -apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+      color: var(--text-secondary);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       font-size: 16px;
-      line-height: 1.75;
+      line-height: 1.7;
     }
 
     /* ─── LOGO ─── */
     .logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; }
     .logo-icon {
-      width: 40px; height: 40px; border-radius: 10px;
-      background: linear-gradient(135deg, #FF8F66, #FF6B35);
+      width: 32px; height: 32px; border-radius: 10px;
+      background: var(--accent);
       display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; box-shadow: 0 3px 10px rgba(229,90,37,0.25);
+      flex-shrink: 0;
     }
-    .logo-icon svg { width: 24px; height: 24px; }
-    .logo-name { font-family: ui-rounded, 'SF Pro Rounded', system-ui, -apple-system, sans-serif; font-size: 22px; font-weight: 800; color: var(--white); letter-spacing: -0.5px; }
+    .logo-icon svg { width: 18px; height: 18px; }
+    .logo-name { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-size: 18px; font-weight: 600; color: var(--text); }
 
     /* ─── NAV ─── */
     .site-nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(13,13,13,0.85); border-bottom: 1px solid var(--white-10);
-      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 68px;
+      background: rgba(17,17,17,0.8); border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 56px;
     }
     .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
-    .nav-links a { color: var(--white-80); text-decoration: none; font-size: 15px; font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--orange); }
+    .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--accent); }
     .btn-nav {
-      background: var(--orange); color: var(--white) !important;
-      padding: 10px 22px; border-radius: 8px; font-weight: 700 !important;
-      font-size: 14px !important; letter-spacing: 0.5px;
-      box-shadow: 0 4px 14px rgba(255,107,53,0.25); transition: transform 0.15s, box-shadow 0.15s !important;
+      background: var(--accent); color: #fff !important;
+      padding: 7px 16px; border-radius: 6px; font-weight: 500 !important;
+      font-size: 13px !important; transition: opacity 0.2s !important;
     }
-    .btn-nav:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,107,53,0.35) !important; }
+    .btn-nav:hover { opacity: 0.9; }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 6px; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
-    .mobile-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; background: #111; border-bottom: 1px solid var(--white-10); padding: 24px 5%; flex-direction: column; gap: 20px; z-index: 99; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; }
+    .mobile-menu { display: none; position: fixed; top: 56px; left: 0; right: 0; background: var(--surface); border-bottom: 1px solid var(--border); padding: 24px 32px; flex-direction: column; gap: 20px; z-index: 99; }
     .mobile-menu.open { display: flex; }
-    .mobile-menu a { color: var(--white-80); text-decoration: none; font-size: 17px; font-weight: 500; }
-    .mobile-menu .btn-nav { text-align: center; padding: 14px; border-radius: 8px; }
+    .mobile-menu a { color: var(--text-secondary); text-decoration: none; font-size: 15px; font-weight: 500; }
+    .mobile-menu .btn-nav { text-align: center; padding: 12px; border-radius: 6px; }
 
     /* ─── PAGE HEADER ─── */
     .page-header {
-      background: var(--panel); border-bottom: 1px solid var(--white-10);
-      padding: 72px 24px 56px; text-align: center;
-      position: relative; overflow: hidden;
-    }
-    .page-header::before {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse 70% 60% at 50% 120%, rgba(255,107,53,0.06) 0%, transparent 70%);
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 80px 24px 64px;
+      text-align: center;
     }
     .wordmark {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 13px; font-weight: 600; letter-spacing: 1px;
-      color: var(--orange-light); text-transform: uppercase;
-      margin-bottom: 24px; position: relative;
-    }
-    .wordmark::before {
-      content: ''; width: 7px; height: 7px; border-radius: 50%;
-      background: var(--orange); flex-shrink: 0;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 12px; font-weight: 500; letter-spacing: 0.04em;
+      color: var(--accent); text-transform: uppercase;
+      margin-bottom: 24px;
     }
     .page-header h1 {
-      font-family: ui-rounded, 'SF Pro Rounded', system-ui, -apple-system, sans-serif;
-      font-size: clamp(36px, 5vw, 58px); font-weight: 800;
-      letter-spacing: -1px; line-height: 1.1;
-      color: var(--white); position: relative; margin-bottom: 16px;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: clamp(32px, 4vw, 44px); font-weight: 600;
+      letter-spacing: -0.02em; line-height: 1.1;
+      color: var(--text); margin-bottom: 16px;
     }
-    .page-header h1 em { font-style: normal; color: var(--orange); }
-    .header-meta { font-size: 13px; color: var(--white-70); position: relative; letter-spacing: 0.5px; }
+    .page-header h1 em { font-style: normal; color: var(--accent); }
+    .header-meta { font-size: 13px; font-weight: 400; color: var(--text-tertiary); }
 
     /* ─── LAYOUT ─── */
-    .wrapper { max-width: 760px; margin: 0 auto; padding: 64px 24px 96px; }
+    .wrapper { max-width: 680px; margin: 0 auto; padding: 64px 24px 120px; }
 
     /* ─── TOC ─── */
     .toc {
-      background: var(--panel); border: 1px solid var(--white-10);
-      border-radius: 14px; padding: 28px 32px; margin-bottom: 56px;
-      position: relative; overflow: hidden;
-    }
-    .toc::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, var(--orange-light), var(--orange));
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 24px 28px; margin-bottom: 56px;
     }
     .toc-label {
-      font-size: 11px; font-weight: 700; letter-spacing: 1px;
-      text-transform: uppercase; color: var(--orange-light); margin-bottom: 18px;
+      font-size: 12px; font-weight: 500; letter-spacing: 0.04em;
+      text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 16px;
     }
-    .toc ol { list-style: none; counter-reset: toc; display: flex; flex-direction: column; gap: 2px; margin: 0; padding: 0; }
+    .toc ol { list-style: none; counter-reset: toc; display: flex; flex-direction: column; gap: 0; margin: 0; padding: 0; }
     .toc li { counter-increment: toc; margin: 0; padding: 0; list-style: none; display: block; }
     .toc a {
-      color: var(--white-80); text-decoration: none; font-size: 14px; font-weight: 500;
-      display: flex; align-items: center; gap: 12px; transition: color 0.2s; padding: 5px 0;
+      color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 400;
+      display: flex; align-items: center; gap: 12px; transition: color 0.2s; padding: 6px 0;
     }
     .toc a::before {
       content: counter(toc, decimal-leading-zero);
-      font-size: 11px; font-weight: 700; color: var(--orange-light);
-      background: rgba(255,107,53,0.06); border: 1px solid rgba(255,143,102,0.2);
-      border-radius: 4px; padding: 2px 8px; flex-shrink: 0; min-width: 32px; text-align: center;
+      font-size: 14px; font-weight: 400; color: var(--text-tertiary);
+      font-variant-numeric: tabular-nums;
+      flex-shrink: 0; min-width: 20px;
     }
-    .toc a:hover { color: var(--orange); }
-    .toc a:hover::before { background: rgba(255,107,53,0.12); }
+    .toc a:hover { color: var(--text); }
 
     /* ─── SECTIONS ─── */
-    section { margin-bottom: 52px; }
-    .section-eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-    .section-num { font-size: 11px; font-weight: 700; letter-spacing: 0.8px; color: var(--white-70); text-transform: uppercase; }
-    .section-tag {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
-      background: rgba(255,107,53,0.1); color: var(--orange-light);
-      padding: 3px 10px; border-radius: 100px; border: 1px solid rgba(255,143,102,0.2);
+    section { margin-bottom: 56px; }
+    .section-accent {
+      width: 32px; height: 2px; background: var(--accent); margin-bottom: 20px;
     }
 
-    h2 { font-family: ui-rounded, 'SF Pro Rounded', system-ui, -apple-system, sans-serif; font-size: 26px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 16px; scroll-margin-top: 88px; color: var(--white); line-height: 1.15; }
-    h3 { font-size: 17px; font-weight: 700; color: var(--white-90); margin: 20px 0 10px; }
+    h2 {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 22px; font-weight: 600; letter-spacing: -0.01em;
+      margin-bottom: 16px; scroll-margin-top: 80px; color: var(--text); line-height: 1.2;
+    }
+    h3 { font-size: 16px; font-weight: 600; color: var(--text); margin: 24px 0 8px; }
 
-    .intro-text { font-size: 16px; color: var(--white-80); margin-bottom: 40px; line-height: 1.75; }
-    p { color: var(--white-80); margin-bottom: 14px; }
+    .intro-text { font-size: 15px; color: var(--text-secondary); margin-bottom: 40px; line-height: 1.7; }
+    p { font-size: 15px; font-weight: 400; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
     p:last-child { margin-bottom: 0; }
-    section ul, section ol { margin: 14px 0 14px 20px; color: var(--white-80); }
+    section ul, section ol { margin: 12px 0 12px 20px; color: var(--text-secondary); font-size: 15px; line-height: 1.7; }
     section li { margin-bottom: 6px; }
-    strong { font-weight: 700; color: var(--white-90); }
-    a { color: var(--orange-light); transition: color 0.2s; }
-    a:hover { color: var(--orange); }
+    strong { font-weight: 600; color: var(--text); }
+    a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+    a:hover { text-decoration: underline; }
 
-    /* highlight = blue (trust/stability) */
     .highlight-box {
-      background: rgba(255,107,53,0.08); border: 1px solid rgba(255,143,102,0.25);
-      border-left: 3px solid var(--orange);
-      border-radius: 0 10px 10px 0;
-      padding: 16px 20px; margin: 20px 0; font-size: 14px; color: var(--white-80);
+      background: var(--accent-subtle); border: 1px solid var(--accent-border);
+      border-radius: 8px;
+      padding: 16px 20px; margin: 20px 0; font-size: 14px; color: var(--text-secondary);
     }
 
-    /* warning = orange (caution/action) */
     .warning-box {
-      background: rgba(255,107,53,0.1); border: 1px solid rgba(255,107,53,0.25);
-      border-left: 3px solid var(--orange);
-      border-radius: 0 10px 10px 0;
-      padding: 16px 20px; margin: 20px 0; font-size: 14px; color: var(--white-80);
+      background: var(--accent-subtle); border: 1px solid var(--accent-border);
+      border-radius: 8px;
+      padding: 16px 20px; margin: 20px 0; font-size: 14px; color: var(--text-secondary);
     }
 
     /* ─── PRICING ─── */
     .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
     @media (max-width: 520px) { .pricing-grid { grid-template-columns: 1fr; } }
     .pricing-card {
-      background: var(--panel-mid); border: 1px solid var(--white-10);
-      border-radius: 14px; padding: 28px; text-align: center;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 28px; text-align: center;
     }
     .pricing-card.featured {
-      border-color: var(--orange); background: rgba(255,107,53,0.08);
-      box-shadow: 0 6px 20px rgba(255,107,53,0.25);
+      border-color: var(--accent);
     }
-    .plan-label { font-size: 11px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--white-70); margin-bottom: 10px; }
-    .plan-price { font-size: 48px; font-weight: 900; color: var(--white); line-height: 1; letter-spacing: -2px; }
-    .plan-period { font-size: 13px; color: var(--white-70); margin-top: 6px; }
+    .plan-label { font-size: 12px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 10px; }
+    .plan-price { font-size: 40px; font-weight: 600; color: var(--text); line-height: 1; letter-spacing: -0.02em; }
+    .plan-period { font-size: 13px; font-weight: 400; color: var(--text-tertiary); margin-top: 6px; }
     .plan-trial {
-      display: inline-block; margin-top: 12px; font-size: 12px; font-weight: 700;
-      color: var(--orange); background: rgba(255,107,53,0.15); border: 1px solid rgba(255,107,53,0.3);
-      padding: 4px 12px; border-radius: 100px; letter-spacing: 0.5px;
+      display: inline-block; margin-top: 12px; font-size: 12px; font-weight: 500;
+      color: var(--accent); background: var(--accent-subtle); border: 1px solid var(--accent-border);
+      padding: 4px 12px; border-radius: 100px;
     }
 
-    .caps { font-size: 14px; font-weight: 600; letter-spacing: 0.01em; line-height: 1.65; color: var(--white-80); }
+    .caps { font-size: 13px; font-weight: 500; letter-spacing: 0.01em; line-height: 1.65; color: var(--text-secondary); }
 
     /* ─── FOOTER ─── */
-    footer { background: var(--panel); border-top: 1px solid var(--white-10); padding: 60px 5% 0; }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; max-width: 1100px; margin: 0 auto 48px; }
-    .footer-brand p { margin-top: 16px; font-size: 15px; color: var(--white-70); max-width: 280px; line-height: 1.65; }
-    .footer-col h4 { font-size: 13px; font-weight: 600; letter-spacing: 1px; color: var(--white-70); text-transform: uppercase; margin-bottom: 18px; }
+    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 56px 5% 0; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; max-width: 1100px; margin: 0 auto 48px; }
+    .footer-brand p { margin-top: 16px; font-size: 14px; font-weight: 400; color: var(--text-tertiary); max-width: 280px; line-height: 1.65; }
+    .footer-col h4 { font-size: 12px; font-weight: 500; letter-spacing: 0.04em; color: var(--text-tertiary); text-transform: uppercase; margin-bottom: 18px; }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-    .footer-col a { color: var(--white-80); text-decoration: none; font-size: 15px; transition: color 0.2s; }
-    .footer-col a:hover { color: var(--orange); }
-    .footer-strip { background: var(--secondary); padding: 16px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-    .footer-strip-text { font-size: 13px; font-weight: 600; letter-spacing: 1px; color: rgba(255,255,255,0.7); text-transform: uppercase; }
-    .footer-strip-text span { color: var(--orange-light); }
-    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.6); }
+    .footer-col a { color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 400; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--text); text-decoration: none; }
+    .footer-bottom { background: var(--bg); padding: 16px 5%; font-size: 12px; color: var(--text-tertiary); border-top: 1px solid var(--border); text-align: center; }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 768px) {
+      .site-nav { padding: 0 5%; }
       .nav-links { display: none; }
       .hamburger { display: flex; }
       .footer-grid { grid-template-columns: 1fr; gap: 36px; }
-      .footer-strip { flex-direction: column; text-align: center; }
     }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
+      from { opacity: 0; transform: translateY(10px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    .wrapper > * { animation: fadeUp 0.5s ease both; }
+    .wrapper > * { animation: fadeUp 0.4s ease both; }
     .wrapper > *:nth-child(1) { animation-delay: 0.05s; }
     .wrapper > *:nth-child(2) { animation-delay: 0.10s; }
     .wrapper > *:nth-child(3) { animation-delay: 0.15s; }
@@ -227,7 +202,7 @@
 </head>
 <body>
 
-<!-- ═══ NAV ═══ -->
+<!-- ─── NAV ─── -->
 <nav class="site-nav">
   <a href="index.html" class="logo-wrap">
     <div class="logo-icon">
@@ -245,7 +220,7 @@
     <li><a href="features.html">Features</a></li>
     <li><a href="how-it-works.html">How It Works</a></li>
     <li><a href="privacy-policy.html">Privacy</a></li>
-    <li><a href="terms-of-service.html" style="color:var(--orange)">Terms</a></li>
+    <li><a href="terms-of-service.html" class="active">Terms</a></li>
     <li><a href="index.html#download" class="btn-nav">Download App</a></li>
   </ul>
   <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
@@ -260,11 +235,11 @@
   <a href="index.html#download" class="btn-nav">Download App</a>
 </div>
 
-<!-- ═══ PAGE HEADER ═══ -->
+<!-- ─── PAGE HEADER ─── -->
 <div class="page-header">
-  <div class="wordmark">GigWallet</div>
+  <div class="wordmark">GIGWALLET</div>
   <h1>Terms of <em>Service</em></h1>
-  <p class="header-meta">Effective Date: February 19, 2026 &nbsp;·&nbsp; Last Updated: February 19, 2026</p>
+  <p class="header-meta">Effective Date: February 19, 2026 &nbsp;&middot;&nbsp; Last Updated: February 19, 2026</p>
 </div>
 
 <div class="wrapper">
@@ -294,19 +269,19 @@
   <p class="intro-text">Please read these Terms of Service ("Terms") carefully before using Gigwallet ("App," "Service," "we," "us," or "our"). By downloading, installing, or using Gigwallet, you agree to be bound by these Terms. If you do not agree, do not use the App.</p>
 
   <section id="acceptance">
-    <div class="section-eyebrow"><span class="section-num">01</span><span class="section-tag">Agreement</span></div>
+    <div class="section-accent"></div>
     <h2>Acceptance of Terms</h2>
     <p>By creating an account or using any part of Gigwallet, you confirm that you have read, understood, and agree to these Terms and our <a href="privacy-policy.html">Privacy Policy</a>, which is incorporated herein by reference. These Terms constitute a binding legal agreement between you and Gigwallet.</p>
   </section>
 
   <section id="eligibility">
-    <div class="section-eyebrow"><span class="section-num">02</span><span class="section-tag">Eligibility</span></div>
+    <div class="section-accent"></div>
     <h2>Eligibility</h2>
     <p>You must be at least 18 years of age to use Gigwallet. By using the App, you represent and warrant that you are 18 or older and have the legal capacity to enter into a binding agreement. The App is intended for use in the United States.</p>
   </section>
 
   <section id="subscription">
-    <div class="section-eyebrow"><span class="section-num">03</span><span class="section-tag">Subscription</span></div>
+    <div class="section-accent"></div>
     <h2>Subscription Plans &amp; Pricing</h2>
     <p>Gigwallet offers access to premium features through auto-renewable subscriptions managed by Apple via the App Store. The following plans are available:</p>
     <div class="pricing-grid">
@@ -329,7 +304,7 @@
   </section>
 
   <section id="free-trial">
-    <div class="section-eyebrow"><span class="section-num">04</span><span class="section-tag">Free Trial</span></div>
+    <div class="section-accent"></div>
     <h2>Free Trial</h2>
     <p>New subscribers to the Annual plan are eligible for a <strong>7-day free trial</strong>. The following terms apply:</p>
     <ul>
@@ -342,7 +317,7 @@
   </section>
 
   <section id="cancellation">
-    <div class="section-eyebrow"><span class="section-num">05</span><span class="section-tag">Cancellation</span></div>
+    <div class="section-accent"></div>
     <h2>Cancellation Policy</h2>
     <p>You may cancel your subscription at any time through Apple's App Store. Gigwallet does not process subscription changes directly.</p>
     <p><strong>To cancel your subscription:</strong></p>
@@ -359,7 +334,7 @@
   </section>
 
   <section id="billing">
-    <div class="section-eyebrow"><span class="section-num">06</span><span class="section-tag">Billing</span></div>
+    <div class="section-accent"></div>
     <h2>Billing &amp; Renewals</h2>
     <p>Subscriptions automatically renew at the end of each billing period unless you cancel at least 24 hours before the current period ends. Your Apple ID account will be charged for renewal within 24 hours prior to the end of the current period.</p>
 
@@ -379,7 +354,7 @@
   </section>
 
   <section id="disclaimer">
-    <div class="section-eyebrow"><span class="section-num">07</span><span class="section-tag">Important</span></div>
+    <div class="section-accent"></div>
     <h2>Disclaimer — Estimates, Not Tax Advice</h2>
     <div class="warning-box">
       <strong>Gigwallet provides financial estimates and tools for informational purposes only. The App does not provide tax, legal, or financial advice.</strong>
@@ -390,7 +365,7 @@
   </section>
 
   <section id="acceptable-use">
-    <div class="section-eyebrow"><span class="section-num">08</span><span class="section-tag">Use</span></div>
+    <div class="section-accent"></div>
     <h2>Acceptable Use</h2>
     <p>You agree to use Gigwallet only for lawful purposes. You agree not to:</p>
     <ul>
@@ -405,14 +380,14 @@
   </section>
 
   <section id="intellectual-property">
-    <div class="section-eyebrow"><span class="section-num">09</span><span class="section-tag">IP</span></div>
+    <div class="section-accent"></div>
     <h2>Intellectual Property</h2>
     <p>All content, design, code, trademarks, logos, and materials within Gigwallet are the exclusive property of Gigwallet or its licensors. Your subscription grants you a limited, non-exclusive, non-transferable license to use the App for personal, non-commercial purposes.</p>
     <p>You retain ownership of any data you input into the App. By using the App, you grant us a limited license to process that data solely to provide the services described in our Privacy Policy.</p>
   </section>
 
   <section id="liability">
-    <div class="section-eyebrow"><span class="section-num">10</span><span class="section-tag">Liability</span></div>
+    <div class="section-accent"></div>
     <h2>Limitation of Liability</h2>
     <p class="caps">TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, GIGWALLET AND ITS OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, AND LICENSORS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, LOSS OF DATA, LOSS OF GOODWILL, BUSINESS INTERRUPTION, OR ANY OTHER INTANGIBLE LOSSES, ARISING OUT OF OR RELATED TO YOUR USE OF OR INABILITY TO USE THE APP.</p>
     <p class="caps">IN NO EVENT SHALL GIGWALLET'S TOTAL AGGREGATE LIABILITY TO YOU EXCEED THE GREATER OF (A) THE AMOUNT YOU PAID TO GIGWALLET IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM, OR (B) ONE HUNDRED DOLLARS ($100.00 USD).</p>
@@ -420,27 +395,27 @@
   </section>
 
   <section id="indemnification">
-    <div class="section-eyebrow"><span class="section-num">11</span><span class="section-tag">Indemnity</span></div>
+    <div class="section-accent"></div>
     <h2>Indemnification</h2>
     <p>You agree to indemnify, defend, and hold harmless Gigwallet and its affiliates, officers, directors, employees, and agents from and against any claims, damages, obligations, losses, liabilities, costs, or expenses (including reasonable attorneys' fees) arising from: (a) your use of the App; (b) your violation of any term of these Terms; or (c) your violation of any third-party right, including any intellectual property or privacy right.</p>
   </section>
 
   <section id="termination">
-    <div class="section-eyebrow"><span class="section-num">12</span><span class="section-tag">Termination</span></div>
+    <div class="section-accent"></div>
     <h2>Termination</h2>
     <p>We reserve the right to suspend or terminate your account at our sole discretion, with or without notice, for conduct that violates these Terms or is harmful to other users, us, or third parties.</p>
     <p>You may terminate your account at any time by deleting it in Settings. Upon termination, your right to use the App ceases immediately. Sections 7, 10, 11, and 14 of these Terms shall survive termination.</p>
   </section>
 
   <section id="dispute-resolution">
-    <div class="section-eyebrow"><span class="section-num">13</span><span class="section-tag">Disputes</span></div>
+    <div class="section-accent"></div>
     <h2>Dispute Resolution &amp; Arbitration</h2>
     <div class="warning-box">
       <strong>Please read this section carefully. It affects your legal rights, including your right to file a lawsuit in court and your right to a jury trial.</strong>
     </div>
 
     <h3>Informal Resolution First</h3>
-    <p>Before initiating any formal dispute, you agree to contact us at <a href="/cdn-cgi/l/email-protection#0f676a6363604f686668786e63636a7b216e7f7f"><span class="__cf_email__" data-cfemail="264e434a4a4966414f4151474a4a435208475656">[email&#160;protected]</span></a> and give us a reasonable opportunity — at least 30 days — to resolve the issue informally. Most concerns can be addressed quickly this way and we genuinely prefer it.</p>
+    <p>Before initiating any formal dispute, you agree to contact us at <a href="mailto:legal@gigwallet.app">legal@gigwallet.app</a> and give us a reasonable opportunity — at least 30 days — to resolve the issue informally. Most concerns can be addressed quickly this way and we genuinely prefer it.</p>
 
     <h3>Binding Arbitration</h3>
     <p>If we cannot resolve a dispute informally, <strong>you and Gigwallet agree to resolve any dispute, claim, or controversy arising out of or relating to these Terms or the App through binding individual arbitration</strong>, rather than in court, except as set forth below.</p>
@@ -454,41 +429,41 @@
     <p>Notwithstanding the above, either party may bring an individual action in small claims court for disputes within that court's jurisdiction. Either party may also seek emergency injunctive relief in a court of competent jurisdiction to prevent irreparable harm pending arbitration, without waiving the right to arbitration.</p>
 
     <h3>Opt-Out Right</h3>
-    <p>You have the right to opt out of binding arbitration within <strong>30 days</strong> of first accepting these Terms by sending a written notice to <a href="/cdn-cgi/l/email-protection#0d65686161624d6a646a7a6c61616879236c7d7d"><span class="__cf_email__" data-cfemail="533b363f3f3c13343a3424323f3f36277d322323">[email&#160;protected]</span></a> with the subject line "Arbitration Opt-Out" and your name and the email address associated with your account. If you opt out, all disputes will be resolved as set forth in Section 14 below.</p>
+    <p>You have the right to opt out of binding arbitration within <strong>30 days</strong> of first accepting these Terms by sending a written notice to <a href="mailto:legal@gigwallet.app">legal@gigwallet.app</a> with the subject line "Arbitration Opt-Out" and your name and the email address associated with your account. If you opt out, all disputes will be resolved as set forth in Section 14 below.</p>
   </section>
 
   <section id="governing-law">
-    <div class="section-eyebrow"><span class="section-num">14</span><span class="section-tag">Legal</span></div>
+    <div class="section-accent"></div>
     <h2>Governing Law</h2>
     <p>These Terms shall be governed by and construed in accordance with the laws of the State of California, without regard to its conflict of law provisions. To the extent any dispute is not subject to arbitration under Section 13, you agree to submit to the personal and exclusive jurisdiction of the state and federal courts located in California.</p>
     <p>If any provision of these Terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary so that these Terms will otherwise remain in full force and effect.</p>
   </section>
 
   <section id="changes">
-    <div class="section-eyebrow"><span class="section-num">15</span><span class="section-tag">Updates</span></div>
+    <div class="section-accent"></div>
     <h2>Changes to These Terms</h2>
     <p>We reserve the right to modify these Terms at any time. When we make material changes, we will notify you via in-app notification or email at least 14 days before the changes become effective. Your continued use of the App after changes take effect constitutes your acceptance of the revised Terms.</p>
   </section>
 
   <section id="contact">
-    <div class="section-eyebrow"><span class="section-num">16</span><span class="section-tag">Contact</span></div>
+    <div class="section-accent"></div>
     <h2>Contact</h2>
     <p>If you have any questions about these Terms of Service, please contact us:</p>
     <ul>
-      <li><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#c2aaa7aeaead82a5aba5b5a3aeaea7b6eca3b2b2"><span class="__cf_email__" data-cfemail="e48c8188888ba4838d83938588888190ca859494">[email&#160;protected]</span></a></li>
+      <li><strong>Email:</strong> <a href="mailto:legal@gigwallet.app">legal@gigwallet.app</a></li>
       <li><strong>Website:</strong> <a href="https://gigwallet.app">gigwallet.app</a></li>
     </ul>
   </section>
 
 </div><!-- /.wrapper -->
 
-<!-- ═══ FOOTER ═══ -->
+<!-- ─── FOOTER ─── -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
       <a href="index.html" class="logo-wrap">
-        <div class="logo-icon" style="width:34px;height:34px;border-radius:8px;box-shadow:0 2px 8px rgba(229,90,37,0.2);">
-          <svg viewBox="0 0 24 24" fill="none" style="width:20px;height:20px;">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" style="width:18px;height:18px;">
             <rect x="2" y="6" width="20" height="14" rx="3" fill="white"/>
             <rect x="14" y="10" width="6" height="6" rx="2" fill="#FF6B35"/>
             <circle cx="17" cy="13" r="1.2" fill="white"/>
@@ -496,7 +471,7 @@
             <rect x="5" y="4" width="4" height="4" rx="1.5" fill="rgba(255,255,255,0.5)"/>
           </svg>
         </div>
-        <span class="logo-name" style="font-size:18px;">GigWallet</span>
+        <span class="logo-name">GigWallet</span>
       </a>
       <p>The personal finance command center for gig workers and freelancers. Know what you earn. Keep what you make.</p>
     </div>
@@ -513,6 +488,12 @@
       <ul>
         <li><a href="privacy-policy.html">Privacy Policy</a></li>
         <li><a href="terms-of-service.html">Terms of Service</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#365e535a5a5976515f5141575a5a534218574646">Contact</a></li>
+        <li><a href="mailto:legal@gigwallet.app">Contact</a></li>
       </ul>
-   
+    </div>
+  </div>
+</footer>
+<div class="footer-bottom">&copy; 2026 GigWallet. All rights reserved.</div>
+
+</body>
+</html>
