@@ -13,12 +13,12 @@
       --orange: #FF6B35;
       --orange-light: #FF8F66;
       --orange-dark: #E55A25;
-      --blue: #004E89;
-      --blue-light: #1A6BAF;
+      --secondary: #8B5E34;
+      --secondary-light: #A67B52;
       --bg: #0D0D0D;
       --panel: #181818;
       --panel-mid: #1f1f1f;
-      --green: #4ADE80;
+      --green: #34C759;
       --white: #FFFFFF;
       --white-90: rgba(255,255,255,0.9);
       --white-80: rgba(255,255,255,0.8);
@@ -33,7 +33,7 @@
     body {
       background: var(--bg);
       color: var(--white-80);
-      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-family: system-ui, -apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
       font-size: 16px;
       line-height: 1.75;
     }
@@ -44,15 +44,16 @@
       width: 40px; height: 40px; border-radius: 10px;
       background: linear-gradient(135deg, #FF8F66, #FF6B35);
       display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; box-shadow: 4px 4px 0 var(--orange-dark);
+      flex-shrink: 0; box-shadow: 0 3px 10px rgba(229,90,37,0.25);
     }
     .logo-icon svg { width: 24px; height: 24px; }
-    .logo-name { font-size: 22px; font-weight: 800; color: var(--white); letter-spacing: -0.5px; }
+    .logo-name { font-family: ui-rounded, 'SF Pro Rounded', system-ui, -apple-system, sans-serif; font-size: 22px; font-weight: 800; color: var(--white); letter-spacing: -0.5px; }
 
     /* ─── NAV ─── */
     .site-nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(13,13,13,0.96); border-bottom: 1px solid var(--white-10);
+      background: rgba(13,13,13,0.85); border-bottom: 1px solid var(--white-10);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
       padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 68px;
     }
     .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
@@ -62,9 +63,9 @@
       background: var(--orange); color: var(--white) !important;
       padding: 10px 22px; border-radius: 8px; font-weight: 700 !important;
       font-size: 14px !important; letter-spacing: 0.5px;
-      box-shadow: 4px 4px 0 var(--blue); transition: transform 0.15s, box-shadow 0.15s !important;
+      box-shadow: 0 4px 14px rgba(255,107,53,0.25); transition: transform 0.15s, box-shadow 0.15s !important;
     }
-    .btn-nav:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--blue) !important; }
+    .btn-nav:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,107,53,0.35) !important; }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 6px; }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
     .mobile-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; background: #111; border-bottom: 1px solid var(--white-10); padding: 24px 5%; flex-direction: column; gap: 20px; z-index: 99; }
@@ -80,11 +81,11 @@
     }
     .page-header::before {
       content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse 70% 60% at 50% 120%, rgba(0,78,137,0.2) 0%, transparent 70%);
+      background: radial-gradient(ellipse 70% 60% at 50% 120%, rgba(255,107,53,0.06) 0%, transparent 70%);
     }
     .wordmark {
       display: inline-flex; align-items: center; gap: 8px;
-      font-size: 13px; font-weight: 700; letter-spacing: 2.5px;
+      font-size: 13px; font-weight: 600; letter-spacing: 1px;
       color: var(--orange-light); text-transform: uppercase;
       margin-bottom: 24px; position: relative;
     }
@@ -93,8 +94,9 @@
       background: var(--orange); flex-shrink: 0;
     }
     .page-header h1 {
-      font-size: clamp(36px, 5vw, 58px); font-weight: 900;
-      letter-spacing: -2px; line-height: 1.1;
+      font-family: ui-rounded, 'SF Pro Rounded', system-ui, -apple-system, sans-serif;
+      font-size: clamp(36px, 5vw, 58px); font-weight: 800;
+      letter-spacing: -1px; line-height: 1.1;
       color: var(--white); position: relative; margin-bottom: 16px;
     }
     .page-header h1 em { font-style: normal; color: var(--orange); }
@@ -111,11 +113,11 @@
     }
     .toc::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, var(--blue-light), var(--blue));
+      background: linear-gradient(90deg, var(--orange-light), var(--orange));
     }
     .toc-label {
-      font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
-      text-transform: uppercase; color: var(--blue-light); margin-bottom: 18px;
+      font-size: 11px; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--orange-light); margin-bottom: 18px;
     }
     .toc ol { list-style: none; counter-reset: toc; display: flex; flex-direction: column; gap: 2px; margin: 0; padding: 0; }
     .toc li { counter-increment: toc; margin: 0; padding: 0; list-style: none; display: block; }
@@ -125,24 +127,24 @@
     }
     .toc a::before {
       content: counter(toc, decimal-leading-zero);
-      font-size: 11px; font-weight: 700; color: var(--blue-light);
-      background: rgba(0,78,137,0.2); border: 1px solid rgba(26,107,175,0.3);
+      font-size: 11px; font-weight: 700; color: var(--orange-light);
+      background: rgba(255,107,53,0.06); border: 1px solid rgba(255,143,102,0.2);
       border-radius: 4px; padding: 2px 8px; flex-shrink: 0; min-width: 32px; text-align: center;
     }
     .toc a:hover { color: var(--orange); }
-    .toc a:hover::before { background: rgba(0,78,137,0.4); }
+    .toc a:hover::before { background: rgba(255,107,53,0.12); }
 
     /* ─── SECTIONS ─── */
     section { margin-bottom: 52px; }
     .section-eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-    .section-num { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: var(--white-70); text-transform: uppercase; }
+    .section-num { font-size: 11px; font-weight: 700; letter-spacing: 0.8px; color: var(--white-70); text-transform: uppercase; }
     .section-tag {
-      font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-      background: rgba(0,78,137,0.3); color: var(--blue-light);
-      padding: 3px 10px; border-radius: 100px; border: 1px solid rgba(26,107,175,0.3);
+      font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+      background: rgba(255,107,53,0.1); color: var(--orange-light);
+      padding: 3px 10px; border-radius: 100px; border: 1px solid rgba(255,143,102,0.2);
     }
 
-    h2 { font-size: 26px; font-weight: 800; letter-spacing: -0.8px; margin-bottom: 16px; scroll-margin-top: 88px; color: var(--white); line-height: 1.15; }
+    h2 { font-family: ui-rounded, 'SF Pro Rounded', system-ui, -apple-system, sans-serif; font-size: 26px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 16px; scroll-margin-top: 88px; color: var(--white); line-height: 1.15; }
     h3 { font-size: 17px; font-weight: 700; color: var(--white-90); margin: 20px 0 10px; }
 
     .intro-text { font-size: 16px; color: var(--white-80); margin-bottom: 40px; line-height: 1.75; }
@@ -156,8 +158,8 @@
 
     /* highlight = blue (trust/stability) */
     .highlight-box {
-      background: rgba(0,78,137,0.25); border: 1px solid rgba(26,107,175,0.4);
-      border-left: 3px solid var(--blue-light);
+      background: rgba(255,107,53,0.08); border: 1px solid rgba(255,143,102,0.25);
+      border-left: 3px solid var(--orange);
       border-radius: 0 10px 10px 0;
       padding: 16px 20px; margin: 20px 0; font-size: 14px; color: var(--white-80);
     }
@@ -179,9 +181,9 @@
     }
     .pricing-card.featured {
       border-color: var(--orange); background: rgba(255,107,53,0.08);
-      box-shadow: 6px 6px 0 var(--blue);
+      box-shadow: 0 6px 20px rgba(255,107,53,0.25);
     }
-    .plan-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--white-70); margin-bottom: 10px; }
+    .plan-label { font-size: 11px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--white-70); margin-bottom: 10px; }
     .plan-price { font-size: 48px; font-weight: 900; color: var(--white); line-height: 1; letter-spacing: -2px; }
     .plan-period { font-size: 13px; color: var(--white-70); margin-top: 6px; }
     .plan-trial {
@@ -196,12 +198,12 @@
     footer { background: var(--panel); border-top: 1px solid var(--white-10); padding: 60px 5% 0; }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; max-width: 1100px; margin: 0 auto 48px; }
     .footer-brand p { margin-top: 16px; font-size: 15px; color: var(--white-70); max-width: 280px; line-height: 1.65; }
-    .footer-col h4 { font-size: 13px; font-weight: 700; letter-spacing: 2px; color: var(--white-70); text-transform: uppercase; margin-bottom: 18px; }
+    .footer-col h4 { font-size: 13px; font-weight: 600; letter-spacing: 1px; color: var(--white-70); text-transform: uppercase; margin-bottom: 18px; }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
     .footer-col a { color: var(--white-80); text-decoration: none; font-size: 15px; transition: color 0.2s; }
     .footer-col a:hover { color: var(--orange); }
-    .footer-strip { background: var(--blue); padding: 16px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-    .footer-strip-text { font-size: 14px; font-weight: 700; letter-spacing: 3px; color: rgba(255,255,255,0.7); text-transform: uppercase; }
+    .footer-strip { background: var(--secondary); padding: 16px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-strip-text { font-size: 13px; font-weight: 600; letter-spacing: 1px; color: rgba(255,255,255,0.7); text-transform: uppercase; }
     .footer-strip-text span { color: var(--orange-light); }
     .footer-copy { font-size: 13px; color: rgba(255,255,255,0.6); }
 
@@ -485,7 +487,7 @@
   <div class="footer-grid">
     <div class="footer-brand">
       <a href="index.html" class="logo-wrap">
-        <div class="logo-icon" style="width:34px;height:34px;border-radius:8px;box-shadow:3px 3px 0 var(--orange-dark);">
+        <div class="logo-icon" style="width:34px;height:34px;border-radius:8px;box-shadow:0 2px 8px rgba(229,90,37,0.2);">
           <svg viewBox="0 0 24 24" fill="none" style="width:20px;height:20px;">
             <rect x="2" y="6" width="20" height="14" rx="3" fill="white"/>
             <rect x="14" y="10" width="6" height="6" rx="2" fill="#FF6B35"/>
