@@ -11,6 +11,7 @@
   <meta property="og:url" content="https://gigwallet.app/features.html">
   <meta property="og:image" content="https://gigwallet.app/og-image.png">
   <link rel="canonical" href="https://gigwallet.app/features.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -20,24 +21,24 @@
       --orange-dark: #E55A25;
       --secondary: #8B5E34;
       --secondary-light: #A67B52;
-      --bg: #0D0D0D;
-      --panel: #181818;
+      --bg: #FFFFFF;
+      --bg-warm: #F7F7F5;
+      --panel: #F7F7F5;
       --green: #34C759;
+      --text: #37352F;
+      --text-secondary: #787774;
+      --text-tertiary: #B4B4B0;
+      --border: rgba(55,53,47,0.09);
+      --border-light: rgba(55,53,47,0.06);
       --white: #FFFFFF;
-      --white-90: rgba(255,255,255,0.9);
-      --white-80: rgba(255,255,255,0.8);
-      --white-70: rgba(255,255,255,0.7);
-      --white-20: rgba(255,255,255,0.2);
-      --white-10: rgba(255,255,255,0.1);
-      --white-05: rgba(255,255,255,0.05);
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       background: var(--bg);
-      color: var(--white);
-      font-family: system-ui, -apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
       font-size: 18px;
       line-height: 1.6;
       overflow-x: hidden;
@@ -54,46 +55,46 @@
       flex-shrink: 0; box-shadow: 0 3px 10px rgba(229,90,37,0.25);
     }
     .logo-icon svg { width: 24px; height: 24px; }
-    .logo-name { font-family: ui-rounded, 'SF Pro Rounded', system-ui, -apple-system, sans-serif; font-size: 22px; font-weight: 800; color: var(--white); letter-spacing: -0.5px; }
+    .logo-name { font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif; font-size: 22px; font-weight: 800; color: var(--text); letter-spacing: -0.5px; }
 
     /* ─── NAV ─── */
     nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(13,13,13,0.85);
+      background: rgba(255,255,255,0.85);
       backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--white-10);
+      border-bottom: 1px solid var(--border);
       padding: 0 5%;
       display: flex; align-items: center; justify-content: space-between;
       height: 68px;
     }
     .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
     .nav-links a {
-      color: var(--white-80); text-decoration: none;
+      color: var(--text-secondary); text-decoration: none;
       font-size: 15px; font-weight: 500; letter-spacing: 0.2px; transition: color 0.2s;
     }
     .nav-links a:hover, .nav-links a.active { color: var(--orange); }
     .btn-nav {
       background: var(--orange); color: var(--white) !important;
-      padding: 10px 22px; border-radius: 8px;
+      padding: 10px 22px; border-radius: 10px;
       font-weight: 700 !important; font-size: 14px !important; letter-spacing: 0.5px;
-      box-shadow: 0 4px 14px rgba(255,107,53,0.25);
+      box-shadow: 0 1px 6px rgba(255,107,53,0.2);
       transition: transform 0.15s, box-shadow 0.15s !important;
     }
-    .btn-nav:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,107,53,0.35) !important; }
+    .btn-nav:hover { transform: translateY(-2px); box-shadow: 0 3px 12px rgba(255,107,53,0.3) !important; }
 
     .hamburger {
       display: none; flex-direction: column; gap: 5px;
       cursor: pointer; background: none; border: none; padding: 6px;
     }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; }
     .mobile-menu {
       display: none; position: fixed; top: 68px; left: 0; right: 0;
-      background: #111; border-bottom: 1px solid var(--white-10);
+      background: #FAFAFA; border-bottom: 1px solid var(--border);
       padding: 24px 5%; flex-direction: column; gap: 20px; z-index: 99;
     }
     .mobile-menu.open { display: flex; }
-    .mobile-menu a { color: var(--white-80); text-decoration: none; font-size: 17px; font-weight: 500; }
-    .mobile-menu .btn-nav { text-align: center; padding: 14px; border-radius: 8px; }
+    .mobile-menu a { color: var(--text-secondary); text-decoration: none; font-size: 17px; font-weight: 500; }
+    .mobile-menu .btn-nav { text-align: center; padding: 14px; border-radius: 10px; }
 
     /* ─── PAGE HERO ─── */
     .page-hero {
@@ -104,20 +105,20 @@
     }
     .eyebrow {
       display: inline-flex; align-items: center; gap: 8px;
-      background: var(--white-05); border: 1px solid var(--white-10);
+      background: var(--bg-warm); border: 1px solid var(--border);
       border-radius: 100px; padding: 6px 16px;
       font-size: 13px; font-weight: 600; letter-spacing: 1px;
       color: var(--orange-light); text-transform: uppercase; margin-bottom: 24px;
     }
     h1 {
-      font-family: ui-rounded, 'SF Pro Rounded', system-ui, -apple-system, sans-serif;
+      font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif;
       font-size: clamp(40px, 5vw, 64px);
-      font-weight: 800; letter-spacing: -1.5px; line-height: 1.05;
-      color: var(--white); margin-bottom: 20px;
+      font-weight: 800; letter-spacing: -0.02em; line-height: 1.05;
+      color: var(--text); margin-bottom: 20px;
     }
     h1 em { font-style: normal; color: var(--orange); }
     .page-hero p {
-      font-size: 19px; color: var(--white-80); max-width: 600px; margin: 0 auto 36px;
+      font-size: 19px; color: var(--text-secondary); max-width: 600px; margin: 0 auto 36px;
     }
 
     /* ─── FEATURE NAV PILLS ─── */
@@ -126,9 +127,9 @@
       padding: 0 5% 60px; max-width: 900px; margin: 0 auto;
     }
     .feature-nav a {
-      background: var(--white-05); border: 1px solid var(--white-10);
+      background: var(--bg-warm); border: 1px solid var(--border);
       border-radius: 100px; padding: 8px 18px;
-      font-size: 14px; font-weight: 600; color: var(--white-80);
+      font-size: 14px; font-weight: 600; color: var(--text-secondary);
       text-decoration: none; transition: all 0.2s;
       white-space: nowrap;
     }
@@ -140,7 +141,7 @@
     .feature-section {
       max-width: 1100px; margin: 0 auto;
       padding: 80px 5%;
-      border-top: 1px solid var(--white-10);
+      border-top: 1px solid var(--border);
     }
     .feature-section:first-of-type { border-top: none; }
 
@@ -149,7 +150,7 @@
       align-items: flex-start; margin-bottom: 48px;
     }
     .fs-num {
-      font-family: ui-rounded, 'SF Pro Rounded', system-ui, -apple-system, sans-serif;
+      font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif;
       width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
       background: linear-gradient(135deg, var(--orange-light), var(--orange));
       display: flex; align-items: center; justify-content: center;
@@ -162,12 +163,12 @@
       color: var(--orange); text-transform: uppercase; margin-bottom: 6px;
     }
     h2 {
-      font-family: ui-rounded, 'SF Pro Rounded', system-ui, -apple-system, sans-serif;
+      font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif;
       font-size: clamp(28px, 3vw, 40px); font-weight: 700;
-      letter-spacing: -0.5px; color: var(--white); line-height: 1.1;
+      letter-spacing: -0.02em; color: var(--text); line-height: 1.1;
     }
     .fs-desc {
-      font-size: 17px; color: var(--white-80); margin-top: 8px; max-width: 560px;
+      font-size: 17px; color: var(--text-secondary); margin-top: 8px; max-width: 560px;
     }
 
     /* ─── SUB-FEATURE GRID ─── */
@@ -177,8 +178,8 @@
     .subfeature-grid.col-2 { grid-template-columns: repeat(2, 1fr); }
 
     .sub-card {
-      background: var(--panel); border: 1px solid var(--white-10);
-      border-radius: 14px; padding: 24px;
+      background: var(--panel); border: 1px solid var(--border-light);
+      border-radius: 16px; padding: 24px;
       transition: transform 0.2s, box-shadow 0.2s;
       position: relative; overflow: hidden;
     }
@@ -187,26 +188,26 @@
       background: linear-gradient(90deg, var(--orange-light), var(--orange));
       opacity: 0; transition: opacity 0.2s;
     }
-    .sub-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+    .sub-card:hover { transform: translateY(-3px); box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06); }
     .sub-card:hover::after { opacity: 1; }
 
     .sub-card-icon {
       width: 40px; height: 40px; border-radius: 10px;
-      background: var(--white-05); border: 1px solid var(--white-10);
+      background: var(--bg-warm); border: 1px solid var(--border);
       display: flex; align-items: center; justify-content: center;
       margin-bottom: 14px;
     }
     .sub-card-icon svg { width: 20px; height: 20px; }
     .sub-card h3 {
-      font-size: 17px; font-weight: 700; color: var(--white-90);
+      font-size: 17px; font-weight: 700; color: var(--text);
       letter-spacing: -0.3px; margin-bottom: 8px;
     }
-    .sub-card p { font-size: 14px; color: var(--white-80); line-height: 1.6; }
+    .sub-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
 
     /* bullet list inside cards */
     .sub-card ul { list-style: none; margin-top: 10px; display: flex; flex-direction: column; gap: 6px; }
     .sub-card ul li {
-      font-size: 14px; color: var(--white-80); line-height: 1.5;
+      font-size: 14px; color: var(--text-secondary); line-height: 1.5;
       padding-left: 16px; position: relative;
     }
     .sub-card ul li::before {
@@ -230,7 +231,7 @@
       padding: 4px 12px; font-size: 12px; font-weight: 600;
       letter-spacing: 1px; color: var(--white); text-transform: uppercase; margin-bottom: 8px;
     }
-    .premium-banner h3 { font-family: ui-rounded, 'SF Pro Rounded', system-ui, -apple-system, sans-serif; font-size: 22px; font-weight: 800; color: var(--white); letter-spacing: -0.5px; }
+    .premium-banner h3 { font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif; font-size: 22px; font-weight: 800; color: var(--white); letter-spacing: -0.5px; }
     .premium-banner p { font-size: 15px; color: rgba(255,255,255,0.8); margin-top: 4px; }
     .premium-features {
       display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;
@@ -243,14 +244,14 @@
 
     /* ─── CTA STRIP ─── */
     .cta-strip {
-      background: var(--panel); border-top: 1px solid var(--white-10);
+      background: var(--bg-warm); border-top: 1px solid var(--border);
       padding: 80px 5%; text-align: center;
     }
-    .cta-strip h2 { font-size: clamp(32px, 4vw, 52px); font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; }
+    .cta-strip h2 { font-size: clamp(32px, 4vw, 52px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 12px; }
     .cta-strip h2 em { font-style: normal; color: var(--orange); }
-    .cta-strip p { font-size: 18px; color: var(--white-80); margin-bottom: 36px; }
+    .cta-strip p { font-size: 18px; color: var(--text-secondary); margin-bottom: 36px; }
     .btn-primary {
-      font-family: ui-rounded, 'SF Pro Rounded', system-ui, -apple-system, sans-serif;
+      font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif;
       display: inline-flex; align-items: center; gap: 10px;
       background: var(--orange); color: var(--white); text-decoration: none;
       padding: 18px 32px; border-radius: 12px;
@@ -261,15 +262,15 @@
     .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(255,107,53,0.4); }
 
     /* ─── FOOTER ─── */
-    footer { background: var(--panel); border-top: 1px solid var(--white-10); padding: 60px 5% 0; }
+    footer { background: var(--bg-warm); border-top: 1px solid var(--border); padding: 60px 5% 0; }
     .footer-grid {
       display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px;
       max-width: 1100px; margin: 0 auto 48px;
     }
-    .footer-brand p { margin-top: 16px; font-size: 15px; color: var(--white-70); max-width: 280px; line-height: 1.65; }
-    .footer-col h4 { font-size: 13px; font-weight: 600; letter-spacing: 1px; color: var(--white-70); text-transform: uppercase; margin-bottom: 18px; }
+    .footer-brand p { margin-top: 16px; font-size: 15px; color: var(--text-secondary); max-width: 280px; line-height: 1.65; }
+    .footer-col h4 { font-size: 13px; font-weight: 600; letter-spacing: 1px; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 18px; }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-    .footer-col a { color: var(--white-80); text-decoration: none; font-size: 15px; transition: color 0.2s; }
+    .footer-col a { color: var(--text-tertiary); text-decoration: none; font-size: 15px; transition: color 0.2s; }
     .footer-col a:hover { color: var(--orange); }
     .footer-strip {
       background: var(--secondary); padding: 16px 5%;
@@ -559,7 +560,7 @@
         <h3>All 50 States Supported</h3>
         <p>GigWallet handles multi-state income with per-entry state tracking and state-specific tax rates. Work in Nevada and California? Both are covered.</p>
       </div>
-      <div style="flex:1; min-width: 220px; border-left: 1px solid var(--white-10); padding-left: 40px;">
+      <div style="flex:1; min-width: 220px; border-left: 1px solid var(--border); padding-left: 40px;">
         <div class="sub-card-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z" stroke="#FF6B35" stroke-width="2"/><path d="M8 14s1.5 2 4 2 4-2 4-2" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/><path d="M9 9h.01M15 9h.01" stroke="#FF6B35" stroke-width="3" stroke-linecap="round"/></svg></div>
         <h3>No Surprises, Ever</h3>
         <p>Every dollar earned triggers an instant tax update. By the time a deadline arrives, you've been watching the number build all quarter long.</p>
@@ -674,9 +675,9 @@
       <h3>Earnings Charts</h3>
       <p>Interactive charts with a time range selector — 7 days, 30 days, 90 days, or year-to-date. Switch between three views:</p>
       <ul>
-        <li><strong style="color:var(--white-90);">Earnings</strong> — daily/weekly bar chart with average line</li>
-        <li><strong style="color:var(--white-90);">Net Profit</strong> — income vs. expenses side-by-side</li>
-        <li><strong style="color:var(--white-90);">Platform Breakdown</strong> — donut chart with trip counts</li>
+        <li><strong style="color:var(--text);">Earnings</strong> — daily/weekly bar chart with average line</li>
+        <li><strong style="color:var(--text);">Net Profit</strong> — income vs. expenses side-by-side</li>
+        <li><strong style="color:var(--text);">Platform Breakdown</strong> — donut chart with trip counts</li>
         <li>Interactive data point selection</li>
         <li>Stats grid: avg/day, trips, best day, expense ratio</li>
       </ul>
@@ -689,9 +690,9 @@
       <h3>Customizable Dashboard</h3>
       <p>Reorder and personalize your dashboard with the cards most relevant to you. The dashboard adapts as you build history.</p>
       <ul>
-        <li><strong style="color:var(--white-90);">Action cards:</strong> Work Advisor, Tax Countdown, Earnings Goal</li>
-        <li><strong style="color:var(--white-90);">Insight cards:</strong> Health Score, AI Report, Income Momentum</li>
-        <li><strong style="color:var(--white-90);">Optimize cards:</strong> Heatmap, Tax Bite, Tax Reserve Vault</li>
+        <li><strong style="color:var(--text);">Action cards:</strong> Work Advisor, Tax Countdown, Earnings Goal</li>
+        <li><strong style="color:var(--text);">Insight cards:</strong> Health Score, AI Report, Income Momentum</li>
+        <li><strong style="color:var(--text);">Optimize cards:</strong> Heatmap, Tax Bite, Tax Reserve Vault</li>
         <li>Progressive complexity — advanced cards unlock over time</li>
       </ul>
     </div>

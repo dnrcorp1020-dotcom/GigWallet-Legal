@@ -6,30 +6,34 @@
   <title>GigWallet — Privacy Policy</title>
   <meta name="description" content="GigWallet Privacy Policy — how we collect, store, and protect your data.">
   <link rel="canonical" href="https://gigwallet.app/privacy-policy.html">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #111111;
-      --surface: #191919;
-      --surface-2: #1e1e1e;
-      --border: rgba(255,255,255,0.08);
-      --border-hover: rgba(255,255,255,0.15);
-      --accent: #FF6B35;
-      --accent-subtle: rgba(255,107,53,0.08);
-      --accent-border: rgba(255,107,53,0.15);
-      --text: #EDEDEC;
-      --text-secondary: rgba(255,255,255,0.6);
-      --text-tertiary: rgba(255,255,255,0.4);
+      --orange: #FF6B35;
+      --orange-light: #FF8F66;
+      --orange-dark: #E55A25;
+      --secondary: #8B5E34;
+      --secondary-light: #A67B52;
+      --bg: #FFFFFF;
+      --bg-warm: #F7F7F5;
+      --panel: #F7F7F5;
+      --green: #34C759;
+      --text: #37352F;
+      --text-secondary: #787774;
+      --text-tertiary: #B4B4B0;
+      --border: rgba(55,53,47,0.09);
+      --border-light: rgba(55,53,47,0.06);
+      --white: #FFFFFF;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       background: var(--bg);
-      color: var(--text-secondary);
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
       font-size: 16px;
       line-height: 1.7;
     }
@@ -38,7 +42,7 @@
     .logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; }
     .logo-icon {
       width: 32px; height: 32px; border-radius: 10px;
-      background: var(--accent);
+      background: var(--orange);
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
@@ -52,7 +56,7 @@
     /* ─── NAV ─── */
     .site-nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(17,17,17,0.8);
+      background: rgba(255,255,255,0.85);
       border-bottom: 1px solid var(--border);
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       padding: 0 32px;
@@ -65,12 +69,13 @@
       font-size: 14px; font-weight: 500; transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--text); }
-    .nav-links a.nav-active { color: var(--accent); }
+    .nav-links a.nav-active { color: var(--orange); }
     .btn-nav {
-      background: var(--accent); color: #fff !important;
-      padding: 7px 16px; border-radius: 6px;
+      background: var(--orange); color: #fff !important;
+      padding: 7px 16px; border-radius: 10px;
       font-size: 13px !important; font-weight: 500 !important;
       transition: opacity 0.15s !important;
+      box-shadow: 0 1px 6px rgba(255,107,53,0.2);
     }
     .btn-nav:hover { opacity: 0.9; }
     .hamburger {
@@ -80,7 +85,7 @@
     .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
     .mobile-menu {
       display: none; position: fixed; top: 56px; left: 0; right: 0;
-      background: var(--surface);
+      background: #FAFAFA;
       border-bottom: 1px solid var(--border);
       padding: 24px 32px; flex-direction: column; gap: 20px; z-index: 99;
     }
@@ -89,11 +94,11 @@
       color: var(--text-secondary); text-decoration: none;
       font-size: 15px; font-weight: 500;
     }
-    .mobile-menu .btn-nav { text-align: center; padding: 12px; border-radius: 6px; }
+    .mobile-menu .btn-nav { text-align: center; padding: 12px; border-radius: 10px; }
 
     /* ─── PAGE HEADER ─── */
     .page-header {
-      background: var(--surface);
+      background: var(--bg-warm);
       border-bottom: 1px solid var(--border);
       padding: 80px 24px 64px;
       text-align: center;
@@ -101,16 +106,16 @@
     .wordmark {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
       font-size: 12px; font-weight: 500; letter-spacing: 0.04em;
-      color: var(--accent); text-transform: uppercase;
+      color: var(--orange); text-transform: uppercase;
       margin-bottom: 24px;
     }
     .page-header h1 {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif;
       font-size: clamp(32px, 4vw, 44px); font-weight: 600;
       letter-spacing: -0.02em; line-height: 1.1;
       color: var(--text); margin-bottom: 16px;
     }
-    .page-header h1 em { font-style: normal; color: var(--accent); }
+    .page-header h1 em { font-style: normal; color: var(--orange); }
     .header-meta {
       font-size: 13px; font-weight: 400; color: var(--text-tertiary);
     }
@@ -120,11 +125,12 @@
 
     /* ─── TOC ─── */
     .toc {
-      background: var(--surface);
+      background: var(--bg-warm);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 16px;
       padding: 24px 28px;
       margin-bottom: 56px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06);
     }
     .toc-label {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -156,18 +162,18 @@
 
     .section-divider {
       width: 32px; height: 2px;
-      background: var(--accent);
+      background: var(--orange);
       margin-bottom: 20px;
     }
 
     h2 {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif;
       font-size: 22px; font-weight: 600; letter-spacing: -0.01em;
       margin-bottom: 16px; scroll-margin-top: 80px;
       color: var(--text); line-height: 1.2;
     }
     h3 {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif;
       font-size: 16px; font-weight: 600; color: var(--text);
       margin: 24px 0 8px;
     }
@@ -184,13 +190,13 @@
     }
     section li { margin-bottom: 6px; }
     strong { font-weight: 600; color: var(--text); }
-    a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+    a { color: var(--orange); text-decoration: none; transition: color 0.2s; }
     a:hover { text-decoration: underline; }
 
     .highlight-box {
-      background: var(--accent-subtle);
-      border: 1px solid var(--accent-border);
-      border-radius: 8px;
+      background: rgba(255,107,53,0.06);
+      border: 1px solid rgba(255,107,53,0.12);
+      border-radius: 16px;
       padding: 16px 20px;
       margin: 20px 0;
       font-size: 14px; color: var(--text-secondary);
@@ -198,20 +204,21 @@
 
     .data-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
     .data-card {
-      background: var(--surface);
+      background: var(--white);
       border: 1px solid var(--border);
-      border-radius: 10px;
+      border-radius: 16px;
       padding: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06);
     }
     .data-card-label {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
       font-size: 11px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 6px;
+      color: var(--orange); margin-bottom: 6px;
     }
     .data-card p { font-size: 14px; margin: 0; color: var(--text-secondary); }
 
     /* ─── FOOTER ─── */
-    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 56px 5% 0; }
+    footer { background: var(--bg-warm); border-top: 1px solid var(--border); padding: 56px 5% 0; }
     .footer-grid {
       display: grid; grid-template-columns: 2fr 1fr 1fr;
       gap: 48px; max-width: 1100px; margin: 0 auto 48px;
@@ -221,7 +228,7 @@
       color: var(--text-tertiary); max-width: 280px; line-height: 1.65;
     }
     .footer-col h4 {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif;
       font-size: 12px; font-weight: 500; letter-spacing: 0.04em;
       color: var(--text-tertiary); text-transform: uppercase; margin-bottom: 18px;
     }
@@ -232,9 +239,9 @@
     }
     .footer-col a:hover { color: var(--text); text-decoration: none; }
     .footer-bottom {
-      background: var(--bg);
+      background: var(--bg-warm);
       padding: 16px 5%;
-      font-size: 12px; color: var(--text-tertiary);
+      font-size: 12px; color: var(--text-secondary);
       border-top: 1px solid var(--border);
     }
 
