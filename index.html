@@ -279,6 +279,8 @@
       gap: 12px;
       margin-bottom: 24px;
       flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
     }
     .hero-store-btn, .store-btn {
       display: inline-flex;
@@ -294,6 +296,10 @@
       position: relative;
       overflow: hidden;
       cursor: pointer;
+      flex: 1;
+      min-width: 180px;
+      max-width: 220px;
+      justify-content: center;
     }
     .hero-store-btn::before, .store-btn::before {
       content: '';
@@ -732,19 +738,10 @@
       margin-top: 48px;
       position: relative;
     }
-    .steps-grid::before {
-      content: '';
-      position: absolute;
-      top: 16px;
-      left: calc(16.67% + 16px);
-      right: calc(16.67% + 16px);
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), rgba(255,107,53,0.3));
-      border-radius: 1px;
-    }
     .step-card {
       text-align: left;
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
     }
     .step-card:hover {
       transform: translateY(-2px);
@@ -754,12 +751,24 @@
       color: #fff;
       border-color: var(--accent);
     }
+    /* Connector line between step circles */
+    .step-card:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      top: 16px;
+      left: 32px;
+      right: -32px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), rgba(255,107,53,0.3));
+      border-radius: 1px;
+      z-index: 0;
+    }
     .step-number {
       width: 32px;
       height: 32px;
       border-radius: 50%;
-      background: var(--accent-subtle);
-      border: 1px solid var(--accent-border);
+      background: var(--bg);
+      border: 2px solid var(--accent);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -994,7 +1003,7 @@
       .testimonials-grid { grid-template-columns: 1fr; }
       .features-grid { grid-template-columns: 1fr; }
       .feature-card:first-child { grid-column: 1; }
-      .steps-grid::before { display: none; }
+      .step-card:not(:last-child)::before { display: none; }
       .stats-row { gap: 24px; }
       .stat-number { font-size: 22px; }
       .big-dash-top { grid-template-columns: 1fr; }
@@ -1078,6 +1087,7 @@
       flex-wrap: wrap;
       margin-bottom: 28px;
       position: relative;
+      z-index: 20;
     }
     .hero-pill {
       display: inline-flex;
@@ -1109,8 +1119,9 @@
     .hero-feature-popup {
       display: none;
       position: absolute;
-      z-index: 10;
+      z-index: 30;
       left: 0;
+      top: 100%;
       margin-top: 8px;
     }
     .hero-feature-popup.visible {

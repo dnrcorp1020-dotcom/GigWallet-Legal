@@ -573,15 +573,15 @@
       <div class="step-right">
         <div class="step-number-label">Step 02 — During Your Shift</div>
         <h3>Your earnings are logged as you work.</h3>
-        <p>Trip-level earnings from Uber, DoorDash, Lyft, and Instacart are pulled in via GigWallet's platform integration (powered by Argyle). Each trip brings base pay, tips, platform fees, and mileage — broken out separately so you see exactly where every dollar came from.</p>
+        <p>Earnings from Uber, DoorDash, Lyft, and Instacart are detected automatically via your linked bank account (powered by Plaid). Each deposit is matched to the right platform so you see exactly where every dollar came from.</p>
         <div class="step-detail-cards">
           <div class="detail-card reveal">
-            <div class="detail-card-label">What's Tracked Per Trip</div>
-            <div class="detail-card-value">Base pay · Tips · Platform fees · Bonuses · Miles</div>
+            <div class="detail-card-label">What's Auto-Detected</div>
+            <div class="detail-card-value">Deposits · Platform · Amount · Date · Frequency</div>
           </div>
           <div class="detail-card reveal">
             <div class="detail-card-label">Supported Platforms</div>
-            <div class="detail-card-value">Uber, DoorDash, Lyft, Instacart + 6 more</div>
+            <div class="detail-card-value">Uber, DoorDash, Lyft, Instacart + 10 more</div>
           </div>
         </div>
       </div>
@@ -690,7 +690,7 @@
   <div class="platform-inner">
     <div class="section-label">Platform Integration</div>
     <h2>How your gig accounts get linked.</h2>
-    <p class="section-sub" style="margin-bottom:0;">GigWallet uses Argyle — an industry-standard employment data platform — to securely read your earnings data from gig platforms. Here's what that means in practice.</p>
+    <p class="section-sub" style="margin-bottom:0;">GigWallet uses Plaid — a trusted financial data platform — to securely connect to your bank and detect gig income deposits. Here's what that means in practice.</p>
 
     <div class="platform-grid reveal-stagger">
       <div class="platform-card reveal">
@@ -700,24 +700,24 @@
       </div>
 
       <div class="platform-card reveal">
-        <div class="platform-pill"><div class="platform-dot"></div><span>Secure OAuth</span></div>
-        <h3>You log in through the official platform</h3>
-        <p>When linking an account, you authenticate directly with Uber, DoorDash, or whichever platform — the same login you use every day. GigWallet never sees your password.</p>
+        <div class="platform-pill"><div class="platform-dot"></div><span>Secure Bank Link</span></div>
+        <h3>You log in through your own bank</h3>
+        <p>When connecting, you authenticate directly with your bank through Plaid's secure Link flow. GigWallet never sees your bank username or password.</p>
         <ul>
-          <li>OAuth industry standard authentication</li>
+          <li>Bank-level encryption via Plaid</li>
           <li>End-to-end encryption in transit</li>
-          <li>You can revoke access any time</li>
+          <li>You can disconnect any time</li>
         </ul>
       </div>
 
       <div class="platform-card reveal">
-        <div class="platform-pill"><div class="platform-dot"></div><span>Trip-Level Data</span></div>
-        <h3>Not just totals — every trip</h3>
-        <p>Unlike apps that only see bank deposits, GigWallet imports individual trips with full breakdowns — so you know your profitability per trip, not just per week.</p>
+        <div class="platform-pill"><div class="platform-dot"></div><span>Smart Matching</span></div>
+        <h3>Auto-detects which platform paid you</h3>
+        <p>GigWallet scans your bank deposits and automatically matches them to the right gig platform — Uber, DoorDash, Lyft, and more — so everything is categorized for you.</p>
         <ul>
-          <li>Base pay per trip</li>
-          <li>Tips, bonuses, platform fees</li>
-          <li>Miles driven per trip</li>
+          <li>AI-powered transaction matching</li>
+          <li>Deposits sorted by platform</li>
+          <li>High-confidence matching (70%+ threshold)</li>
           <li>Deduplication prevents double-counting</li>
         </ul>
       </div>
@@ -725,7 +725,7 @@
       <div class="platform-card reveal">
         <div class="platform-pill"><div class="platform-dot"></div><span>Supported Platforms</span></div>
         <h3>All the major platforms, one place</h3>
-        <p>GigWallet supports 10+ gig platforms through the Argyle integration.</p>
+        <p>GigWallet detects income from 10+ gig platforms through Plaid bank sync.</p>
         <ul>
           <li>Uber · Uber Eats</li>
           <li>DoorDash · Instacart</li>
@@ -786,8 +786,8 @@
       <p>Receipt scanning uses Apple's Vision framework locally. Your receipts never leave your phone.</p>
     </div>
     <div class="trust-card reveal">
-      <h4>Argyle — Read Only</h4>
-      <p>Gig platform access is strictly read-only via OAuth. GigWallet cannot move money or change anything.</p>
+      <h4>Plaid — Read Only</h4>
+      <p>Bank access is strictly read-only. GigWallet cannot move money, make payments, or change anything in your accounts.</p>
     </div>
     <div class="trust-card reveal">
       <h4>SwiftData Local Storage</h4>
@@ -807,12 +807,12 @@
 
   <div class="faq-item reveal">
     <div class="faq-q">Do I need to link my gig accounts to use GigWallet?</div>
-    <div class="faq-a">No — platform linking is optional. You can use GigWallet entirely with manual income entry. Linking your accounts simply makes tracking faster and gives you trip-level detail without any data entry.</div>
+    <div class="faq-a">No — bank linking is optional. You can use GigWallet entirely with manual income entry. Linking your bank simply makes tracking faster by auto-detecting gig deposits without any data entry.</div>
   </div>
 
   <div class="faq-item reveal">
-    <div class="faq-q">Is my login information safe when I link a platform?</div>
-    <div class="faq-a">Yes. You authenticate directly with each platform (Uber, DoorDash, etc.) using their own login flow. GigWallet and Argyle never see your username or password — only a secure read-only token is issued.</div>
+    <div class="faq-q">Is my bank information safe when I connect?</div>
+    <div class="faq-a">Yes. You authenticate directly with your bank through Plaid's secure Link flow. GigWallet never sees your bank username or password — Plaid issues a secure read-only token that only allows viewing transactions.</div>
   </div>
 
   <div class="faq-item reveal">
