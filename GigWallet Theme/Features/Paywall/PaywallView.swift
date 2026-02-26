@@ -34,11 +34,11 @@ struct PaywallView: View {
     }
 
     private var annualPrice: String {
-        subscriptionManager.annualProduct?.displayPrice ?? "$79.99"
+        subscriptionManager.annualProduct?.displayPrice ?? "$103.99"
     }
 
     private var monthlyPrice: String {
-        subscriptionManager.monthlyProduct?.displayPrice ?? "$9.99"
+        subscriptionManager.monthlyProduct?.displayPrice ?? "$12.99"
     }
 
     private var annualMonthlyEquivalent: String {
@@ -46,7 +46,7 @@ struct PaywallView: View {
             let monthly = NSDecimalNumber(decimal: product.price / 12).doubleValue
             return "$\(String(format: "%.2f", monthly))"
         }
-        return "$6.67"
+        return "$8.67"
     }
 
     // MARK: - Body
