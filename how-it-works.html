@@ -175,7 +175,7 @@
     /* ─── STEPS TIMELINE ─── */
     .steps-timeline { display: flex; flex-direction: column; gap: 0; position: relative; }
     .steps-timeline::before {
-      content: \'\'; position: absolute; left: 35px; top: 0; bottom: 0; width: 2px;
+      content: ''; position: absolute; left: 35px; top: 0; bottom: 0; width: 2px;
       background: linear-gradient(180deg, var(--accent) 0%, rgba(255,107,53,0.4) 50%, transparent 100%);
       opacity: 0.3;
     }
@@ -285,7 +285,7 @@
     .platform-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
     .platform-card ul { list-style: none; margin-top: 10px; display: flex; flex-direction: column; gap: 5px; }
     .platform-card ul li { font-size: 13px; color: var(--text-secondary); padding-left: 14px; position: relative; }
-    .platform-card ul li::before { content: \'\'; position: absolute; left: 0; top: 8px; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
+    .platform-card ul li::before { content: ''; position: absolute; left: 0; top: 8px; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
 
     /* ─── PRIVACY BLOCK ─── */
     .privacy-block {
@@ -320,7 +320,7 @@
     }
     .trust-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
     .trust-card::before {
-      content: \'\'; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
       background: linear-gradient(90deg, rgba(255,143,102,1), var(--accent));
       opacity: 0; transition: opacity 0.3s ease;
     }
@@ -342,7 +342,7 @@
     }
     .faq-q:hover { color: var(--accent); }
     .faq-q::after {
-      content: \'+\'; font-size: 22px; font-weight: 400; color: var(--accent);
+      content: '+'; font-size: 22px; font-weight: 400; color: var(--accent);
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); flex-shrink: 0;
     }
     .faq-item.open .faq-q::after { transform: rotate(45deg); }
@@ -883,7 +883,7 @@
 
 <script>
 (function() {
-  \'use strict\';
+  'use strict';
 
   // Mobile menu
   document.querySelectorAll('.mobile-menu a').forEach(a => {

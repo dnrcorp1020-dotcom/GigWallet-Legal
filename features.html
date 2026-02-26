@@ -239,10 +239,9 @@
       transition: background 0.3s, border-color 0.3s;
     }
     .sub-card:hover .sub-card-icon {
-      background: var(--accent); border-color: var(--accent);
+      background: rgba(255,107,53,0.12); border-color: var(--accent);
     }
-    .sub-card:hover .sub-card-icon svg { stroke: #fff; }
-    .sub-card-icon svg { width: 20px; height: 20px; transition: stroke 0.3s; }
+    .sub-card-icon svg { width: 20px; height: 20px; }
     .sub-card h3 {
       font-size: 17px; font-weight: 700; color: var(--text);
       letter-spacing: -0.3px; margin-bottom: 8px;
@@ -357,7 +356,7 @@
       .mobile-menu { padding: 24px 20px; }
       .subfeature-grid { grid-template-columns: 1fr; }
       .subfeature-grid.col-2 { grid-template-columns: 1fr; }
-      .sub-card[style*="grid-column: span"] { grid-column: 1 !important; }
+      /* responsive grid handled by grid-template-columns above */
       .fs-header { grid-template-columns: auto 1fr; }
       .feature-nav { gap: 8px; }
       .footer-grid { grid-template-columns: 1fr; gap: 36px; padding: 0 20px; }
@@ -596,16 +595,12 @@
       </ul>
     </div>
 
-    <div class="sub-card reveal" style="grid-column: span 2; display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
-      <div>
-        <div class="sub-card-icon" style="margin-bottom:0; margin-right: 0;">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#FF6B35" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z" stroke="#FF6B35" stroke-width="2"/></svg>
-        </div>
+    <div class="sub-card reveal">
+      <div class="sub-card-icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#FF6B35" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z" stroke="#FF6B35" stroke-width="2"/></svg>
       </div>
-      <div>
-        <h3 style="margin-bottom:6px;">Privacy First — OCR Stays On-Device</h3>
-        <p>Receipt scanning uses Apple's Vision framework on your device. Your receipts and financial data are never uploaded to a server for processing. Everything stays local via SwiftData.</p>
-      </div>
+      <h3>Privacy First — OCR Stays On-Device</h3>
+      <p>Receipt scanning uses Apple's Vision framework on your device. Your receipts and financial data are never uploaded to a server for processing. Everything stays local via SwiftData.</p>
     </div>
   </div>
 </section>
@@ -664,17 +659,15 @@
       </ul>
     </div>
 
-    <div class="sub-card reveal" style="grid-column: span 3; display: flex; gap: 40px; align-items: center; flex-wrap: wrap;">
-      <div style="flex:1; min-width: 220px;">
-        <div class="sub-card-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 3h18v18H3z" stroke="#FF6B35" stroke-width="2" stroke-linejoin="round"/><path d="M7 8h10M7 12h6M7 16h8" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/></svg></div>
-        <h3>All 50 States Supported</h3>
-        <p>GigWallet handles multi-state income with per-entry state tracking and state-specific tax rates. Work in Nevada and California? Both are covered.</p>
-      </div>
-      <div style="flex:1; min-width: 220px; border-left: 1px solid var(--border); padding-left: 40px;">
-        <div class="sub-card-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z" stroke="#FF6B35" stroke-width="2"/><path d="M8 14s1.5 2 4 2 4-2 4-2" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/><path d="M9 9h.01M15 9h.01" stroke="#FF6B35" stroke-width="3" stroke-linecap="round"/></svg></div>
-        <h3>No Surprises, Ever</h3>
-        <p>Every dollar earned triggers an instant tax update. By the time a deadline arrives, you've been watching the number build all quarter long.</p>
-      </div>
+    <div class="sub-card reveal">
+      <div class="sub-card-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 3h18v18H3z" stroke="#FF6B35" stroke-width="2" stroke-linejoin="round"/><path d="M7 8h10M7 12h6M7 16h8" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/></svg></div>
+      <h3>All 50 States Supported</h3>
+      <p>GigWallet handles multi-state income with per-entry state tracking and state-specific tax rates. Work in Nevada and California? Both are covered.</p>
+    </div>
+    <div class="sub-card reveal">
+      <div class="sub-card-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z" stroke="#FF6B35" stroke-width="2"/><path d="M8 14s1.5 2 4 2 4-2 4-2" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/><path d="M9 9h.01M15 9h.01" stroke="#FF6B35" stroke-width="3" stroke-linecap="round"/></svg></div>
+      <h3>No Surprises, Ever</h3>
+      <p>Every dollar earned triggers an instant tax update. By the time a deadline arrives, you've been watching the number build all quarter long.</p>
     </div>
   </div>
 </section>
@@ -748,7 +741,7 @@
       </ul>
     </div>
 
-    <div class="sub-card reveal" style="grid-column: span 2;">
+    <div class="sub-card reveal">
       <div class="sub-card-icon">
         <svg viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z" stroke="#FF6B35" stroke-width="2"/><path d="M12 6v6l4 2" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/></svg>
       </div>
@@ -925,14 +918,6 @@
 </section>
 
 <!-- ═══ CTA ═══ -->
-<div class="cta-strip">
-  <h2>Ready to know your<br><em>real numbers?</em></h2>
-  <p>Free to download. Takes 2 minutes to get started. No credit card required.</p>
-  <!-- Replace # with actual App Store URL -->
-  <a href="index.html#download" class="btn-primary">Download GigWallet Free →</a>
-</div>
-
-<!-- CTA -->
 <div class="cta-strip reveal">
   <h2>Ready to know your<br><em>real numbers?</em></h2>
   <p>Free to download. Takes 2 minutes to get started. No credit card required.</p>
