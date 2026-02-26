@@ -4,89 +4,155 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>How It Works — GigWallet</title>
-  <meta name="description" content="See exactly how GigWallet works — from linking your gig accounts to seeing your real take-home pay, tax estimates, and AI-powered work recommendations.">
+  <meta name="description" content="See exactly how GigWallet works: from downloading and connecting your gig platforms to tracking income, expenses, and taxes in real time.">
   <meta property="og:title" content="How It Works — GigWallet">
-  <meta property="og:description" content="GigWallet turns financial chaos into clarity in a few simple steps. Here's how.">
+  <meta property="og:description" content="A step-by-step walkthrough of how GigWallet fits into a gig worker's daily routine.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://gigwallet.app/how-it-works.html">
   <meta property="og:image" content="https://gigwallet.app/og-image.png">
   <link rel="canonical" href="https://gigwallet.app/how-it-works.html">
+  <link rel="icon" href="app-icon-32.png" type="image/png">
+  <link rel="apple-touch-icon" href="app-icon-180.png">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --orange: #FF6B35;
-      --orange-light: #FF8F66;
-      --orange-dark: #E55A25;
-      --secondary: #8B5E34;
-      --secondary-light: #A67B52;
       --bg: #FFFFFF;
-      --bg-warm: #F7F7F5;
-      --panel: #F7F7F5;
-      --green: #34C759;
+      --surface: #F7F7F5;
+      --surface-2: #F0F0EE;
+      --border: rgba(55,53,47,0.09);
+      --border-hover: rgba(55,53,47,0.16);
+      --accent: #FF6B35;
+      --accent-subtle: rgba(255,107,53,0.06);
+      --accent-border: rgba(255,107,53,0.12);
       --text: #37352F;
       --text-secondary: #787774;
       --text-tertiary: #B4B4B0;
-      --border: rgba(55,53,47,0.09);
-      --border-light: rgba(55,53,47,0.06);
-      --white: #FFFFFF;
+      --green: #34C759;
+      --dark-bg: #0F0F12;
+      --dark-surface: #1A1A1F;
+      --dark-border: rgba(255,255,255,0.08);
+      --dark-text: #FFFFFF;
+      --dark-text-secondary: rgba(255,255,255,0.7);
+      --dark-text-tertiary: rgba(255,255,255,0.4);
     }
 
     html { scroll-behavior: smooth; }
+
+    /* ─── MICRO DETAILS ─── */
+    ::selection { background: rgba(255,107,53,0.2); color: var(--text); }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,107,53,0.25); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255,107,53,0.4); }
+    *:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+    section[id] { scroll-margin-top: 64px; }
+
     body {
-      background: var(--bg); color: var(--text);
-      font-family: 'Inter', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
-      font-size: 18px; line-height: 1.6; overflow-x: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
     /* ─── LOGO ─── */
-    .logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .logo-icon {
-      width: 40px; height: 40px; border-radius: 10px;
-      background: linear-gradient(135deg, #FF8F66, #FF6B35);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; box-shadow: 0 3px 10px rgba(229,90,37,0.25);
+    .logo-wrap {
+      display: flex; align-items: center; gap: 10px; text-decoration: none;
     }
-    .logo-icon svg { width: 24px; height: 24px; }
-    .logo-name { font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif; font-size: 22px; font-weight: 800; color: var(--text); letter-spacing: -0.5px; }
+    .logo-icon {
+      width: 32px; height: 32px; flex-shrink: 0;
+      border-radius: 8px; overflow: hidden;
+    }
+    .logo-icon img {
+      width: 100%; height: 100%; display: block; object-fit: cover;
+    }
+    .logo-name {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 18px; font-weight: 600; color: var(--text);
+    }
 
     /* ─── NAV ─── */
     nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,0.85); border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 68px;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 56px; max-width: 100%;
+      transition: box-shadow 0.3s, background 0.3s;
     }
-    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
-    .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 15px; font-weight: 500; letter-spacing: 0.2px; transition: color 0.2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--orange); }
+    nav.scrolled {
+      box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+      background: rgba(255,255,255,0.95);
+    }
+    footer .logo-name { color: var(--dark-text); }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 100%; max-width: 1100px; margin: 0 auto;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px; list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-secondary); text-decoration: none;
+      font-size: 14px; font-weight: 500; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
     .btn-nav {
-      background: var(--orange); color: var(--white) !important;
-      padding: 10px 22px; border-radius: 10px; font-weight: 700 !important;
-      font-size: 14px !important; letter-spacing: 0.5px;
-      box-shadow: 0 1px 6px rgba(255,107,53,0.2); transition: transform 0.15s, box-shadow 0.15s !important;
+      background: var(--accent); color: #fff !important;
+      padding: 7px 16px; border-radius: 10px;
+      font-weight: 500 !important; font-size: 13px !important;
+      transition: opacity 0.2s !important;
     }
-    .btn-nav:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,107,53,0.35) !important; }
+    .btn-nav:hover { opacity: 0.9; }
 
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 6px; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; }
-    .mobile-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; background: #FAFAFA; border-bottom: 1px solid var(--border); padding: 24px 5%; flex-direction: column; gap: 20px; z-index: 99; }
+    /* hamburger */
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; background: none; border: none; padding: 6px;
+    }
+    .hamburger span {
+      display: block; width: 20px; height: 1.5px;
+      background: var(--text); border-radius: 1px; transition: 0.3s;
+    }
+    .mobile-menu {
+      display: none; position: fixed; top: 56px; left: 0; right: 0;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 24px 32px; flex-direction: column; gap: 20px; z-index: 99;
+    }
     .mobile-menu.open { display: flex; }
-    .mobile-menu a { color: var(--text-secondary); text-decoration: none; font-size: 17px; font-weight: 500; }
-    .mobile-menu .btn-nav { text-align: center; padding: 14px; border-radius: 10px; }
+    .mobile-menu a {
+      color: var(--text-secondary); text-decoration: none;
+      font-size: 15px; font-weight: 500;
+    }
+    .mobile-menu .btn-nav {
+      text-align: center; padding: 12px; border-radius: 10px;
+    }
 
     /* ─── PAGE HERO ─── */
-    .page-hero { padding: 80px 5% 70px; max-width: 860px; margin: 0 auto; text-align: center; }
+    .page-hero {
+      padding: 80px 5% 70px; max-width: 860px; margin: 0 auto; text-align: center;
+    }
     .eyebrow {
       display: inline-flex; align-items: center; gap: 8px;
-      background: var(--bg-warm); border: 1px solid var(--border-light);
+      background: var(--surface); border: 1px solid var(--border);
       border-radius: 100px; padding: 6px 16px;
       font-size: 13px; font-weight: 600; letter-spacing: 1px;
-      color: var(--orange); text-transform: uppercase; margin-bottom: 24px;
+      color: var(--accent); text-transform: uppercase; margin-bottom: 24px;
     }
-    h1 { font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif; font-size: clamp(40px, 5vw, 64px); font-weight: 800; letter-spacing: -1.5px; line-height: 1.05; color: var(--text); margin-bottom: 20px; }
-    h1 em { font-style: normal; color: var(--orange); }
+    h1 {
+      font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 800; letter-spacing: -1.5px; line-height: 1.05;
+      color: var(--text); margin-bottom: 20px;
+    }
+    h1 em { font-style: normal; color: var(--accent); }
     .page-hero p { font-size: 19px; color: var(--text-secondary); max-width: 580px; margin: 0 auto; }
 
     /* ─── DAILY FLOW SECTION ─── */
@@ -96,17 +162,21 @@
     }
     .section-label {
       font-size: 13px; font-weight: 600; letter-spacing: 1px;
-      color: var(--orange); text-transform: uppercase; margin-bottom: 16px;
+      color: var(--accent); text-transform: uppercase; margin-bottom: 16px;
     }
-    h2 { font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif; font-size: clamp(30px, 3.5vw, 46px); font-weight: 800; letter-spacing: -0.8px; color: var(--text); line-height: 1.1; margin-bottom: 12px; }
-    h2 em { font-style: normal; color: var(--orange); }
+    h2 {
+      font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: clamp(30px, 3.5vw, 46px); font-weight: 800;
+      letter-spacing: -0.8px; color: var(--text); line-height: 1.1; margin-bottom: 12px;
+    }
+    h2 em { font-style: normal; color: var(--accent); }
     .section-sub { font-size: 17px; color: var(--text-secondary); max-width: 560px; margin-bottom: 60px; }
 
     /* ─── STEPS TIMELINE ─── */
     .steps-timeline { display: flex; flex-direction: column; gap: 0; position: relative; }
     .steps-timeline::before {
-      content: ''; position: absolute; left: 35px; top: 0; bottom: 0; width: 2px;
-      background: linear-gradient(180deg, var(--orange) 0%, var(--orange-light) 50%, transparent 100%);
+      content: \'\'; position: absolute; left: 35px; top: 0; bottom: 0; width: 2px;
+      background: linear-gradient(180deg, var(--accent) 0%, rgba(255,107,53,0.4) 50%, transparent 100%);
       opacity: 0.3;
     }
 
@@ -120,10 +190,15 @@
     .step-bubble {
       font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif;
       width: 72px; height: 72px; border-radius: 50%; flex-shrink: 0;
-      background: linear-gradient(135deg, var(--orange-light), var(--orange));
+      background: linear-gradient(135deg, rgba(255,143,102,1), var(--accent));
       display: flex; align-items: center; justify-content: center;
       box-shadow: 0 3px 10px rgba(229,90,37,0.25);
       position: relative; z-index: 1;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+    }
+    .step:hover .step-bubble {
+      transform: scale(1.08);
+      box-shadow: 0 6px 20px rgba(229,90,37,0.35);
     }
     .step-bubble svg { width: 30px; height: 30px; }
 
@@ -131,7 +206,7 @@
     .step-number-label {
       font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif;
       font-size: 12px; font-weight: 600; letter-spacing: 0.8px;
-      color: var(--orange); text-transform: uppercase; margin-bottom: 6px;
+      color: var(--accent); text-transform: uppercase; margin-bottom: 6px;
     }
     .step-right h3 {
       font-size: 26px; font-weight: 800; letter-spacing: -0.8px;
@@ -143,19 +218,24 @@
       display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px;
     }
     .detail-card {
-      background: var(--panel); border: 1px solid var(--border-light);
+      background: var(--surface); border: 1px solid var(--border);
       border-radius: 16px; padding: 14px 18px; flex: 1; min-width: 180px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+    }
+    .detail-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.1);
     }
     .detail-card-label {
       font-size: 11px; font-weight: 600; letter-spacing: 0.8px;
-      color: var(--orange-light); text-transform: uppercase; margin-bottom: 4px;
+      color: var(--accent); text-transform: uppercase; margin-bottom: 4px;
     }
     .detail-card-value { font-size: 15px; font-weight: 600; color: var(--text); }
 
     /* data snapshot card */
     .snapshot-card {
-      background: var(--panel); border: 1px solid var(--border-light);
+      background: var(--surface); border: 1px solid var(--border);
       border-radius: 16px; padding: 20px 24px; margin-top: 20px;
       max-width: 500px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06);
@@ -167,7 +247,7 @@
     .snapshot-rows { display: flex; flex-direction: column; gap: 10px; }
     .snapshot-row {
       display: flex; justify-content: space-between; align-items: center;
-      padding-bottom: 10px; border-bottom: 1px solid var(--border-light);
+      padding-bottom: 10px; border-bottom: 1px solid var(--border);
     }
     .snapshot-row:last-child { border-bottom: none; padding-bottom: 0; }
     .snapshot-row-label { font-size: 14px; color: var(--text-secondary); }
@@ -177,7 +257,7 @@
 
     /* ─── HOW PLATFORMS WORK ─── */
     .platform-section {
-      background: var(--panel); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
       padding: 80px 5%;
     }
     .platform-inner { max-width: 1100px; margin: 0 auto; }
@@ -185,24 +265,27 @@
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px;
     }
     .platform-card {
-      background: var(--bg); border: 1px solid var(--border-light);
+      background: var(--bg); border: 1px solid var(--border);
       border-radius: 16px; padding: 24px;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
       box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06);
     }
-    .platform-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .platform-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
     .platform-pill {
       display: inline-flex; align-items: center; gap: 8px;
-      background: var(--bg-warm); border: 1px solid var(--border-light);
+      background: var(--accent-subtle); border: 1px solid var(--accent-border);
       border-radius: 8px; padding: 6px 12px; margin-bottom: 14px;
     }
-    .platform-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }
+    .platform-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
     .platform-pill span { font-size: 14px; font-weight: 700; color: var(--text); }
     .platform-card h3 { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
     .platform-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
     .platform-card ul { list-style: none; margin-top: 10px; display: flex; flex-direction: column; gap: 5px; }
     .platform-card ul li { font-size: 13px; color: var(--text-secondary); padding-left: 14px; position: relative; }
-    .platform-card ul li::before { content: ''; position: absolute; left: 0; top: 8px; width: 4px; height: 4px; border-radius: 50%; background: var(--orange-light); }
+    .platform-card ul li::before { content: \'\'; position: absolute; left: 0; top: 8px; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
 
     /* ─── PRIVACY BLOCK ─── */
     .privacy-block {
@@ -214,9 +297,14 @@
     .privacy-pills { display: flex; flex-wrap: wrap; gap: 10px; }
     .privacy-pill {
       display: inline-flex; align-items: center; gap: 8px;
-      background: var(--bg-warm); border: 1px solid var(--border-light);
+      background: var(--surface); border: 1px solid var(--border);
       border-radius: 8px; padding: 8px 14px;
       font-size: 14px; font-weight: 600; color: var(--text-secondary);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .privacy-pill:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
     }
     .privacy-pill svg { width: 16px; height: 16px; flex-shrink: 0; }
 
@@ -224,17 +312,17 @@
       display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     }
     .trust-card {
-      background: var(--panel); border: 1px solid var(--border-light);
+      background: var(--surface); border: 1px solid var(--border);
       border-radius: 16px; padding: 20px;
       position: relative; overflow: hidden;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
       box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06);
     }
-    .trust-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+    .trust-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
     .trust-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, var(--orange-light), var(--orange));
-      opacity: 0; transition: opacity 0.25s ease;
+      content: \'\'; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, rgba(255,143,102,1), var(--accent));
+      opacity: 0; transition: opacity 0.3s ease;
     }
     .trust-card:hover::before { opacity: 1; }
     .trust-card h4 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
@@ -244,58 +332,103 @@
     .faq-section { max-width: 800px; margin: 0 auto; padding: 20px 5% 80px; }
     .faq-section h2 { margin-bottom: 40px; }
     .faq-item {
-      border-bottom: 1px solid var(--border-light); padding: 24px 0;
+      border-bottom: 1px solid var(--border); padding: 24px 0;
     }
-    .faq-item:first-of-type { border-top: 1px solid var(--border-light); }
+    .faq-item:first-of-type { border-top: 1px solid var(--border); }
     .faq-q {
       font-size: 17px; font-weight: 700; color: var(--text);
       cursor: pointer; display: flex; justify-content: space-between; align-items: center;
-      user-select: none;
+      user-select: none; transition: color 0.2s;
     }
-    .faq-q::after { content: '+'; font-size: 22px; font-weight: 400; color: var(--orange); transition: transform 0.2s; flex-shrink: 0; }
+    .faq-q:hover { color: var(--accent); }
+    .faq-q::after {
+      content: \'+\'; font-size: 22px; font-weight: 400; color: var(--accent);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); flex-shrink: 0;
+    }
     .faq-item.open .faq-q::after { transform: rotate(45deg); }
-    .faq-a { font-size: 15px; color: var(--text-secondary); line-height: 1.7; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s; }
+    .faq-a {
+      font-size: 15px; color: var(--text-secondary); line-height: 1.7;
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s;
+    }
     .faq-item.open .faq-a { max-height: 300px; padding-top: 14px; }
 
     /* ─── CTA ─── */
-    .cta-strip { background: var(--bg-warm); border-top: 1px solid var(--border); padding: 80px 5%; text-align: center; }
-    .cta-strip h2 { font-size: clamp(32px, 4vw, 52px); font-weight: 800; letter-spacing: -0.8px; margin-bottom: 12px; }
-    .cta-strip h2 em { font-style: normal; color: var(--orange); }
-    .cta-strip p { font-size: 18px; color: var(--text-secondary); margin-bottom: 36px; }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: var(--orange); color: var(--white); text-decoration: none;
-      padding: 18px 32px; border-radius: 12px; font-size: 18px; font-weight: 700; letter-spacing: 0.3px;
-      box-shadow: 0 6px 20px rgba(255,107,53,0.3); transition: transform 0.15s, box-shadow 0.15s;
+    .cta-strip {
+      background: var(--dark-bg);
+      border-top: 1px solid var(--border);
+      padding: 80px 5%; text-align: center;
     }
-    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(255,107,53,0.4); }
+    .cta-strip h2 {
+      font-size: clamp(32px, 4vw, 52px); font-weight: 800;
+      letter-spacing: -0.8px; margin-bottom: 12px; color: var(--dark-text);
+    }
+    .cta-strip h2 em { font-style: normal; color: var(--accent); }
+    .cta-strip p { font-size: 18px; color: var(--dark-text-secondary); margin-bottom: 36px; }
+    .btn-primary {
+      font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif;
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--accent); color: #fff; text-decoration: none;
+      padding: 18px 32px; border-radius: 12px;
+      font-size: 18px; font-weight: 700; letter-spacing: 0.3px;
+      box-shadow: 0 6px 20px rgba(255,107,53,0.3);
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(255,107,53,0.4);
+    }
 
     /* ─── FOOTER ─── */
-    footer { background: var(--bg-warm); border-top: 1px solid var(--border); padding: 60px 5% 0; }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; max-width: 1100px; margin: 0 auto 48px; }
-    .footer-brand p { margin-top: 16px; font-size: 15px; color: var(--text-secondary); max-width: 280px; line-height: 1.65; }
-    .footer-col h4 { font-size: 13px; font-weight: 600; letter-spacing: 1px; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 18px; }
+    footer {
+      background: var(--dark-bg);
+      border-top: 1px solid var(--border);
+      padding: 60px 0 0;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px;
+      max-width: 1100px; margin: 0 auto 48px; padding: 0 32px;
+    }
+    .footer-brand p {
+      margin-top: 16px; font-size: 15px; font-weight: 400;
+      color: var(--dark-text-secondary); max-width: 280px; line-height: 1.6;
+    }
+    .footer-col h4 {
+      font-size: 12px; font-weight: 500; letter-spacing: 0.04em;
+      color: var(--dark-text-tertiary); text-transform: uppercase; margin-bottom: 18px;
+    }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-    .footer-col a { color: var(--text-secondary); text-decoration: none; font-size: 15px; transition: color 0.2s; }
-    .footer-col a:hover { color: var(--orange); }
-    .footer-strip { background: var(--bg-warm); border-top: 1px solid var(--border); padding: 16px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-    .footer-strip-text { font-size: 13px; font-weight: 600; letter-spacing: 1px; color: var(--text-tertiary); text-transform: uppercase; }
-    .footer-strip-text span { color: var(--orange); }
-    .footer-copy { font-size: 13px; color: var(--text-tertiary); }
+    .footer-col a {
+      color: var(--dark-text-secondary); text-decoration: none;
+      font-size: 14px; font-weight: 400; transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--dark-text); }
+    .footer-strip {
+      background: rgba(0,0,0,0.2);
+      border-top: 1px solid var(--dark-border);
+      padding: 16px 32px;
+      display: flex; justify-content: center; align-items: center;
+    }
+    .footer-copy {
+      font-size: 12px; color: var(--dark-text-tertiary);
+    }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 768px) {
+      nav { padding: 0 20px; }
       .nav-links { display: none; }
       .hamburger { display: flex; }
-      .steps-timeline::before { left: 26px; }
-      .step { grid-template-columns: 56px 1fr; gap: 20px; }
-      .step-bubble { width: 56px; height: 56px; }
+      .mobile-menu { padding: 24px 20px; }
+      .steps-timeline::before { left: 25px; }
+      .step { grid-template-columns: 52px 1fr; gap: 20px; }
+      .step-bubble { width: 52px; height: 52px; }
       .step-bubble svg { width: 22px; height: 22px; }
+      .step-right h3 { font-size: 22px; }
       .platform-grid { grid-template-columns: 1fr; }
-      .privacy-block { grid-template-columns: 1fr; }
+      .privacy-block { grid-template-columns: 1fr; gap: 40px; }
       .trust-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
-      .footer-strip { flex-direction: column; text-align: center; }
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; padding: 0 20px; }
+      .footer-strip { padding: 16px 20px; }
     }
     @media (max-width: 480px) {
       h1 { font-size: 36px; }
@@ -303,36 +436,81 @@
       .step-detail-cards { flex-direction: column; }
     }
 
+    /* ─── ANIMATIONS ─── */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
+      from { opacity: 0; transform: translateY(12px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .page-hero > * { animation: fadeUp 0.5s both; }
+    .page-hero > * {
+      animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
     .page-hero > *:nth-child(1) { animation-delay: 0.05s; }
     .page-hero > *:nth-child(2) { animation-delay: 0.12s; }
     .page-hero > *:nth-child(3) { animation-delay: 0.20s; }
+
+    /* Scroll reveal system */
+    .reveal {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.revealed {
+      opacity: 1; transform: translateY(0);
+    }
+    .reveal-stagger > .reveal:nth-child(1) { transition-delay: 0s; }
+    .reveal-stagger > .reveal:nth-child(2) { transition-delay: 0.1s; }
+    .reveal-stagger > .reveal:nth-child(3) { transition-delay: 0.1s; }
+    .reveal-stagger > .reveal:nth-child(4) { transition-delay: 0.15s; }
+    .reveal-stagger > .reveal:nth-child(5) { transition-delay: 0.2s; }
+    .reveal-stagger > .reveal:nth-child(6) { transition-delay: 0.25s; }
+
+    /* Mobile menu animation */
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .mobile-menu.open {
+      animation: slideDown 0.2s ease-out;
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    /* Page load */
+    body {
+      animation: fadeUp 0.4s both;
+    }
   </style>
 </head>
 <body>
 
-<!-- ═══ NAV ═══ -->
+<!-- NAV -->
 <nav>
-  <a href="index.html" class="logo-wrap">
-    <div class="logo-icon">
-      <img src="app-icon-64.png" alt="GigWallet" width="32" height="32">
-    </div>
-    <span class="logo-name">GigWallet</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="features.html">Features</a></li>
-    <li><a href="how-it-works.html" class="active">How It Works</a></li>
-    <li><a href="privacy-policy.html">Privacy</a></li>
-    <li><a href="terms-of-service.html">Terms</a></li>
-    <li><a href="index.html#download" class="btn-nav">Download App</a></li>
-  </ul>
-  <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-inner">
+    <a href="/" class="logo-wrap">
+      <div class="logo-icon">
+        <img src="app-icon-64.png" alt="GigWallet" width="32" height="32">
+      </div>
+      <span class="logo-name">GigWallet</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="features.html">Features</a></li>
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="privacy-policy.html">Privacy</a></li>
+      <li><a href="terms-of-service.html">Terms</a></li>
+      <li><a href="index.html#download" class="btn-nav">Download App</a></li>
+    </ul>
+    <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 <div class="mobile-menu">
   <a href="features.html">Features</a>
@@ -350,7 +528,7 @@
 </div>
 
 <!-- ═══ STEPS TIMELINE ═══ -->
-<div class="daily-flow">
+<div class="daily-flow reveal">
   <div class="section-label">The Workflow</div>
   <h2>Your day with GigWallet.</h2>
   <p class="section-sub">A real example of how GigWallet fits into a typical gig worker's day — from morning planning to evening review.</p>
@@ -358,7 +536,7 @@
   <div class="steps-timeline">
 
     <!-- STEP 1 -->
-    <div class="step">
+    <div class="step reveal">
       <div class="step-left">
         <div class="step-bubble">
           <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z" stroke="white" stroke-width="2" stroke-linejoin="round"/></svg>
@@ -369,15 +547,15 @@
         <h3>Check the Work Advisor before your first shift.</h3>
         <p>Open GigWallet and the AI Work Advisor surfaces everything you need to decide when and where to work. It's already factoring in your personal earnings history, today's gas prices, local events, and the weather forecast.</p>
         <div class="step-detail-cards">
-          <div class="detail-card">
+          <div class="detail-card reveal">
             <div class="detail-card-label">Tonight's Opportunity</div>
             <div class="detail-card-value">Beyoncé Concert — High surge expected 7–11pm</div>
           </div>
-          <div class="detail-card">
+          <div class="detail-card reveal">
             <div class="detail-card-label">Weather Boost</div>
             <div class="detail-card-value">Rain forecast 4pm+ → delivery demand spike</div>
           </div>
-          <div class="detail-card">
+          <div class="detail-card reveal">
             <div class="detail-card-label">Recommendation</div>
             <div class="detail-card-value">Drive Uber. Skip DoorDash today — gas prices up 8%</div>
           </div>
@@ -386,7 +564,7 @@
     </div>
 
     <!-- STEP 2 -->
-    <div class="step">
+    <div class="step reveal">
       <div class="step-left">
         <div class="step-bubble">
           <svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg>
@@ -397,11 +575,11 @@
         <h3>Your earnings are logged as you work.</h3>
         <p>Trip-level earnings from Uber, DoorDash, Lyft, and Instacart are pulled in via GigWallet's platform integration (powered by Argyle). Each trip brings base pay, tips, platform fees, and mileage — broken out separately so you see exactly where every dollar came from.</p>
         <div class="step-detail-cards">
-          <div class="detail-card">
+          <div class="detail-card reveal">
             <div class="detail-card-label">What's Tracked Per Trip</div>
             <div class="detail-card-value">Base pay · Tips · Platform fees · Bonuses · Miles</div>
           </div>
-          <div class="detail-card">
+          <div class="detail-card reveal">
             <div class="detail-card-label">Supported Platforms</div>
             <div class="detail-card-value">Uber, DoorDash, Lyft, Instacart + 6 more</div>
           </div>
@@ -410,7 +588,7 @@
     </div>
 
     <!-- STEP 3 -->
-    <div class="step">
+    <div class="step reveal">
       <div class="step-left">
         <div class="step-bubble">
           <svg viewBox="0 0 24 24" fill="none"><path d="M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9l-7-7z" stroke="white" stroke-width="2" stroke-linejoin="round"/><path d="M13 2v7h7" stroke="white" stroke-width="2"/></svg>
@@ -421,15 +599,15 @@
         <h3>Log an expense in under 10 seconds.</h3>
         <p>Pull up at the pump, open GigWallet, tap Quick Add, tap "Gas," enter the amount, snap a photo of the receipt. The on-device OCR extracts the total, vendor, and date. It suggests the expense category for you. Save — done. That $45 just became a tax deduction.</p>
         <div class="step-detail-cards">
-          <div class="detail-card">
+          <div class="detail-card reveal">
             <div class="detail-card-label">Logged Expense</div>
             <div class="detail-card-value">Gas — $45.00 — Shell — Today</div>
           </div>
-          <div class="detail-card">
+          <div class="detail-card reveal">
             <div class="detail-card-label">IRS Deduction</div>
             <div class="detail-card-value">100% business use → $45 deductible</div>
           </div>
-          <div class="detail-card">
+          <div class="detail-card reveal">
             <div class="detail-card-label">Receipt Processed</div>
             <div class="detail-card-value">On-device — never uploaded to a server</div>
           </div>
@@ -438,7 +616,7 @@
     </div>
 
     <!-- STEP 4 -->
-    <div class="step">
+    <div class="step reveal">
       <div class="step-left">
         <div class="step-bubble">
           <svg viewBox="0 0 24 24" fill="none"><path d="M3 17l5-5 4 4 5-6 4 3" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -448,7 +626,7 @@
         <div class="step-number-label">Step 04 — End of Day</div>
         <h3>See your real numbers. Not just guesses.</h3>
         <p>Open the dashboard and your full picture is waiting. Every dollar earned, every fee taken, every expense logged, every dollar set aside for taxes — calculated and displayed in real time. No spreadsheets. No math. No surprises.</p>
-        <div class="snapshot-card">
+        <div class="snapshot-card reveal">
           <div class="snapshot-title">Today's Summary</div>
           <div class="snapshot-rows">
             <div class="snapshot-row">
@@ -477,7 +655,7 @@
     </div>
 
     <!-- STEP 5 -->
-    <div class="step">
+    <div class="step reveal">
       <div class="step-left">
         <div class="step-bubble">
           <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="white" stroke-width="2"/><path d="M7 7h2v2H7zM11 7h2v2h-2zM15 7h2v2h-2zM7 11h2v2H7zM11 11h2v2h-2z" fill="white" opacity="0.7"/><rect x="15" y="11" width="2" height="2" fill="white" opacity="0.4"/><rect x="7" y="15" width="2" height="2" fill="white" opacity="0.5"/><rect x="11" y="15" width="6" height="2" fill="white" opacity="0.7"/></svg>
@@ -488,15 +666,15 @@
         <h3>Use your data to work smarter next week.</h3>
         <p>The Earnings Heatmap shows your average earnings by day of week and time of day, built from your own history. You see that Friday evening 5–9pm is consistently your best slot — so you plan around it. Over time, every decision gets sharper.</p>
         <div class="step-detail-cards">
-          <div class="detail-card">
+          <div class="detail-card reveal">
             <div class="detail-card-label">Your Best Slot</div>
             <div class="detail-card-value">Friday 5–9pm → avg $47/hr after expenses</div>
           </div>
-          <div class="detail-card">
+          <div class="detail-card reveal">
             <div class="detail-card-label">Avoid</div>
             <div class="detail-card-value">Tuesday mornings → avg $11/hr after gas</div>
           </div>
-          <div class="detail-card">
+          <div class="detail-card reveal">
             <div class="detail-card-label">Best Platform This Month</div>
             <div class="detail-card-value">Uber → $2,190 vs DoorDash → $1,460</div>
           </div>
@@ -508,20 +686,20 @@
 </div>
 
 <!-- ═══ HOW PLATFORMS ARE LINKED ═══ -->
-<div class="platform-section">
+<div class="platform-section reveal">
   <div class="platform-inner">
     <div class="section-label">Platform Integration</div>
     <h2>How your gig accounts get linked.</h2>
     <p class="section-sub" style="margin-bottom:0;">GigWallet uses Argyle — an industry-standard employment data platform — to securely read your earnings data from gig platforms. Here's what that means in practice.</p>
 
-    <div class="platform-grid">
-      <div class="platform-card">
+    <div class="platform-grid reveal-stagger">
+      <div class="platform-card reveal">
         <div class="platform-pill"><div class="platform-dot"></div><span>Read-Only Access</span></div>
         <h3>We can never touch your money</h3>
         <p>The connection is strictly read-only. GigWallet can see your earnings data — and nothing else. No ability to transfer funds, change settings, or take any action on your accounts.</p>
       </div>
 
-      <div class="platform-card">
+      <div class="platform-card reveal">
         <div class="platform-pill"><div class="platform-dot"></div><span>Secure OAuth</span></div>
         <h3>You log in through the official platform</h3>
         <p>When linking an account, you authenticate directly with Uber, DoorDash, or whichever platform — the same login you use every day. GigWallet never sees your password.</p>
@@ -532,7 +710,7 @@
         </ul>
       </div>
 
-      <div class="platform-card">
+      <div class="platform-card reveal">
         <div class="platform-pill"><div class="platform-dot"></div><span>Trip-Level Data</span></div>
         <h3>Not just totals — every trip</h3>
         <p>Unlike apps that only see bank deposits, GigWallet imports individual trips with full breakdowns — so you know your profitability per trip, not just per week.</p>
@@ -544,7 +722,7 @@
         </ul>
       </div>
 
-      <div class="platform-card">
+      <div class="platform-card reveal">
         <div class="platform-pill"><div class="platform-dot"></div><span>Supported Platforms</span></div>
         <h3>All the major platforms, one place</h3>
         <p>GigWallet supports 10+ gig platforms through the Argyle integration.</p>
@@ -557,13 +735,13 @@
         </ul>
       </div>
 
-      <div class="platform-card">
+      <div class="platform-card reveal">
         <div class="platform-pill"><div class="platform-dot"></div><span>Manual Entry</span></div>
         <h3>Platform not listed? Add it manually.</h3>
         <p>For platforms not yet in the integration list — or cash tips and one-off gigs — manual income entry lets you log any amount with full categorization and date tracking.</p>
       </div>
 
-      <div class="platform-card">
+      <div class="platform-card reveal">
         <div class="platform-pill"><div class="platform-dot"></div><span>Local Storage</span></div>
         <h3>Your data lives on your device</h3>
         <p>All your income, expense, and financial data is stored locally on your iPhone via SwiftData. It's private by default — not synced to external servers or shared with third parties.</p>
@@ -573,7 +751,7 @@
 </div>
 
 <!-- ═══ PRIVACY & TRUST ═══ -->
-<div class="privacy-block">
+<div class="privacy-block reveal">
   <div>
     <div class="section-label">Privacy First</div>
     <h2>Built with your<br>privacy as the default.</h2>
@@ -602,20 +780,20 @@
     </div>
   </div>
 
-  <div class="trust-grid">
-    <div class="trust-card">
+  <div class="trust-grid reveal-stagger">
+    <div class="trust-card reveal">
       <h4>On-Device Receipt OCR</h4>
       <p>Receipt scanning uses Apple's Vision framework locally. Your receipts never leave your phone.</p>
     </div>
-    <div class="trust-card">
+    <div class="trust-card reveal">
       <h4>Argyle — Read Only</h4>
       <p>Gig platform access is strictly read-only via OAuth. GigWallet cannot move money or change anything.</p>
     </div>
-    <div class="trust-card">
+    <div class="trust-card reveal">
       <h4>SwiftData Local Storage</h4>
       <p>All financial records are stored on your device using Apple's native data framework. Not a cloud database.</p>
     </div>
-    <div class="trust-card">
+    <div class="trust-card reveal">
       <h4>Zero Ads. Zero Tracking.</h4>
       <p>GigWallet earns through a premium subscription — not by monetizing your data. Your information is never sold.</p>
     </div>
@@ -623,63 +801,62 @@
 </div>
 
 <!-- ═══ FAQ ═══ -->
-<div class="faq-section">
+<div class="faq-section reveal">
   <div class="section-label">Common Questions</div>
   <h2>Answers up front.</h2>
 
-  <div class="faq-item">
+  <div class="faq-item reveal">
     <div class="faq-q">Do I need to link my gig accounts to use GigWallet?</div>
     <div class="faq-a">No — platform linking is optional. You can use GigWallet entirely with manual income entry. Linking your accounts simply makes tracking faster and gives you trip-level detail without any data entry.</div>
   </div>
 
-  <div class="faq-item">
+  <div class="faq-item reveal">
     <div class="faq-q">Is my login information safe when I link a platform?</div>
     <div class="faq-a">Yes. You authenticate directly with each platform (Uber, DoorDash, etc.) using their own login flow. GigWallet and Argyle never see your username or password — only a secure read-only token is issued.</div>
   </div>
 
-  <div class="faq-item">
+  <div class="faq-item reveal">
     <div class="faq-q">How does the tax calculator know my rate?</div>
     <div class="faq-a">During setup, you provide your filing status and home state. GigWallet uses this along with your running YTD income to calculate your federal, state, and self-employment tax obligations in real time. All 50 states are supported.</div>
   </div>
 
-  <div class="faq-item">
+  <div class="faq-item reveal">
     <div class="faq-q">What if I work in multiple states?</div>
     <div class="faq-a">Each income entry can be assigned to a specific state. GigWallet applies the correct state tax rate per entry and calculates a blended state liability for your quarterly estimate.</div>
   </div>
 
-  <div class="faq-item">
+  <div class="faq-item reveal">
     <div class="faq-q">When do the AI features become available?</div>
     <div class="faq-a">Most AI features — like the Earnings Heatmap and Pattern Analysis — become more useful and accurate as you accumulate earnings data. The Work Advisor is available from day one and uses your location, gas prices, and local events even before you have history built up.</div>
   </div>
 
-  <div class="faq-item">
+  <div class="faq-item reveal">
     <div class="faq-q">What's included in the free version vs. premium?</div>
     <div class="faq-a">The free version includes full income tracking, expense logging (including receipt OCR), mileage tracking, the real-time tax engine, and basic dashboard analytics. Premium adds the Work Advisor AI, Financial Health Score, Earnings Heatmap, AI Intelligence Report, Financial Planner, and advanced analytics.</div>
   </div>
 
-  <div class="faq-item">
+  <div class="faq-item reveal">
     <div class="faq-q">Is GigWallet available on Android?</div>
     <div class="faq-a">GigWallet is currently available on iOS (iPhone). An Android version is on the roadmap — sign up for updates at hello@gigwallet.app.</div>
   </div>
 </div>
 
-<!-- ═══ CTA ═══ -->
-<div class="cta-strip">
+<!-- CTA -->
+<div class="cta-strip reveal">
   <h2>Ready to see your<br><em>real take-home?</em></h2>
   <p>Free to download. Takes 2 minutes. No credit card required.</p>
-  <!-- Replace # with actual App Store URL -->
-  <a href="index.html#download" class="btn-primary">Download GigWallet Free →</a>
+  <a href="index.html#download" class="btn-primary">Download GigWallet Free \u2192</a>
 </div>
 
-<!-- ═══ FOOTER ═══ -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="index.html" class="logo-wrap">
-        <div class="logo-icon" style="width:34px;height:34px;border-radius:8px;overflow:hidden;">
-          <img src="app-icon-64.png" alt="GigWallet" width="34" height="34">
+      <a href="/" class="logo-wrap">
+        <div class="logo-icon" style="width:28px;height:28px;">
+          <img src="app-icon-64.png" alt="GigWallet" width="28" height="28">
         </div>
-        <span class="logo-name" style="font-size:18px;">GigWallet</span>
+        <span class="logo-name">GigWallet</span>
       </a>
       <p>The personal finance command center for gig workers and freelancers. Know what you earn. Keep what you make.</p>
     </div>
@@ -696,23 +873,50 @@
       <ul>
         <li><a href="privacy-policy.html">Privacy Policy</a></li>
         <li><a href="terms-of-service.html">Terms of Service</a></li>
-        <li><a href="mailto:hello@gigwallet.app">Contact</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-strip">
-    <span class="footer-strip-text">Track · Manage · Grow · <span>gigwallet.app</span></span>
-    <span class="footer-copy">© 2026 GigWallet. All rights reserved.</span>
+    <span class="footer-copy">&copy; 2026 GigWallet. All rights reserved.</span>
   </div>
 </footer>
 
 <script>
+(function() {
+  \'use strict\';
+
+  // Mobile menu
   document.querySelectorAll('.mobile-menu a').forEach(a => {
-    a.addEventListener('click', () => document.querySelector('.mobile-menu').classList.remove('open'));
+    a.addEventListener('click', () => {
+      document.querySelector('.mobile-menu').classList.remove('open');
+    });
   });
+
+  // Nav scroll shadow
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  if (reveals.length) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+    reveals.forEach(el => revealObserver.observe(el));
+  }
+
+  // FAQ accordion
   document.querySelectorAll('.faq-q').forEach(q => {
     q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
   });
+})();
 </script>
 
 </body>

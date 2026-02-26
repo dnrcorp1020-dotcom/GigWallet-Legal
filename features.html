@@ -11,35 +11,50 @@
   <meta property="og:url" content="https://gigwallet.app/features.html">
   <meta property="og:image" content="https://gigwallet.app/og-image.png">
   <link rel="canonical" href="https://gigwallet.app/features.html">
+  <link rel="icon" href="app-icon-32.png" type="image/png">
+  <link rel="apple-touch-icon" href="app-icon-180.png">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --orange: #FF6B35;
-      --orange-light: #FF8F66;
-      --orange-dark: #E55A25;
-      --secondary: #8B5E34;
-      --secondary-light: #A67B52;
       --bg: #FFFFFF;
-      --bg-warm: #F7F7F5;
-      --panel: #F7F7F5;
-      --green: #34C759;
+      --surface: #F7F7F5;
+      --surface-2: #F0F0EE;
+      --border: rgba(55,53,47,0.09);
+      --border-hover: rgba(55,53,47,0.16);
+      --accent: #FF6B35;
+      --accent-subtle: rgba(255,107,53,0.06);
+      --accent-border: rgba(255,107,53,0.12);
       --text: #37352F;
       --text-secondary: #787774;
       --text-tertiary: #B4B4B0;
-      --border: rgba(55,53,47,0.09);
-      --border-light: rgba(55,53,47,0.06);
-      --white: #FFFFFF;
+      --green: #34C759;
+      --dark-bg: #0F0F12;
+      --dark-surface: #1A1A1F;
+      --dark-border: rgba(255,255,255,0.08);
+      --dark-text: #FFFFFF;
+      --dark-text-secondary: rgba(255,255,255,0.7);
+      --dark-text-tertiary: rgba(255,255,255,0.4);
     }
 
     html { scroll-behavior: smooth; }
 
+    /* ─── MICRO DETAILS ─── */
+    ::selection { background: rgba(255,107,53,0.2); color: var(--text); }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,107,53,0.25); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255,107,53,0.4); }
+    *:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+    section[id] { scroll-margin-top: 64px; }
+
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Inter', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
-      font-size: 18px;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      font-weight: 400;
       line-height: 1.6;
       overflow-x: hidden;
     }
@@ -49,66 +64,88 @@
       display: flex; align-items: center; gap: 10px; text-decoration: none;
     }
     .logo-icon {
-      width: 40px; height: 40px; border-radius: 10px;
-      background: linear-gradient(135deg, #FF8F66, #FF6B35);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; box-shadow: 0 3px 10px rgba(229,90,37,0.25);
+      width: 32px; height: 32px; flex-shrink: 0;
+      border-radius: 8px; overflow: hidden;
     }
-    .logo-icon svg { width: 24px; height: 24px; }
-    .logo-name { font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif; font-size: 22px; font-weight: 800; color: var(--text); letter-spacing: -0.5px; }
+    .logo-icon img {
+      width: 100%; height: 100%; display: block; object-fit: cover;
+    }
+    .logo-name {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 18px; font-weight: 600; color: var(--text);
+    }
 
     /* ─── NAV ─── */
     nav {
       position: sticky; top: 0; z-index: 100;
       background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
-      padding: 0 5%;
+      padding: 0 32px;
       display: flex; align-items: center; justify-content: space-between;
-      height: 68px;
+      height: 56px; max-width: 100%;
+      transition: box-shadow 0.3s, background 0.3s;
     }
-    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    nav.scrolled {
+      box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+      background: rgba(255,255,255,0.95);
+    }
+    footer .logo-name { color: var(--dark-text); }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 100%; max-width: 1100px; margin: 0 auto;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px; list-style: none;
+    }
     .nav-links a {
       color: var(--text-secondary); text-decoration: none;
-      font-size: 15px; font-weight: 500; letter-spacing: 0.2px; transition: color 0.2s;
+      font-size: 14px; font-weight: 500; transition: color 0.2s;
     }
-    .nav-links a:hover, .nav-links a.active { color: var(--orange); }
+    .nav-links a:hover { color: var(--text); }
     .btn-nav {
-      background: var(--orange); color: var(--white) !important;
-      padding: 10px 22px; border-radius: 10px;
-      font-weight: 700 !important; font-size: 14px !important; letter-spacing: 0.5px;
-      box-shadow: 0 1px 6px rgba(255,107,53,0.2);
-      transition: transform 0.15s, box-shadow 0.15s !important;
+      background: var(--accent); color: #fff !important;
+      padding: 7px 16px; border-radius: 10px;
+      font-weight: 500 !important; font-size: 13px !important;
+      transition: opacity 0.2s !important;
     }
-    .btn-nav:hover { transform: translateY(-2px); box-shadow: 0 3px 12px rgba(255,107,53,0.3) !important; }
+    .btn-nav:hover { opacity: 0.9; }
 
+    /* hamburger */
     .hamburger {
       display: none; flex-direction: column; gap: 5px;
       cursor: pointer; background: none; border: none; padding: 6px;
     }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; }
+    .hamburger span {
+      display: block; width: 20px; height: 1.5px;
+      background: var(--text); border-radius: 1px; transition: 0.3s;
+    }
     .mobile-menu {
-      display: none; position: fixed; top: 68px; left: 0; right: 0;
-      background: #FAFAFA; border-bottom: 1px solid var(--border);
-      padding: 24px 5%; flex-direction: column; gap: 20px; z-index: 99;
+      display: none; position: fixed; top: 56px; left: 0; right: 0;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 24px 32px; flex-direction: column; gap: 20px; z-index: 99;
     }
     .mobile-menu.open { display: flex; }
-    .mobile-menu a { color: var(--text-secondary); text-decoration: none; font-size: 17px; font-weight: 500; }
-    .mobile-menu .btn-nav { text-align: center; padding: 14px; border-radius: 10px; }
+    .mobile-menu a {
+      color: var(--text-secondary); text-decoration: none;
+      font-size: 15px; font-weight: 500;
+    }
+    .mobile-menu .btn-nav {
+      text-align: center; padding: 12px; border-radius: 10px;
+    }
 
     /* ─── PAGE HERO ─── */
     .page-hero {
       padding: 80px 5% 70px;
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
+      max-width: 900px; margin: 0 auto; text-align: center;
     }
     .eyebrow {
       display: inline-flex; align-items: center; gap: 8px;
-      background: var(--bg-warm); border: 1px solid var(--border);
+      background: var(--surface); border: 1px solid var(--border);
       border-radius: 100px; padding: 6px 16px;
       font-size: 13px; font-weight: 600; letter-spacing: 1px;
-      color: var(--orange-light); text-transform: uppercase; margin-bottom: 24px;
+      color: var(--accent); text-transform: uppercase; margin-bottom: 24px;
     }
     h1 {
       font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif;
@@ -116,7 +153,7 @@
       font-weight: 800; letter-spacing: -0.02em; line-height: 1.05;
       color: var(--text); margin-bottom: 20px;
     }
-    h1 em { font-style: normal; color: var(--orange); }
+    h1 em { font-style: normal; color: var(--accent); }
     .page-hero p {
       font-size: 19px; color: var(--text-secondary); max-width: 600px; margin: 0 auto 36px;
     }
@@ -127,14 +164,14 @@
       padding: 0 5% 60px; max-width: 900px; margin: 0 auto;
     }
     .feature-nav a {
-      background: var(--bg-warm); border: 1px solid var(--border);
+      background: var(--surface); border: 1px solid var(--border);
       border-radius: 100px; padding: 8px 18px;
       font-size: 14px; font-weight: 600; color: var(--text-secondary);
       text-decoration: none; transition: all 0.2s;
       white-space: nowrap;
     }
     .feature-nav a:hover {
-      background: var(--orange); border-color: var(--orange); color: var(--white);
+      background: var(--accent); border-color: var(--accent); color: #fff;
     }
 
     /* ─── FEATURE SECTIONS ─── */
@@ -152,21 +189,21 @@
     .fs-num {
       font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif;
       width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
-      background: linear-gradient(135deg, var(--orange-light), var(--orange));
+      background: linear-gradient(135deg, rgba(255,143,102,1), var(--accent));
       display: flex; align-items: center; justify-content: center;
-      font-size: 22px; font-weight: 900; color: var(--white);
+      font-size: 22px; font-weight: 900; color: #fff;
       box-shadow: 0 3px 10px rgba(229,90,37,0.25);
     }
-    .fs-title-wrap {}
     .fs-eyebrow {
       font-size: 12px; font-weight: 600; letter-spacing: 1px;
-      color: var(--orange); text-transform: uppercase; margin-bottom: 6px;
+      color: var(--accent); text-transform: uppercase; margin-bottom: 6px;
     }
     h2 {
       font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif;
       font-size: clamp(28px, 3vw, 40px); font-weight: 700;
       letter-spacing: -0.02em; color: var(--text); line-height: 1.1;
     }
+    h2 em { font-style: normal; color: var(--accent); }
     .fs-desc {
       font-size: 17px; color: var(--text-secondary); margin-top: 8px; max-width: 560px;
     }
@@ -178,26 +215,34 @@
     .subfeature-grid.col-2 { grid-template-columns: repeat(2, 1fr); }
 
     .sub-card {
-      background: var(--panel); border: 1px solid var(--border-light);
+      background: var(--surface); border: 1px solid var(--border);
       border-radius: 16px; padding: 24px;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative; overflow: hidden;
     }
     .sub-card::after {
       content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, var(--orange-light), var(--orange));
-      opacity: 0; transition: opacity 0.2s;
+      background: linear-gradient(90deg, rgba(255,143,102,1), var(--accent));
+      opacity: 0; transition: opacity 0.3s;
     }
-    .sub-card:hover { transform: translateY(-3px); box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06); }
+    .sub-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.08);
+    }
     .sub-card:hover::after { opacity: 1; }
 
     .sub-card-icon {
       width: 40px; height: 40px; border-radius: 10px;
-      background: var(--bg-warm); border: 1px solid var(--border);
+      background: var(--accent-subtle); border: 1px solid var(--accent-border);
       display: flex; align-items: center; justify-content: center;
       margin-bottom: 14px;
+      transition: background 0.3s, border-color 0.3s;
     }
-    .sub-card-icon svg { width: 20px; height: 20px; }
+    .sub-card:hover .sub-card-icon {
+      background: var(--accent); border-color: var(--accent);
+    }
+    .sub-card:hover .sub-card-icon svg { stroke: #fff; }
+    .sub-card-icon svg { width: 20px; height: 20px; transition: stroke 0.3s; }
     .sub-card h3 {
       font-size: 17px; font-weight: 700; color: var(--text);
       letter-spacing: -0.3px; margin-bottom: 8px;
@@ -213,25 +258,27 @@
     .sub-card ul li::before {
       content: ''; position: absolute; left: 0; top: 8px;
       width: 5px; height: 5px; border-radius: 50%;
-      background: var(--orange);
+      background: var(--accent);
     }
 
     /* ─── PREMIUM BADGE ─── */
     .premium-banner {
-      background: linear-gradient(135deg, var(--orange-dark) 0%, var(--orange) 100%);
+      background: linear-gradient(135deg, #E55A25 0%, var(--accent) 100%);
       border: 1px solid rgba(255,255,255,0.15);
       border-radius: 16px; padding: 28px 32px;
       display: flex; align-items: center; justify-content: space-between;
       gap: 20px; flex-wrap: wrap; margin-top: 48px;
     }
-    .premium-banner-left {}
     .premium-tag {
       display: inline-flex; align-items: center; gap: 6px;
       background: rgba(255,255,255,0.15); border-radius: 100px;
       padding: 4px 12px; font-size: 12px; font-weight: 600;
-      letter-spacing: 1px; color: var(--white); text-transform: uppercase; margin-bottom: 8px;
+      letter-spacing: 1px; color: #fff; text-transform: uppercase; margin-bottom: 8px;
     }
-    .premium-banner h3 { font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif; font-size: 22px; font-weight: 800; color: var(--white); letter-spacing: -0.5px; }
+    .premium-banner h3 {
+      font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 22px; font-weight: 800; color: #fff; letter-spacing: -0.5px;
+    }
     .premium-banner p { font-size: 15px; color: rgba(255,255,255,0.8); margin-top: 4px; }
     .premium-features {
       display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;
@@ -244,52 +291,77 @@
 
     /* ─── CTA STRIP ─── */
     .cta-strip {
-      background: var(--bg-warm); border-top: 1px solid var(--border);
+      background: var(--dark-bg);
+      border-top: 1px solid var(--border);
       padding: 80px 5%; text-align: center;
     }
-    .cta-strip h2 { font-size: clamp(32px, 4vw, 52px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 12px; }
-    .cta-strip h2 em { font-style: normal; color: var(--orange); }
-    .cta-strip p { font-size: 18px; color: var(--text-secondary); margin-bottom: 36px; }
+    .cta-strip h2 {
+      font-size: clamp(32px, 4vw, 52px); font-weight: 800;
+      letter-spacing: -0.02em; margin-bottom: 12px; color: var(--dark-text);
+    }
+    .cta-strip h2 em { font-style: normal; color: var(--accent); }
+    .cta-strip p { font-size: 18px; color: var(--dark-text-secondary); margin-bottom: 36px; }
     .btn-primary {
       font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif;
       display: inline-flex; align-items: center; gap: 10px;
-      background: var(--orange); color: var(--white); text-decoration: none;
+      background: var(--accent); color: #fff; text-decoration: none;
       padding: 18px 32px; border-radius: 12px;
       font-size: 18px; font-weight: 700; letter-spacing: 0.3px;
       box-shadow: 0 6px 20px rgba(255,107,53,0.3);
-      transition: transform 0.15s, box-shadow 0.15s;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s;
     }
-    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(255,107,53,0.4); }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(255,107,53,0.4);
+    }
 
     /* ─── FOOTER ─── */
-    footer { background: var(--bg-warm); border-top: 1px solid var(--border); padding: 60px 5% 0; }
+    footer {
+      background: var(--dark-bg);
+      border-top: 1px solid var(--border);
+      padding: 60px 0 0;
+    }
     .footer-grid {
       display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px;
-      max-width: 1100px; margin: 0 auto 48px;
+      max-width: 1100px; margin: 0 auto 48px; padding: 0 32px;
     }
-    .footer-brand p { margin-top: 16px; font-size: 15px; color: var(--text-secondary); max-width: 280px; line-height: 1.65; }
-    .footer-col h4 { font-size: 13px; font-weight: 600; letter-spacing: 1px; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 18px; }
+    .footer-brand p {
+      margin-top: 16px; font-size: 15px; font-weight: 400;
+      color: var(--dark-text-secondary); max-width: 280px; line-height: 1.6;
+    }
+    .footer-col h4 {
+      font-size: 12px; font-weight: 500; letter-spacing: 0.04em;
+      color: var(--dark-text-tertiary); text-transform: uppercase; margin-bottom: 18px;
+    }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-    .footer-col a { color: var(--text-tertiary); text-decoration: none; font-size: 15px; transition: color 0.2s; }
-    .footer-col a:hover { color: var(--orange); }
-    .footer-strip {
-      background: var(--secondary); padding: 16px 5%;
-      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    .footer-col a {
+      color: var(--dark-text-secondary); text-decoration: none;
+      font-size: 14px; font-weight: 400; transition: color 0.2s;
     }
-    .footer-strip-text { font-size: 13px; font-weight: 600; letter-spacing: 1px; color: rgba(255,255,255,0.7); text-transform: uppercase; }
-    .footer-strip-text span { color: var(--orange-light); }
-    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.6); }
+    .footer-col a:hover { color: var(--dark-text); }
+    .footer-strip {
+      background: rgba(0,0,0,0.2);
+      border-top: 1px solid var(--dark-border);
+      padding: 16px 32px;
+      display: flex; justify-content: center; align-items: center;
+    }
+    .footer-copy {
+      font-size: 12px; color: var(--dark-text-tertiary);
+    }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 768px) {
+      nav { padding: 0 20px; }
       .nav-links { display: none; }
       .hamburger { display: flex; }
+      .mobile-menu { padding: 24px 20px; }
       .subfeature-grid { grid-template-columns: 1fr; }
       .subfeature-grid.col-2 { grid-template-columns: 1fr; }
+      .sub-card[style*="grid-column: span"] { grid-column: 1 !important; }
       .fs-header { grid-template-columns: auto 1fr; }
       .feature-nav { gap: 8px; }
-      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
-      .footer-strip { flex-direction: column; text-align: center; }
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; padding: 0 20px; }
+      .footer-strip { padding: 16px 20px; }
       .premium-banner { flex-direction: column; }
     }
     @media (max-width: 480px) {
@@ -297,37 +369,82 @@
       h2 { font-size: 26px; }
     }
 
+    /* ─── ANIMATIONS ─── */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
+      from { opacity: 0; transform: translateY(12px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .page-hero > * { animation: fadeUp 0.5s both; }
+    .page-hero > * {
+      animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
     .page-hero > *:nth-child(1) { animation-delay: 0.05s; }
     .page-hero > *:nth-child(2) { animation-delay: 0.12s; }
     .page-hero > *:nth-child(3) { animation-delay: 0.20s; }
     .page-hero > *:nth-child(4) { animation-delay: 0.28s; }
+
+    /* Scroll reveal system */
+    .reveal {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.revealed {
+      opacity: 1; transform: translateY(0);
+    }
+    .reveal-stagger > .reveal:nth-child(1) { transition-delay: 0s; }
+    .reveal-stagger > .reveal:nth-child(2) { transition-delay: 0.1s; }
+    .reveal-stagger > .reveal:nth-child(3) { transition-delay: 0.1s; }
+    .reveal-stagger > .reveal:nth-child(4) { transition-delay: 0.15s; }
+    .reveal-stagger > .reveal:nth-child(5) { transition-delay: 0.2s; }
+    .reveal-stagger > .reveal:nth-child(6) { transition-delay: 0.25s; }
+
+    /* Mobile menu animation */
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .mobile-menu.open {
+      animation: slideDown 0.2s ease-out;
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    /* Page load */
+    body {
+      animation: fadeUp 0.4s both;
+    }
   </style>
 </head>
 <body>
 
-<!-- ═══ NAV ═══ -->
+<!-- NAV -->
 <nav>
-  <a href="index.html" class="logo-wrap">
-    <div class="logo-icon">
-      <img src="app-icon-64.png" alt="GigWallet" width="32" height="32">
-    </div>
-    <span class="logo-name">GigWallet</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="features.html" class="active">Features</a></li>
-    <li><a href="how-it-works.html">How It Works</a></li>
-    <li><a href="privacy-policy.html">Privacy</a></li>
-    <li><a href="terms-of-service.html">Terms</a></li>
-    <li><a href="index.html#download" class="btn-nav">Download App</a></li>
-  </ul>
-  <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-inner">
+    <a href="/" class="logo-wrap">
+      <div class="logo-icon">
+        <img src="app-icon-64.png" alt="GigWallet" width="32" height="32">
+      </div>
+      <span class="logo-name">GigWallet</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="features.html">Features</a></li>
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="privacy-policy.html">Privacy</a></li>
+      <li><a href="terms-of-service.html">Terms</a></li>
+      <li><a href="index.html#download" class="btn-nav">Download App</a></li>
+    </ul>
+    <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 <div class="mobile-menu">
   <a href="features.html">Features</a>
@@ -337,7 +454,7 @@
   <a href="index.html#download" class="btn-nav">Download App</a>
 </div>
 
-<!-- ═══ PAGE HERO ═══ -->
+<!-- PAGE HERO -->
 <div class="page-hero">
   <div class="eyebrow">Built for gig workers</div>
   <h1>Every feature you need.<br><em>Nothing you don't.</em></h1>
@@ -345,7 +462,7 @@
 </div>
 
 <!-- FEATURE NAV -->
-<div class="feature-nav">
+<div class="feature-nav reveal">
   <a href="#income">Income Tracking</a>
   <a href="#expenses">Expense & Receipts</a>
   <a href="#tax">Tax Engine</a>
@@ -355,9 +472,8 @@
   <a href="#planner">Financial Planner</a>
   <a href="#premium">Premium</a>
 </div>
-
 <!-- ═══ 1. MULTI-PLATFORM INCOME ═══ -->
-<section class="feature-section" id="income">
+<section class="feature-section reveal" id="income">
   <div class="fs-header">
     <div class="fs-num">1</div>
     <div class="fs-title-wrap">
@@ -367,8 +483,8 @@
     </div>
   </div>
 
-  <div class="subfeature-grid">
-    <div class="sub-card">
+  <div class="subfeature-grid reveal-stagger">
+    <div class="sub-card reveal">
       <div class="sub-card-icon">
         <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#FF6B35" stroke-width="2" stroke-linejoin="round"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#FF6B35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
@@ -382,7 +498,7 @@
       </ul>
     </div>
 
-    <div class="sub-card">
+    <div class="sub-card reveal">
       <div class="sub-card-icon">
         <svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#FF6B35" stroke-width="2.5" stroke-linecap="round"/></svg>
       </div>
@@ -396,7 +512,7 @@
       </ul>
     </div>
 
-    <div class="sub-card">
+    <div class="sub-card reveal">
       <div class="sub-card-icon">
         <svg viewBox="0 0 24 24" fill="none"><path d="M3 17l5-5 4 4 5-6 4 3" stroke="#FF6B35" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
@@ -413,7 +529,7 @@
 </section>
 
 <!-- ═══ 2. EXPENSE TRACKING ═══ -->
-<section class="feature-section" id="expenses">
+<section class="feature-section reveal" id="expenses">
   <div class="fs-header">
     <div class="fs-num">2</div>
     <div class="fs-title-wrap">
@@ -423,8 +539,8 @@
     </div>
   </div>
 
-  <div class="subfeature-grid">
-    <div class="sub-card">
+  <div class="subfeature-grid reveal-stagger">
+    <div class="sub-card reveal">
       <div class="sub-card-icon">
         <svg viewBox="0 0 24 24" fill="none"><path d="M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9l-7-7z" stroke="#FF6B35" stroke-width="2" stroke-linejoin="round"/><path d="M13 2v7h7" stroke="#FF6B35" stroke-width="2"/></svg>
       </div>
@@ -438,7 +554,7 @@
       </ul>
     </div>
 
-    <div class="sub-card">
+    <div class="sub-card reveal">
       <div class="sub-card-icon">
         <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#FF6B35" stroke-width="2"/><path d="M9 9h6M9 12h6M9 15h4" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/></svg>
       </div>
@@ -452,7 +568,7 @@
       </ul>
     </div>
 
-    <div class="sub-card">
+    <div class="sub-card reveal">
       <div class="sub-card-icon">
         <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#FF6B35" stroke-width="2"/><path d="M12 8v4l3 3" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/></svg>
       </div>
@@ -466,7 +582,7 @@
       </ul>
     </div>
 
-    <div class="sub-card">
+    <div class="sub-card reveal">
       <div class="sub-card-icon">
         <svg viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z" stroke="#FF6B35" stroke-width="2"/><path d="M12 6v6l4 2" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/></svg>
       </div>
@@ -480,7 +596,7 @@
       </ul>
     </div>
 
-    <div class="sub-card" style="grid-column: span 2; display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
+    <div class="sub-card reveal" style="grid-column: span 2; display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
       <div>
         <div class="sub-card-icon" style="margin-bottom:0; margin-right: 0;">
           <svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#FF6B35" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z" stroke="#FF6B35" stroke-width="2"/></svg>
@@ -495,7 +611,7 @@
 </section>
 
 <!-- ═══ 3. TAX ENGINE ═══ -->
-<section class="feature-section" id="tax">
+<section class="feature-section reveal" id="tax">
   <div class="fs-header">
     <div class="fs-num">3</div>
     <div class="fs-title-wrap">
@@ -505,8 +621,8 @@
     </div>
   </div>
 
-  <div class="subfeature-grid">
-    <div class="sub-card">
+  <div class="subfeature-grid reveal-stagger">
+    <div class="sub-card reveal">
       <div class="sub-card-icon">
         <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="#FF6B35" stroke-width="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/></svg>
       </div>
@@ -520,7 +636,7 @@
       </ul>
     </div>
 
-    <div class="sub-card">
+    <div class="sub-card reveal">
       <div class="sub-card-icon">
         <svg viewBox="0 0 24 24" fill="none"><path d="M12 2v20M2 12h20" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="4" stroke="#FF6B35" stroke-width="2"/></svg>
       </div>
@@ -534,7 +650,7 @@
       </ul>
     </div>
 
-    <div class="sub-card">
+    <div class="sub-card reveal">
       <div class="sub-card-icon">
         <svg viewBox="0 0 24 24" fill="none"><path d="M20 12V22H4V12" stroke="#FF6B35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 7H2v5h20V7z" stroke="#FF6B35" stroke-width="2" stroke-linejoin="round"/><path d="M12 22V7M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z" stroke="#FF6B35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
@@ -548,7 +664,7 @@
       </ul>
     </div>
 
-    <div class="sub-card" style="grid-column: span 3; display: flex; gap: 40px; align-items: center; flex-wrap: wrap;">
+    <div class="sub-card reveal" style="grid-column: span 3; display: flex; gap: 40px; align-items: center; flex-wrap: wrap;">
       <div style="flex:1; min-width: 220px;">
         <div class="sub-card-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 3h18v18H3z" stroke="#FF6B35" stroke-width="2" stroke-linejoin="round"/><path d="M7 8h10M7 12h6M7 16h8" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/></svg></div>
         <h3>All 50 States Supported</h3>
@@ -564,7 +680,7 @@
 </section>
 
 <!-- ═══ 4. AI INTELLIGENCE ═══ -->
-<section class="feature-section" id="ai">
+<section class="feature-section reveal" id="ai">
   <div class="fs-header">
     <div class="fs-num">4</div>
     <div class="fs-title-wrap">
@@ -574,8 +690,8 @@
     </div>
   </div>
 
-  <div class="subfeature-grid">
-    <div class="sub-card">
+  <div class="subfeature-grid reveal-stagger">
+    <div class="sub-card reveal">
       <div class="sub-card-icon">
         <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z" stroke="#FF6B35" stroke-width="2" stroke-linejoin="round"/></svg>
       </div>
@@ -590,7 +706,7 @@
       </ul>
     </div>
 
-    <div class="sub-card">
+    <div class="sub-card reveal">
       <div class="sub-card-icon">
         <svg viewBox="0 0 24 24" fill="none"><path d="M3 17l5-5 4 4 5-6 4 3" stroke="#FF6B35" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="8" r="2" fill="#FF6B35"/></svg>
       </div>
@@ -604,7 +720,7 @@
       </ul>
     </div>
 
-    <div class="sub-card">
+    <div class="sub-card reveal">
       <div class="sub-card-icon">
         <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#FF6B35" stroke-width="2"/><path d="M7 7h2v2H7zM11 7h2v2h-2zM15 7h2v2h-2zM7 11h2v2H7zM11 11h2v2h-2zM15 11h2v2h-2zM7 15h2v2H7zM11 15h2v2h-2z" fill="#FF6B35" opacity="0.6"/><rect x="15" y="15" width="2" height="2" fill="#FF6B35"/></svg>
       </div>
@@ -618,7 +734,7 @@
       </ul>
     </div>
 
-    <div class="sub-card">
+    <div class="sub-card reveal">
       <div class="sub-card-icon">
         <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#FF6B35" stroke-width="2"/><path d="M12 8v4l3 3" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/></svg>
       </div>
@@ -632,7 +748,7 @@
       </ul>
     </div>
 
-    <div class="sub-card" style="grid-column: span 2;">
+    <div class="sub-card reveal" style="grid-column: span 2;">
       <div class="sub-card-icon">
         <svg viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z" stroke="#FF6B35" stroke-width="2"/><path d="M12 6v6l4 2" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/></svg>
       </div>
@@ -651,7 +767,7 @@
 </section>
 
 <!-- ═══ 5. VISUAL ANALYTICS ═══ -->
-<section class="feature-section" id="analytics">
+<section class="feature-section reveal" id="analytics">
   <div class="fs-header">
     <div class="fs-num">5</div>
     <div class="fs-title-wrap">
@@ -661,8 +777,8 @@
     </div>
   </div>
 
-  <div class="subfeature-grid col-2">
-    <div class="sub-card">
+  <div class="subfeature-grid col-2 reveal-stagger">
+    <div class="sub-card reveal">
       <div class="sub-card-icon">
         <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="12" width="4" height="9" fill="#FF6B35" opacity="0.5" rx="1"/><rect x="10" y="7" width="4" height="14" fill="#FF6B35" opacity="0.7" rx="1"/><rect x="17" y="3" width="4" height="18" fill="#FF6B35" rx="1"/></svg>
       </div>
@@ -677,7 +793,7 @@
       </ul>
     </div>
 
-    <div class="sub-card">
+    <div class="sub-card reveal">
       <div class="sub-card-icon">
         <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="9" height="9" rx="2" stroke="#FF6B35" stroke-width="2"/><rect x="13" y="2" width="9" height="9" rx="2" stroke="#FF6B35" stroke-width="2"/><rect x="2" y="13" width="9" height="9" rx="2" stroke="#FF6B35" stroke-width="2"/><rect x="13" y="13" width="9" height="9" rx="2" stroke="#FF6B35" stroke-width="2" opacity="0.4"/></svg>
       </div>
@@ -694,7 +810,7 @@
 </section>
 
 <!-- ═══ 6. EVENTS & WEATHER ═══ -->
-<section class="feature-section" id="events">
+<section class="feature-section reveal" id="events">
   <div class="fs-header">
     <div class="fs-num">6</div>
     <div class="fs-title-wrap">
@@ -704,8 +820,8 @@
     </div>
   </div>
 
-  <div class="subfeature-grid col-2">
-    <div class="sub-card">
+  <div class="subfeature-grid col-2 reveal-stagger">
+    <div class="sub-card reveal">
       <div class="sub-card-icon">
         <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z" stroke="#FF6B35" stroke-width="2" stroke-linejoin="round"/></svg>
       </div>
@@ -719,7 +835,7 @@
       </ul>
     </div>
 
-    <div class="sub-card">
+    <div class="sub-card reveal">
       <div class="sub-card-icon">
         <svg viewBox="0 0 24 24" fill="none"><path d="M3 7h1M5.5 4.5l.7.7M12 3v1M18.5 4.5l-.7.7M21 7h-1M17 10a5 5 0 10-10 0H4a3 3 0 000 6h16a3 3 0 000-6h-3z" stroke="#FF6B35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
@@ -736,7 +852,7 @@
 </section>
 
 <!-- ═══ 7. FINANCIAL PLANNER ═══ -->
-<section class="feature-section" id="planner">
+<section class="feature-section reveal" id="planner">
   <div class="fs-header">
     <div class="fs-num">7</div>
     <div class="fs-title-wrap">
@@ -746,8 +862,8 @@
     </div>
   </div>
 
-  <div class="subfeature-grid col-2">
-    <div class="sub-card">
+  <div class="subfeature-grid col-2 reveal-stagger">
+    <div class="sub-card reveal">
       <div class="sub-card-icon">
         <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="#FF6B35" stroke-width="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/><path d="M8 14h2M8 17h2M14 14h2M14 17h2" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/></svg>
       </div>
@@ -761,7 +877,7 @@
       </ul>
     </div>
 
-    <div class="sub-card">
+    <div class="sub-card reveal">
       <div class="sub-card-icon">
         <svg viewBox="0 0 24 24" fill="none"><path d="M3 17l5-5 4 4 5-6 4 3" stroke="#FF6B35" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
@@ -778,7 +894,7 @@
 </section>
 
 <!-- ═══ 8. PREMIUM ═══ -->
-<section class="feature-section" id="premium">
+<section class="feature-section reveal" id="premium">
   <div class="fs-header">
     <div class="fs-num">8</div>
     <div class="fs-title-wrap">
@@ -788,7 +904,7 @@
     </div>
   </div>
 
-  <div class="premium-banner">
+  <div class="premium-banner reveal">
     <div class="premium-banner-left">
       <div class="premium-tag">⭐ Premium Features</div>
       <h3>Everything in free, plus the tools that set you apart.</h3>
@@ -816,15 +932,22 @@
   <a href="index.html#download" class="btn-primary">Download GigWallet Free →</a>
 </div>
 
-<!-- ═══ FOOTER ═══ -->
+<!-- CTA -->
+<div class="cta-strip reveal">
+  <h2>Ready to know your<br><em>real numbers?</em></h2>
+  <p>Free to download. Takes 2 minutes to get started. No credit card required.</p>
+  <a href="index.html#download" class="btn-primary">Download GigWallet Free →</a>
+</div>
+
+<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="index.html" class="logo-wrap">
-        <div class="logo-icon" style="width:34px;height:34px;border-radius:8px;overflow:hidden;">
-          <img src="app-icon-64.png" alt="GigWallet" width="34" height="34">
+      <a href="/" class="logo-wrap">
+        <div class="logo-icon" style="width:28px;height:28px;">
+          <img src="app-icon-64.png" alt="GigWallet" width="28" height="28">
         </div>
-        <span class="logo-name" style="font-size:18px;">GigWallet</span>
+        <span class="logo-name">GigWallet</span>
       </a>
       <p>The personal finance command center for gig workers and freelancers. Know what you earn. Keep what you make.</p>
     </div>
@@ -841,20 +964,70 @@
       <ul>
         <li><a href="privacy-policy.html">Privacy Policy</a></li>
         <li><a href="terms-of-service.html">Terms of Service</a></li>
-        <li><a href="mailto:hello@gigwallet.app">Contact</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-strip">
-    <span class="footer-strip-text">Track · Manage · Grow · <span>gigwallet.app</span></span>
-    <span class="footer-copy">© 2026 GigWallet. All rights reserved.</span>
+    <span class="footer-copy">&copy; 2026 GigWallet. All rights reserved.</span>
   </div>
 </footer>
 
 <script>
+(function() {
+  'use strict';
+
+  // Mobile menu
   document.querySelectorAll('.mobile-menu a').forEach(a => {
-    a.addEventListener('click', () => document.querySelector('.mobile-menu').classList.remove('open'));
+    a.addEventListener('click', () => {
+      document.querySelector('.mobile-menu').classList.remove('open');
+    });
   });
+
+  // Nav scroll shadow
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  if (reveals.length) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+    reveals.forEach(el => revealObserver.observe(el));
+  }
+
+  // Feature nav active state on scroll
+  const sections = document.querySelectorAll('.feature-section[id]');
+  const navLinks = document.querySelectorAll('.feature-nav a');
+  if (sections.length && navLinks.length) {
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach(link => {
+            link.style.background = link.getAttribute('href') === '#' + id
+              ? 'var(--accent)'
+              : '';
+            link.style.borderColor = link.getAttribute('href') === '#' + id
+              ? 'var(--accent)'
+              : '';
+            link.style.color = link.getAttribute('href') === '#' + id
+              ? '#fff'
+              : '';
+          });
+        }
+      });
+    }, { threshold: 0.3, rootMargin: '-56px 0px -50% 0px' });
+    sections.forEach(s => sectionObserver.observe(s));
+  }
+})();
 </script>
 
 </body>

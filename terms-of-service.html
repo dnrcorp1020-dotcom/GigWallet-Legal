@@ -1,243 +1,415 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GigWallet — Terms of Service</title>
-  <meta name="description" content="GigWallet Terms of Service — subscription plans, billing, acceptable use, and your legal rights.">
+  <meta name="description" content="GigWallet Terms of Service — subscription plans, billing, refunds, and legal terms.">
   <link rel="canonical" href="https://gigwallet.app/terms-of-service.html">
+  <link rel="icon" href="app-icon-32.png" type="image/png">
+  <link rel="apple-touch-icon" href="app-icon-180.png">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --orange: #FF6B35;
-      --orange-light: #FF8F66;
-      --orange-dark: #E55A25;
-      --secondary: #8B5E34;
-      --secondary-light: #A67B52;
       --bg: #FFFFFF;
-      --bg-warm: #F7F7F5;
-      --panel: #F7F7F5;
-      --green: #34C759;
+      --surface: #F7F7F5;
+      --surface-2: #F0F0EE;
+      --border: rgba(55,53,47,0.09);
+      --border-hover: rgba(55,53,47,0.16);
+      --accent: #FF6B35;
+      --accent-subtle: rgba(255,107,53,0.06);
+      --accent-border: rgba(255,107,53,0.12);
       --text: #37352F;
       --text-secondary: #787774;
       --text-tertiary: #B4B4B0;
-      --border: rgba(55,53,47,0.09);
-      --border-light: rgba(55,53,47,0.06);
-      --white: #FFFFFF;
+      --green: #34C759;
+      --dark-bg: #0F0F12;
+      --dark-surface: #1A1A1F;
+      --dark-border: rgba(255,255,255,0.08);
+      --dark-text: #FFFFFF;
+      --dark-text-secondary: rgba(255,255,255,0.7);
+      --dark-text-tertiary: rgba(255,255,255,0.4);
     }
 
     html { scroll-behavior: smooth; }
 
+    /* ─── MICRO DETAILS ─── */
+    ::selection { background: rgba(255,107,53,0.2); color: var(--text); }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,107,53,0.25); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255,107,53,0.4); }
+    *:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+    section[id] { scroll-margin-top: 64px; }
+
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Inter', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       font-size: 16px;
+      font-weight: 400;
       line-height: 1.7;
+      overflow-x: hidden;
     }
 
-    /* --- LOGO --- */
-    .logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    /* ─── LOGO ─── */
+    .logo-wrap {
+      display: flex; align-items: center; gap: 10px; text-decoration: none;
+    }
     .logo-icon {
-      width: 32px; height: 32px; border-radius: 10px;
-      background: var(--orange);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
+      width: 32px; height: 32px; flex-shrink: 0;
+      border-radius: 8px; overflow: hidden;
     }
-    .logo-icon svg { width: 18px; height: 18px; }
-    .logo-name { font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif; font-size: 18px; font-weight: 600; color: var(--text); }
+    .logo-icon img {
+      width: 100%; height: 100%; display: block; object-fit: cover;
+    }
+    .logo-name {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 18px; font-weight: 600; color: var(--text);
+    }
 
-    /* --- NAV --- */
-    .site-nav {
+    /* ─── NAV ─── */
+    nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,0.85); border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.85);
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-      padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 56px;
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 56px; max-width: 100%;
+      transition: box-shadow 0.3s, background 0.3s;
     }
-    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
-    .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    nav.scrolled {
+      box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+      background: rgba(255,255,255,0.95);
+    }
+    footer .logo-name { color: var(--dark-text); }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 100%; max-width: 1100px; margin: 0 auto;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px; list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-secondary); text-decoration: none;
+      font-size: 14px; font-weight: 500; transition: color 0.2s;
+    }
     .nav-links a:hover { color: var(--text); }
-    .nav-links a.active { color: var(--orange); }
     .btn-nav {
-      background: var(--orange); color: #fff !important;
-      padding: 7px 16px; border-radius: 10px; font-weight: 500 !important;
-      font-size: 13px !important; transition: opacity 0.2s !important;
-      box-shadow: 0 1px 6px rgba(255,107,53,0.2);
+      background: var(--accent); color: #fff !important;
+      padding: 7px 16px; border-radius: 10px;
+      font-weight: 500 !important; font-size: 13px !important;
+      transition: opacity 0.2s !important;
     }
     .btn-nav:hover { opacity: 0.9; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 6px; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; }
-    .mobile-menu { display: none; position: fixed; top: 56px; left: 0; right: 0; background: #FAFAFA; border-bottom: 1px solid var(--border); padding: 24px 32px; flex-direction: column; gap: 20px; z-index: 99; }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a { color: var(--text-secondary); text-decoration: none; font-size: 15px; font-weight: 500; }
-    .mobile-menu .btn-nav { text-align: center; padding: 12px; border-radius: 10px; }
 
-    /* --- PAGE HEADER --- */
+    /* hamburger */
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; background: none; border: none; padding: 6px;
+    }
+    .hamburger span {
+      display: block; width: 20px; height: 1.5px;
+      background: var(--text); border-radius: 1px; transition: 0.3s;
+    }
+    .mobile-menu {
+      display: none; position: fixed; top: 56px; left: 0; right: 0;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 24px 32px; flex-direction: column; gap: 20px; z-index: 99;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: var(--text-secondary); text-decoration: none;
+      font-size: 15px; font-weight: 500;
+    }
+    .mobile-menu .btn-nav {
+      text-align: center; padding: 12px; border-radius: 10px;
+    }
+
+    /* ─── PAGE HEADER ─── */
     .page-header {
-      background: var(--bg-warm);
+      background: var(--surface);
       border-bottom: 1px solid var(--border);
       padding: 80px 24px 64px;
       text-align: center;
     }
     .wordmark {
-      font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       font-size: 12px; font-weight: 500; letter-spacing: 0.04em;
-      color: var(--orange); text-transform: uppercase;
+      color: var(--accent); text-transform: uppercase;
       margin-bottom: 24px;
     }
     .page-header h1 {
       font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif;
-      font-size: clamp(32px, 4vw, 44px); font-weight: 700;
+      font-size: clamp(32px, 4vw, 44px); font-weight: 600;
       letter-spacing: -0.02em; line-height: 1.1;
       color: var(--text); margin-bottom: 16px;
     }
-    .page-header h1 em { font-style: normal; color: var(--orange); }
-    .header-meta { font-size: 13px; font-weight: 400; color: var(--text-tertiary); }
+    .page-header h1 em { font-style: normal; color: var(--accent); }
+    .header-meta {
+      font-size: 13px; font-weight: 400; color: var(--text-tertiary);
+    }
 
-    /* --- LAYOUT --- */
+    /* ─── LAYOUT ─── */
     .wrapper { max-width: 680px; margin: 0 auto; padding: 64px 24px 120px; }
 
-    /* --- TOC --- */
+    /* ─── TOC ─── */
     .toc {
-      background: var(--white); border: 1px solid var(--border);
-      border-radius: 16px; padding: 24px 28px; margin-bottom: 56px;
-      box-shadow: 0 1px 3px rgba(55,53,47,0.04), 0 6px 16px rgba(55,53,47,0.04);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 56px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06);
     }
     .toc-label {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       font-size: 12px; font-weight: 500; letter-spacing: 0.04em;
-      text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 16px;
+      text-transform: uppercase; color: var(--text-tertiary);
+      margin-bottom: 16px;
     }
-    .toc ol { list-style: none; counter-reset: toc; display: flex; flex-direction: column; gap: 0; margin: 0; padding: 0; }
-    .toc li { counter-increment: toc; margin: 0; padding: 0; list-style: none; display: block; }
+    .toc ol {
+      list-style: none; display: flex; flex-direction: column;
+      gap: 0; margin: 0; padding: 0;
+    }
+    .toc li { margin: 0; padding: 0; }
     .toc a {
-      color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 400;
-      display: flex; align-items: center; gap: 12px; transition: color 0.2s; padding: 6px 0;
+      color: var(--text-secondary); text-decoration: none;
+      font-size: 14px; font-weight: 400;
+      display: flex; align-items: center; gap: 12px;
+      transition: color 0.2s; padding: 6px 0;
     }
-    .toc a::before {
-      content: counter(toc, decimal-leading-zero);
-      font-size: 14px; font-weight: 400; color: var(--text-tertiary);
+    .toc a:hover { color: var(--accent); }
+    .toc .toc-num {
+      color: var(--text-tertiary);
       font-variant-numeric: tabular-nums;
-      flex-shrink: 0; min-width: 20px;
+      font-size: 14px; font-weight: 400;
+      flex-shrink: 0;
     }
-    .toc a:hover { color: var(--orange); }
 
-    /* --- SECTIONS --- */
+    /* ─── SECTIONS ─── */
     section { margin-bottom: 56px; }
-    .section-accent {
-      width: 32px; height: 2px; background: var(--orange); margin-bottom: 20px;
+
+    .section-divider, .section-accent {
+      width: 32px; height: 2px;
+      background: var(--accent);
+      margin-bottom: 20px;
     }
 
     h2 {
       font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif;
       font-size: 22px; font-weight: 600; letter-spacing: -0.01em;
-      margin-bottom: 16px; scroll-margin-top: 80px; color: var(--text); line-height: 1.2;
+      margin-bottom: 16px; scroll-margin-top: 80px;
+      color: var(--text); line-height: 1.2;
     }
     h3 {
       font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif;
-      font-size: 16px; font-weight: 600; color: var(--text); margin: 24px 0 8px;
+      font-size: 16px; font-weight: 600; color: var(--text);
+      margin: 24px 0 8px;
     }
 
-    .intro-text { font-size: 15px; color: var(--text-secondary); margin-bottom: 40px; line-height: 1.7; }
-    p { font-size: 15px; font-weight: 400; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+    .intro-text {
+      font-size: 15px; color: var(--text-secondary);
+      margin-bottom: 40px; line-height: 1.7;
+    }
+    p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
     p:last-child { margin-bottom: 0; }
-    section ul, section ol { margin: 12px 0 12px 20px; color: var(--text-secondary); font-size: 15px; line-height: 1.7; }
+    section ul, section ol {
+      margin: 12px 0 12px 20px;
+      font-size: 15px; color: var(--text-secondary); line-height: 1.7;
+    }
     section li { margin-bottom: 6px; }
     strong { font-weight: 600; color: var(--text); }
-    a { color: var(--orange); text-decoration: none; transition: color 0.2s; }
+    a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
     a:hover { text-decoration: underline; }
 
     .highlight-box {
-      background: rgba(255,107,53,0.06); border: 1px solid rgba(255,107,53,0.12);
+      background: rgba(255,107,53,0.06);
+      border: 1px solid rgba(255,107,53,0.12);
       border-radius: 16px;
-      padding: 16px 20px; margin: 20px 0; font-size: 14px; color: var(--text-secondary);
-      box-shadow: 0 1px 3px rgba(55,53,47,0.04);
+      padding: 16px 20px;
+      margin: 20px 0;
+      font-size: 14px; color: var(--text-secondary);
     }
 
     .warning-box {
-      background: rgba(255,107,53,0.06); border: 1px solid rgba(255,107,53,0.12);
+      background: rgba(255,107,53,0.06);
+      border: 1px solid rgba(255,107,53,0.12);
       border-radius: 16px;
-      padding: 16px 20px; margin: 20px 0; font-size: 14px; color: var(--text-secondary);
-      box-shadow: 0 1px 3px rgba(55,53,47,0.04);
+      padding: 16px 20px;
+      margin: 20px 0;
+      font-size: 14px; color: var(--text-secondary);
     }
 
-    /* --- PRICING --- */
+    .data-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
+    .data-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+    }
+    .data-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.1);
+    }
+    .data-card-label {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 6px;
+    }
+    .data-card p { font-size: 14px; margin: 0; color: var(--text-secondary); }
+
+    /* ─── PRICING (terms only) ─── */
     .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
-    @media (max-width: 520px) { .pricing-grid { grid-template-columns: 1fr; } }
     .pricing-card {
-      background: var(--white); border: 1px solid var(--border);
+      background: var(--bg); border: 1px solid var(--border);
       border-radius: 16px; padding: 28px; text-align: center;
-      box-shadow: 0 1px 3px rgba(55,53,47,0.04), 0 6px 16px rgba(55,53,47,0.04);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+    }
+    .pricing-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.1);
     }
     .pricing-card.featured {
-      border-color: var(--orange);
+      border-color: var(--accent);
     }
     .plan-label { font-size: 12px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 10px; }
     .plan-price { font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif; font-size: 40px; font-weight: 700; color: var(--text); line-height: 1; letter-spacing: -0.02em; }
     .plan-period { font-size: 13px; font-weight: 400; color: var(--text-tertiary); margin-top: 6px; }
     .plan-trial {
       display: inline-block; margin-top: 12px; font-size: 12px; font-weight: 500;
-      color: var(--orange); background: rgba(255,107,53,0.06); border: 1px solid rgba(255,107,53,0.12);
+      color: var(--accent); background: rgba(255,107,53,0.06); border: 1px solid rgba(255,107,53,0.12);
       padding: 4px 12px; border-radius: 100px;
     }
 
     .caps { font-size: 13px; font-weight: 500; letter-spacing: 0.01em; line-height: 1.65; color: var(--text-secondary); }
 
-    /* --- FOOTER --- */
-    footer { background: var(--bg-warm); border-top: 1px solid var(--border); padding: 56px 5% 0; }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; max-width: 1100px; margin: 0 auto 48px; }
-    .footer-brand p { margin-top: 16px; font-size: 14px; font-weight: 400; color: var(--text-tertiary); max-width: 280px; line-height: 1.65; }
-    .footer-col h4 { font-size: 12px; font-weight: 500; letter-spacing: 0.04em; color: var(--text-tertiary); text-transform: uppercase; margin-bottom: 18px; }
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--dark-bg);
+      border-top: 1px solid var(--border);
+      padding: 60px 0 0;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px;
+      max-width: 1100px; margin: 0 auto 48px; padding: 0 32px;
+    }
+    .footer-brand p {
+      margin-top: 16px; font-size: 15px; font-weight: 400;
+      color: var(--dark-text-secondary); max-width: 280px; line-height: 1.6;
+    }
+    .footer-col h4 {
+      font-size: 12px; font-weight: 500; letter-spacing: 0.04em;
+      color: var(--dark-text-tertiary); text-transform: uppercase; margin-bottom: 18px;
+    }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-    .footer-col a { color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 400; transition: color 0.2s; }
-    .footer-col a:hover { color: var(--text); text-decoration: none; }
-    .footer-bottom { background: var(--bg-warm); padding: 16px 5%; font-size: 12px; color: var(--text-tertiary); border-top: 1px solid var(--border); text-align: center; }
+    .footer-col a {
+      color: var(--dark-text-secondary); text-decoration: none;
+      font-size: 14px; font-weight: 400; transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--dark-text); text-decoration: none; }
+    .footer-strip {
+      background: rgba(0,0,0,0.2);
+      border-top: 1px solid var(--dark-border);
+      padding: 16px 32px;
+      display: flex; justify-content: center; align-items: center;
+    }
+    .footer-copy {
+      font-size: 12px; color: var(--dark-text-tertiary);
+    }
 
-    /* --- RESPONSIVE --- */
+    /* ─── RESPONSIVE ─── */
     @media (max-width: 768px) {
-      .site-nav { padding: 0 5%; }
+      nav { padding: 0 20px; }
       .nav-links { display: none; }
       .hamburger { display: flex; }
-      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+      .mobile-menu { padding: 24px 20px; }
+      .page-header { padding: 60px 20px 48px; }
+      .wrapper { padding: 48px 20px 80px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; padding: 0 20px; }
+      .footer-strip { padding: 16px 20px; }
+    }
+    @media (max-width: 520px) {
+      .data-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
     }
 
+    /* ─── ANIMATIONS ─── */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(10px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    .wrapper > * { animation: fadeUp 0.4s ease both; }
+    .wrapper > * {
+      animation: fadeUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
     .wrapper > *:nth-child(1) { animation-delay: 0.05s; }
     .wrapper > *:nth-child(2) { animation-delay: 0.10s; }
     .wrapper > *:nth-child(3) { animation-delay: 0.15s; }
+
+    /* Scroll reveal system */
+    .reveal {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.revealed {
+      opacity: 1; transform: translateY(0);
+    }
+
+    /* Mobile menu animation */
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .mobile-menu.open {
+      animation: slideDown 0.2s ease-out;
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    /* Page load */
+    body {
+      animation: fadeUp 0.4s both;
+    }
   </style>
 </head>
 <body>
 
-<!-- --- NAV --- -->
-<nav class="site-nav">
-  <a href="index.html" class="logo-wrap">
-    <div class="logo-icon">
-      <svg viewBox="0 0 24 24" fill="none">
-        <rect x="2" y="6" width="20" height="14" rx="3" fill="white"/>
-        <rect x="14" y="10" width="6" height="6" rx="2" fill="#FF6B35"/>
-        <circle cx="17" cy="13" r="1.2" fill="white"/>
-        <rect x="5" y="4" width="11" height="4" rx="1.5" fill="rgba(255,255,255,0.7)"/>
-        <rect x="5" y="4" width="4" height="4" rx="1.5" fill="rgba(255,255,255,0.5)"/>
-      </svg>
-    </div>
-    <span class="logo-name">GigWallet</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="features.html">Features</a></li>
-    <li><a href="how-it-works.html">How It Works</a></li>
-    <li><a href="privacy-policy.html">Privacy</a></li>
-    <li><a href="terms-of-service.html" class="active">Terms</a></li>
-    <li><a href="index.html#download" class="btn-nav">Download App</a></li>
-  </ul>
-  <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
-    <span></span><span></span><span></span>
-  </button>
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo-wrap">
+      <div class="logo-icon">
+        <img src="app-icon-64.png" alt="GigWallet" width="32" height="32">
+      </div>
+      <span class="logo-name">GigWallet</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="features.html">Features</a></li>
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="privacy-policy.html">Privacy</a></li>
+      <li><a href="terms-of-service.html">Terms</a></li>
+      <li><a href="index.html#download" class="btn-nav">Download App</a></li>
+    </ul>
+    <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 <div class="mobile-menu">
   <a href="features.html">Features</a>
@@ -280,19 +452,19 @@
 
   <p class="intro-text">Please read these Terms of Service ("Terms") carefully before using Gigwallet ("App," "Service," "we," "us," or "our"). By downloading, installing, or using Gigwallet, you agree to be bound by these Terms. If you do not agree, do not use the App.</p>
 
-  <section id="acceptance">
+  <section id="acceptance" class="reveal">
     <div class="section-accent"></div>
     <h2>Acceptance of Terms</h2>
     <p>By creating an account or using any part of Gigwallet, you confirm that you have read, understood, and agree to these Terms and our <a href="privacy-policy.html">Privacy Policy</a>, which is incorporated herein by reference. These Terms constitute a binding legal agreement between you and Gigwallet.</p>
   </section>
 
-  <section id="eligibility">
+  <section id="eligibility" class="reveal">
     <div class="section-accent"></div>
     <h2>Eligibility</h2>
     <p>You must be at least 18 years of age to use Gigwallet. By using the App, you represent and warrant that you are 18 or older and have the legal capacity to enter into a binding agreement. The App is intended for use in the United States.</p>
   </section>
 
-  <section id="subscription">
+  <section id="subscription" class="reveal">
     <div class="section-accent"></div>
     <h2>Subscription Plans &amp; Pricing</h2>
     <p>Gigwallet offers access to premium features through auto-renewable subscriptions managed by Apple via the App Store. The following plans are available:</p>
@@ -315,7 +487,7 @@
     </div>
   </section>
 
-  <section id="free-trial">
+  <section id="free-trial" class="reveal">
     <div class="section-accent"></div>
     <h2>Free Trial</h2>
     <p>New subscribers to the Annual plan are eligible for a <strong>7-day free trial</strong>. The following terms apply:</p>
@@ -328,7 +500,7 @@
     </ul>
   </section>
 
-  <section id="cancellation">
+  <section id="cancellation" class="reveal">
     <div class="section-accent"></div>
     <h2>Cancellation Policy</h2>
     <p>You may cancel your subscription at any time through Apple's App Store. Gigwallet does not process subscription changes directly.</p>
@@ -345,7 +517,7 @@
     </div>
   </section>
 
-  <section id="billing">
+  <section id="billing" class="reveal">
     <div class="section-accent"></div>
     <h2>Billing &amp; Renewals</h2>
     <p>Subscriptions automatically renew at the end of each billing period unless you cancel at least 24 hours before the current period ends. Your Apple ID account will be charged for renewal within 24 hours prior to the end of the current period.</p>
@@ -365,7 +537,7 @@
     <p>Refunds do not apply to any portion of a subscription period already used. If a refund is granted by Apple for an active subscription, your access to Gigwallet premium features may be revoked upon Apple's confirmation of the refund.</p>
   </section>
 
-  <section id="disclaimer">
+  <section id="disclaimer" class="reveal">
     <div class="section-accent"></div>
     <h2>Disclaimer — Estimates, Not Tax Advice</h2>
     <div class="warning-box">
@@ -376,7 +548,7 @@
     <p>Gigwallet is not responsible for any errors in tax filings, underpayments, penalties, interest, or other financial consequences arising from reliance on the App's estimates.</p>
   </section>
 
-  <section id="acceptable-use">
+  <section id="acceptable-use" class="reveal">
     <div class="section-accent"></div>
     <h2>Acceptable Use</h2>
     <p>You agree to use Gigwallet only for lawful purposes. You agree not to:</p>
@@ -391,14 +563,14 @@
     <p>Violation of these terms may result in immediate termination of your account without refund.</p>
   </section>
 
-  <section id="intellectual-property">
+  <section id="intellectual-property" class="reveal">
     <div class="section-accent"></div>
     <h2>Intellectual Property</h2>
     <p>All content, design, code, trademarks, logos, and materials within Gigwallet are the exclusive property of Gigwallet or its licensors. Your subscription grants you a limited, non-exclusive, non-transferable license to use the App for personal, non-commercial purposes.</p>
     <p>You retain ownership of any data you input into the App. By using the App, you grant us a limited license to process that data solely to provide the services described in our Privacy Policy.</p>
   </section>
 
-  <section id="liability">
+  <section id="liability" class="reveal">
     <div class="section-accent"></div>
     <h2>Limitation of Liability</h2>
     <p class="caps">TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, GIGWALLET AND ITS OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, AND LICENSORS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, LOSS OF DATA, LOSS OF GOODWILL, BUSINESS INTERRUPTION, OR ANY OTHER INTANGIBLE LOSSES, ARISING OUT OF OR RELATED TO YOUR USE OF OR INABILITY TO USE THE APP.</p>
@@ -406,20 +578,20 @@
     <p class="caps">THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
   </section>
 
-  <section id="indemnification">
+  <section id="indemnification" class="reveal">
     <div class="section-accent"></div>
     <h2>Indemnification</h2>
     <p>You agree to indemnify, defend, and hold harmless Gigwallet and its affiliates, officers, directors, employees, and agents from and against any claims, damages, obligations, losses, liabilities, costs, or expenses (including reasonable attorneys' fees) arising from: (a) your use of the App; (b) your violation of any term of these Terms; or (c) your violation of any third-party right, including any intellectual property or privacy right.</p>
   </section>
 
-  <section id="termination">
+  <section id="termination" class="reveal">
     <div class="section-accent"></div>
     <h2>Termination</h2>
     <p>We reserve the right to suspend or terminate your account at our sole discretion, with or without notice, for conduct that violates these Terms or is harmful to other users, us, or third parties.</p>
     <p>You may terminate your account at any time by deleting it in Settings. Upon termination, your right to use the App ceases immediately. Sections 7, 10, 11, and 14 of these Terms shall survive termination.</p>
   </section>
 
-  <section id="dispute-resolution">
+  <section id="dispute-resolution" class="reveal">
     <div class="section-accent"></div>
     <h2>Dispute Resolution &amp; Arbitration</h2>
     <div class="warning-box">
@@ -444,20 +616,20 @@
     <p>You have the right to opt out of binding arbitration within <strong>30 days</strong> of first accepting these Terms by sending a written notice to <a href="mailto:legal@gigwallet.app">legal@gigwallet.app</a> with the subject line "Arbitration Opt-Out" and your name and the email address associated with your account. If you opt out, all disputes will be resolved as set forth in Section 14 below.</p>
   </section>
 
-  <section id="governing-law">
+  <section id="governing-law" class="reveal">
     <div class="section-accent"></div>
     <h2>Governing Law</h2>
     <p>These Terms shall be governed by and construed in accordance with the laws of the State of California, without regard to its conflict of law provisions. To the extent any dispute is not subject to arbitration under Section 13, you agree to submit to the personal and exclusive jurisdiction of the state and federal courts located in California.</p>
     <p>If any provision of these Terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary so that these Terms will otherwise remain in full force and effect.</p>
   </section>
 
-  <section id="changes">
+  <section id="changes" class="reveal">
     <div class="section-accent"></div>
     <h2>Changes to These Terms</h2>
     <p>We reserve the right to modify these Terms at any time. When we make material changes, we will notify you via in-app notification or email at least 14 days before the changes become effective. Your continued use of the App after changes take effect constitutes your acceptance of the revised Terms.</p>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="reveal">
     <div class="section-accent"></div>
     <h2>Contact</h2>
     <p>If you have any questions about these Terms of Service, please contact us:</p>
@@ -469,19 +641,13 @@
 
 </div><!-- /.wrapper -->
 
-<!-- --- FOOTER --- -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="index.html" class="logo-wrap">
-        <div class="logo-icon">
-          <svg viewBox="0 0 24 24" fill="none" style="width:18px;height:18px;">
-            <rect x="2" y="6" width="20" height="14" rx="3" fill="white"/>
-            <rect x="14" y="10" width="6" height="6" rx="2" fill="#FF6B35"/>
-            <circle cx="17" cy="13" r="1.2" fill="white"/>
-            <rect x="5" y="4" width="11" height="4" rx="1.5" fill="rgba(255,255,255,0.7)"/>
-            <rect x="5" y="4" width="4" height="4" rx="1.5" fill="rgba(255,255,255,0.5)"/>
-          </svg>
+      <a href="/" class="logo-wrap">
+        <div class="logo-icon" style="width:28px;height:28px;">
+          <img src="app-icon-64.png" alt="GigWallet" width="28" height="28">
         </div>
         <span class="logo-name">GigWallet</span>
       </a>
@@ -500,12 +666,69 @@
       <ul>
         <li><a href="privacy-policy.html">Privacy Policy</a></li>
         <li><a href="terms-of-service.html">Terms of Service</a></li>
-        <li><a href="mailto:legal@gigwallet.app">Contact</a></li>
       </ul>
     </div>
   </div>
+  <div class="footer-strip">
+    <span class="footer-copy">&copy; 2026 GigWallet. All rights reserved.</span>
+  </div>
 </footer>
-<div class="footer-bottom">&copy; 2026 GigWallet. All rights reserved.</div>
+
+<script>
+(function() {
+  'use strict';
+
+  // Mobile menu
+  document.querySelectorAll('.mobile-menu a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.querySelector('.mobile-menu').classList.remove('open');
+    });
+  });
+
+  // Nav scroll shadow
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  if (reveals.length) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+    reveals.forEach(el => revealObserver.observe(el));
+  }
+
+  // TOC scroll spy
+  const tocLinks = document.querySelectorAll('.toc a');
+  const sections = document.querySelectorAll('.wrapper section[id]');
+  if (tocLinks.length && sections.length) {
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          tocLinks.forEach(link => {
+            if (link.getAttribute('href') === '#' + id) {
+              link.style.color = 'var(--accent)';
+              link.style.fontWeight = '600';
+            } else {
+              link.style.color = '';
+              link.style.fontWeight = '';
+            }
+          });
+        }
+      });
+    }, { threshold: 0.3, rootMargin: '-56px 0px -50% 0px' });
+    sections.forEach(s => sectionObserver.observe(s));
+  }
+})();
+</script>
 
 </body>
 </html>
