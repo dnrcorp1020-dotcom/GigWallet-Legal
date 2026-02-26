@@ -296,10 +296,9 @@
       position: relative;
       overflow: hidden;
       cursor: pointer;
-      flex: 1;
-      min-width: 180px;
-      max-width: 220px;
+      width: 210px;
       justify-content: center;
+      box-sizing: border-box;
     }
     .hero-store-btn::before, .store-btn::before {
       content: '';
@@ -750,22 +749,25 @@
       background: var(--accent);
       color: #fff;
       border-color: var(--accent);
+      box-shadow: 0 0 0 6px var(--bg), 0 0 0 8px rgba(255,107,53,0.15);
     }
-    /* Connector line between step circles */
-    .step-card:not(:last-child)::before {
+    /* Connector line — single continuous line behind all step circles.
+       Circles sit on top with opaque backgrounds that cover the line beneath them. */
+    .steps-grid::after {
       content: '';
       position: absolute;
-      top: 16px;
-      left: 32px;
-      right: -32px;
+      top: 17px;
+      left: 18px;
+      right: 18px;
       height: 2px;
-      background: linear-gradient(90deg, var(--accent), rgba(255,107,53,0.3));
+      background: linear-gradient(90deg, var(--accent), rgba(255,107,53,0.35), var(--accent));
       border-radius: 1px;
       z-index: 0;
+      pointer-events: none;
     }
     .step-number {
-      width: 32px;
-      height: 32px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       background: var(--bg);
       border: 2px solid var(--accent);
@@ -778,7 +780,8 @@
       margin-bottom: 20px;
       transition: all 0.3s;
       position: relative;
-      z-index: 1;
+      z-index: 2;
+      box-shadow: 0 0 0 6px var(--bg);
     }
     .step-card h3 {
       font-size: 17px;
@@ -1003,7 +1006,7 @@
       .testimonials-grid { grid-template-columns: 1fr; }
       .features-grid { grid-template-columns: 1fr; }
       .feature-card:first-child { grid-column: 1; }
-      .step-card:not(:last-child)::before { display: none; }
+      .steps-grid::after { display: none; }
       .stats-row { gap: 24px; }
       .stat-number { font-size: 22px; }
       .big-dash-top { grid-template-columns: 1fr; }
@@ -1017,8 +1020,8 @@
       h1 { font-size: 36px; }
       h2 { font-size: 28px; }
       .dash-total { font-size: 32px; }
-      .hero-store-buttons { flex-direction: column; }
-      .hero-store-btn, .store-btn { justify-content: center; }
+      .hero-store-buttons { flex-direction: column; align-items: stretch; }
+      .hero-store-btn, .store-btn { width: auto; justify-content: center; }
       .store-buttons { flex-direction: column; align-items: center; }
       .stats-row { flex-direction: column; gap: 20px; }
       .stat-divider { width: 40px; height: 1px; }
@@ -1032,13 +1035,15 @@
     .hero-content > * {
       animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
+    .hero-content > .hero-popup-zone { animation: none; }
     .hero-content > *:nth-child(1) { animation-delay: 0.05s; }
     .hero-content > *:nth-child(2) { animation-delay: 0.12s; }
     .hero-content > *:nth-child(3) { animation-delay: 0.19s; }
     .hero-content > *:nth-child(4) { animation-delay: 0.26s; }
     .hero-content > *:nth-child(5) { animation-delay: 0.33s; }
-    .hero-content > *:nth-child(6) { animation-delay: 0.40s; }
-    .hero-content > *:nth-child(7) { animation-delay: 0.47s; }
+    .hero-content > *:nth-child(6) { animation-delay: 0.33s; }
+    .hero-content > *:nth-child(7) { animation-delay: 0.40s; }
+    .hero-content > *:nth-child(8) { animation-delay: 0.47s; }
     .dashboard-card { animation: fadeUp 0.5s 0.3s cubic-bezier(0.16, 1, 0.3, 1) both; }
 
     /* Scroll reveal system */
@@ -1085,9 +1090,8 @@
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
-      margin-bottom: 28px;
+      margin-bottom: 8px;
       position: relative;
-      z-index: 20;
     }
     .hero-pill {
       display: inline-flex;
@@ -1116,13 +1120,16 @@
       background: rgba(255,107,53,0.12);
     }
     .hero-pill svg { flex-shrink: 0; }
+    /* Popup zone sits between pills and store buttons — pushes buttons down when active */
+    .hero-popup-zone {
+      position: relative;
+      z-index: 50;
+    }
     .hero-feature-popup {
       display: none;
-      position: absolute;
-      z-index: 30;
+      position: relative;
       left: 0;
-      top: 100%;
-      margin-top: 8px;
+      margin-bottom: 20px;
     }
     .hero-feature-popup.visible {
       display: block;
@@ -1261,7 +1268,10 @@
           Multi-Platform
         </button>
 
-        <!-- Feature Pop-up Cards -->
+      </div>
+
+      <!-- Feature Pop-up Cards (outside pills, above store buttons in DOM + z-index) -->
+      <div class="hero-popup-zone">
         <div class="hero-feature-popup" id="popup-income">
           <div class="popup-card">
             <button class="popup-close" aria-label="Close">&times;</button>
@@ -1865,15 +1875,15 @@
       if (!wasActive && popup) {
         this.classList.add('active');
         popup.classList.add('visible');
-        // Position popup aligned to pill
-        const pillsContainer = document.querySelector('.hero-pills');
+        // Position popup horizontally aligned to the clicked pill
+        const popupZone = document.querySelector('.hero-popup-zone');
         const pillRect = this.getBoundingClientRect();
-        const containerRect = pillsContainer.getBoundingClientRect();
-        let leftOffset = pillRect.left - containerRect.left;
+        const zoneRect = popupZone.getBoundingClientRect();
+        let leftOffset = pillRect.left - zoneRect.left;
         // Keep popup within bounds
         const popupWidth = 300;
-        if (leftOffset + popupWidth > containerRect.width) {
-          leftOffset = Math.max(0, containerRect.width - popupWidth);
+        if (leftOffset + popupWidth > zoneRect.width) {
+          leftOffset = Math.max(0, zoneRect.width - popupWidth);
         }
         popup.style.left = leftOffset + 'px';
       }
