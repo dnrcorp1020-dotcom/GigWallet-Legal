@@ -47,7 +47,7 @@
     ::-webkit-scrollbar-thumb { background: rgba(255,107,53,0.25); border-radius: 4px; }
     ::-webkit-scrollbar-thumb:hover { background: rgba(255,107,53,0.4); }
     *:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
-    section[id] { scroll-margin-top: 64px; }
+    section[id] { scroll-margin-top: 120px; }
 
     body {
       background: var(--bg);
@@ -161,7 +161,10 @@
     /* ─── FEATURE NAV PILLS ─── */
     .feature-nav {
       display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
-      padding: 0 5% 60px; max-width: 900px; margin: 0 auto;
+      padding: 12px 5%; max-width: 900px; margin: 0 auto;
+      position: sticky; top: 56px; z-index: 90;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
     .feature-nav a {
       background: var(--surface); border: 1px solid var(--border);
@@ -186,6 +189,7 @@
       display: grid; grid-template-columns: auto 1fr; gap: 20px;
       align-items: flex-start; margin-bottom: 48px;
     }
+    .fs-title-wrap { min-width: 0; }
     .fs-num {
       font-family: ui-rounded, 'SF Pro Rounded', 'Inter', system-ui, -apple-system, sans-serif;
       width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
@@ -268,6 +272,7 @@
       display: flex; align-items: center; justify-content: space-between;
       gap: 20px; flex-wrap: wrap; margin-top: 48px;
     }
+    .premium-banner-left { flex: 1; min-width: 0; }
     .premium-tag {
       display: inline-flex; align-items: center; gap: 6px;
       background: rgba(255,255,255,0.15); border-radius: 100px;
@@ -421,13 +426,14 @@
       animation: fadeUp 0.4s both;
     }
   </style>
+  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="/" class="logo-wrap">
+    <a href="index.html" class="logo-wrap">
       <div class="logo-icon">
         <img src="app-icon-64.png" alt="GigWallet" width="32" height="32">
       </div>
@@ -928,7 +934,7 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="/" class="logo-wrap">
+      <a href="index.html" class="logo-wrap">
         <div class="logo-icon" style="width:28px;height:28px;">
           <img src="app-icon-64.png" alt="GigWallet" width="28" height="28">
         </div>
@@ -949,6 +955,7 @@
       <ul>
         <li><a href="privacy-policy.html">Privacy Policy</a></li>
         <li><a href="terms-of-service.html">Terms of Service</a></li>
+        <li><a href="mailto:support@gigwallet.app">Contact</a></li>
       </ul>
     </div>
   </div>
