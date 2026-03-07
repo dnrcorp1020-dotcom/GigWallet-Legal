@@ -3,7 +3,7 @@
     "apps": [],
     "details": [
       {
-        "appID": "YOURTEAMID.com.dnrcorp.gigwallet",
+        "appID": "WFUW7S9F3S.com.dnrcorp.gigwallet",
         "paths": ["/plaid-oauth", "/plaid-oauth/*"]
       }
     ]
